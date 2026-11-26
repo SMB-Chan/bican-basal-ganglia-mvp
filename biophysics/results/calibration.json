@@ -1,0 +1,402 @@
+{
+  "calibration_seed": 800,
+  "target_tonic_rates_hz": {
+    "GPe": 34.14705882352941,
+    "STN": 17.480392156862745,
+    "GPi": 45.09803921568628
+  },
+  "target_stn_immediate_hz": 201.38888888888886,
+  "matched_stn_jump_mv": 22.1685791015625,
+  "variants": {
+    "baseline|delta|pacemaker": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "pacemaker",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 20.0,
+        "STN": 17.0,
+        "GPi": 22.0
+      },
+      "jump_mv": 12.0
+    },
+    "baseline|delta|moderate_ou": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "moderate_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "biases": {
+        "GPe": 17.31838235294118,
+        "STN": 11.113480392156863,
+        "GPi": 20.276307189542493
+      },
+      "jump_mv": 12.0
+    },
+    "baseline|delta|high_cv_ou": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "high_cv_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 31.875
+        },
+        "STN": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 15.625
+        },
+        "GPi": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 14.625
+        }
+      },
+      "biases": {
+        "GPe": 5.800294117647061,
+        "STN": 4.762009803921569,
+        "GPi": 18.12614379084968
+      },
+      "jump_mv": 12.0
+    },
+    "baseline|exponential|pacemaker": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "exponential",
+      "fluctuation": "pacemaker",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 20.154411764705884,
+        "STN": 17.137254901960784,
+        "GPi": 22.170424836601306
+      },
+      "jump_mv": 12.0
+    },
+    "baseline|exponential|moderate_ou": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "exponential",
+      "fluctuation": "moderate_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "biases": {
+        "GPe": 17.322499999999998,
+        "STN": 11.171813725490196,
+        "GPi": 20.43300653594772
+      },
+      "jump_mv": 12.0
+    },
+    "baseline|exponential|high_cv_ou": {
+      "kind": "factorial",
+      "pathway": "baseline",
+      "synapse": "exponential",
+      "fluctuation": "high_cv_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 31.875
+        },
+        "STN": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 15.625
+        },
+        "GPi": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 14.625
+        }
+      },
+      "biases": {
+        "GPe": 5.785147058823532,
+        "STN": 4.849999999999996,
+        "GPi": 18.148202614379084
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|delta|pacemaker": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "delta",
+      "fluctuation": "pacemaker",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 19.909411764705883,
+        "STN": 18.348529411764705,
+        "GPi": 27.849346405228758
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|delta|moderate_ou": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "delta",
+      "fluctuation": "moderate_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "biases": {
+        "GPe": 17.183529411764706,
+        "STN": 12.503186274509808,
+        "GPi": 26.206862745098043
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|delta|high_cv_ou": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "delta",
+      "fluctuation": "high_cv_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 31.875
+        },
+        "STN": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 15.625
+        },
+        "GPi": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 14.625
+        }
+      },
+      "biases": {
+        "GPe": 5.696323529411767,
+        "STN": 6.305392156862748,
+        "GPi": 23.982843137254903
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|exponential|pacemaker": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "exponential",
+      "fluctuation": "pacemaker",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 20.186323529411766,
+        "STN": 18.765441176470585,
+        "GPi": 28.165032679738566
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|exponential|moderate_ou": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "exponential",
+      "fluctuation": "moderate_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "biases": {
+        "GPe": 17.251470588235296,
+        "STN": 12.683333333333334,
+        "GPi": 26.397875816993462
+      },
+      "jump_mv": 12.0
+    },
+    "indirect_balanced|exponential|high_cv_ou": {
+      "kind": "factorial",
+      "pathway": "indirect_balanced",
+      "synapse": "exponential",
+      "fluctuation": "high_cv_ou",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 31.875
+        },
+        "STN": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 15.625
+        },
+        "GPi": {
+          "noise_multiplier": 3.0,
+          "slow_noise_mv": 14.625
+        }
+      },
+      "biases": {
+        "GPe": 5.759117647058828,
+        "STN": 6.3879901960784276,
+        "GPi": 24.11895424836602
+      },
+      "jump_mv": 12.0
+    },
+    "stn_only_unmatched": {
+      "kind": "decomposition",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "stn_only_unmatched",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 19.97735294117647,
+        "STN": 11.087745098039214,
+        "GPi": 21.93480392156863
+      },
+      "jump_mv": 12.0
+    },
+    "gpi_only": {
+      "kind": "decomposition",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "gpi_only",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "biases": {
+        "GPe": 20.0,
+        "STN": 17.0,
+        "GPi": 20.39183006535948
+      },
+      "jump_mv": 12.0
+    },
+    "stn_only_matched": {
+      "kind": "decomposition",
+      "pathway": "baseline",
+      "synapse": "delta",
+      "fluctuation": "stn_only_matched",
+      "fluct_map": {
+        "GPe": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "noise_multiplier": 1.0,
+          "slow_noise_mv": 0.0
+        }
+      },
+      "biases": {
+        "GPe": 19.97735294117647,
+        "STN": 11.087745098039214,
+        "GPi": 21.93480392156863
+      },
+      "jump_mv": 22.1685791015625
+    }
+  }
+}

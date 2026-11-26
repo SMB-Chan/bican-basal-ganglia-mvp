@@ -1,0 +1,45 @@
+{
+  "calibration_seed": 800,
+  "seeds": [809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877],
+  "groups": ["GPe", "STN", "GPi"],
+  "slow_noise_tau_ms": 160.0,
+  "fluctuation_regimes": {
+    "pacemaker": {"noise_multiplier": 1.0, "slow_noise_mode": "zero"},
+    "moderate_ou": {"noise_multiplier": 2.2, "slow_noise_mode": "fixed", "slow_noise_mv": 9.0},
+    "high_cv_ou": {"noise_multiplier": 3.0, "slow_noise_mode": "match_reference_cv", "max_slow_noise_mv": 32.0}
+  },
+  "synapse_modes": {
+    "delta": {"exc_tau_ms": 0.0, "inh_tau_ms": 0.0},
+    "exponential": {"exc_tau_ms": 3.0, "inh_tau_ms": 14.0}
+  },
+  "pathway_modes": {
+    "baseline": {"projection_propensity": {}, "gpe_jump_mv": 0.65},
+    "indirect_balanced": {
+      "projection_propensity": {
+        "STN": {"GPe": 4.0, "GPi": 1.0},
+        "GPe": {"GPe": 0.7, "STN": 4.0, "GPi": 2.4, "D1": 0.2, "D2": 0.2}
+      },
+      "gpe_jump_mv": 1.20
+    }
+  },
+  "tonic_calibration": {
+    "isolated_cells_per_bias": 250,
+    "isolated_duration_ms": 1500,
+    "isolated_burn_in_ms": 200,
+    "cv_bisection_steps": 7,
+    "network_iterations": 12,
+    "tolerance_hz": 0.15
+  },
+  "recruitment_decomposition": {
+    "regime": "moderate_ou",
+    "jump_search_mv": [8.0, 45.0],
+    "jump_iterations": 12
+  },
+  "selection": {
+    "max_tonic_rate_mae_hz": 5.0,
+    "max_blocked_late_abs_hz": 0.5,
+    "note": "Selects the factorial condition with highest strict-candidate fraction across the 12 test seeds, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz). Stage 3 cortical data are never consulted."
+  },
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 880319
+}

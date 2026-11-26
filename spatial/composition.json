@@ -42,6 +42,31 @@
         "striosome": 2218,
         "matrix": 6098
       },
+      "d1_d2_by_compartment": {
+        "striosome": {
+          "D1": 1239,
+          "D2": 979,
+          "D1_fraction": 0.5586113615870153
+        },
+        "matrix": {
+          "D1": 3038,
+          "D2": 3060,
+          "D1_fraction": 0.49819612987864875
+        }
+      },
+      "prefix_coverage": {
+        "plane_rows_in_coords_prefix": 62083,
+        "plane_rows_in_metadata_prefix": 37728,
+        "truncated_by_metadata_prefix": true,
+        "shared_xy_mm_max": [
+          45.419853200696274,
+          27.807855817250086
+        ],
+        "beyond_metadata_xy_mm_max": [
+          46.24202127593503,
+          29.867462062132397
+        ]
+      },
       "D1_vs_D2": {
         "neighbors": {
           "neighbors_per_cell": 8,
@@ -95,6 +120,40 @@
             "dispersion_index": 6.92848437851741,
             "null_mean": 1.0117542398360833,
             "null_q975": 1.7019846714729465,
+            "one_sided_p": 0.001996007984031936
+          }
+        ],
+        "multiscale_within_compartment": [
+          {
+            "scale_mm": 0.25,
+            "tiles": 361,
+            "dispersion_index": 1.2468920961196484,
+            "null_mean": 1.0289606727140486,
+            "null_q975": 1.1423663413665497,
+            "one_sided_p": 0.001996007984031936
+          },
+          {
+            "scale_mm": 0.5,
+            "tiles": 110,
+            "dispersion_index": 1.7532553545329312,
+            "null_mean": 1.051339544844293,
+            "null_q975": 1.2893815566122961,
+            "one_sided_p": 0.001996007984031936
+          },
+          {
+            "scale_mm": 1.0,
+            "tiles": 34,
+            "dispersion_index": 3.2942085050111136,
+            "null_mean": 1.0858492255717247,
+            "null_q975": 1.4997510216719898,
+            "one_sided_p": 0.001996007984031936
+          },
+          {
+            "scale_mm": 2.0,
+            "tiles": 12,
+            "dispersion_index": 6.92848437851741,
+            "null_mean": 1.09672928210724,
+            "null_q975": 1.8257499388492464,
             "one_sided_p": 0.001996007984031936
           }
         ]

@@ -1,0 +1,7 @@
+PASS | protocol.json and PROTOCOL.md were pre-registered before cortical simulations ran; no M1->STN or M1->STR parameters were tuned after observing GPi outputs
+PASS | 12 held-out seeds (907-983), disjoint from all prior MVP, validation, heterogeneity, dynamics, identifiability, and biophysics seeds
+PASS | 2 frozen models (baseline_lif and biophysics/results/selection.json) x 7 interventions x 12 seeds = 168 intervention rows and 24 evaluation rows
+PASS | independent single-seed run (seed 907) reproduced evaluations.csv and interventions.csv rows byte-for-byte
+PASS | non-synaptic pacemaker artifact check (M1->STN with STN->GPe blocked) dropped from -5.95 Hz (baseline_lif) to +0.42 Hz (selected_biophysics)
+PASS | Tachibana et al. (2008) GPi GABA blockade pass rate improved from 0/12 (baseline_lif, -5.89 Hz residual) to 10/12 (selected_biophysics, +0.08 Hz)
+PASS | all 31 unit tests pass across the repository

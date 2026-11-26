@@ -18,8 +18,12 @@
 - [配線の識別実験の設定と再現手順](identifiability/PROTOCOL.md)
 - [遮断後に残る抑制の原因：細胞の発火の規則性](dynamics/RESULTS.md)
 - [細胞動態の比較の設定と再現手順](dynamics/PROTOCOL.md)
+- [シナプス減衰・二時間スケールゆらぎ・間接路結合の要因比較](biophysics/RESULTS.md)
+- [機構改良実験の設定と再現手順](biophysics/PROTOCOL.md)
 - [マカクMERSCOPE実座標の予備解析と、複数スケールの組成](spatial/RESULTS.md)
 - [皮質刺激の設定用・評価用の資料](identifiability/CORTICAL_BENCHMARK.md)
+- [段階3：皮質（M1）刺激と経路遮断によるホールドアウト検証](cortical/RESULTS.md)
+- [段階3皮質刺激ベンチマークの設定と再現手順](cortical/PROTOCOL.md)
 
 ## 再現手順
 

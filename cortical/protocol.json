@@ -1,0 +1,40 @@
+{
+  "seeds": [907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983],
+  "m1_stimulus": {
+    "stim_at_ms": 300,
+    "after_ms": 80,
+    "repetitions": 12,
+    "fraction_stimulated": 0.5,
+    "stn": {"delay_ms": 4, "tau_ms": 3.0, "amplitude_mv": 10.0},
+    "striatum": {"groups": ["D1", "D2", "SIn"], "delay_ms": 9, "tau_ms": 4.0, "amplitude_mv": 18.0}
+  },
+  "windows": {
+    "early_excitation_ms": [6, 16],
+    "inhibition_ms": [16, 28],
+    "late_excitation_ms": [28, 50],
+    "sign_tolerance_hz": 0.25,
+    "onset_smoothing_ms": 3,
+    "onset_threshold_hz": 1.0,
+    "early_search_ms": [4, 20],
+    "inhibition_search_ms": [12, 36],
+    "late_search_ms": [20, 60]
+  },
+  "iwamuro_m1_forelimb_gpi_ms": {
+    "early_excitation": {"mean": 10.2, "sd": 3.0},
+    "inhibition": {"mean": 20.1, "sd": 4.2},
+    "late_excitation": {"mean": 27.8, "sd": 4.4}
+  },
+  "interventions": [
+    "intact",
+    "hyperdirect_only",
+    "hyperdirect_gpe_blocked",
+    "direct_only",
+    "d1_gpi_blocked",
+    "stn_blocked",
+    "gpi_gaba_blocked"
+  ],
+  "non_synaptic_inhibition_max_fraction": 0.5,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 940211,
+  "note": "Pre-registered before running cortical simulations. M1->STN and M1->STR parameters are fixed from macaque corticofugal conduction physiology and resting thresholds, never tuned to GPi latencies or waveforms."
+}

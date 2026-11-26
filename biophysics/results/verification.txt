@@ -1,0 +1,6 @@
+PASS | 12 test seeds (809-877), disjoint from calibration seed 800 and all prior experiments; 15 variants x 12 seeds = 180 network rows
+PASS | calibration on seed 800 read only tonic activity (and STN 0-2 ms pulse recruitment for stn_only_matched); Kita GPi outcomes and Stage 3 cortical data were never read during calibration
+PASS | all 12 factorial variants matched baseline network tonic rates (12-seed tonic rate MAE 3.18-3.38 Hz across all 12 factorial conditions)
+PASS | both indirect_balanced + moderate_ou variants (delta and exponential) achieved 12/12 (100%) strict pass (rate MAE <= 5 Hz, 4/4 Kita signs, |blocked_late_hz| <= 0.5 Hz)
+PASS | recruitment-matched single-group control (22.17 mV jump -> +206.3 Hz immediate STN response) isolated GPi's own pacemaker trough (-1.31 Hz) from STN stimulation loss (-0.70 Hz unmatched)
+PASS | prior dynamics seed 503 (network.csv, network_tonic.csv) and isolated.csv reproduced byte-for-byte after model.py and run.py extensions

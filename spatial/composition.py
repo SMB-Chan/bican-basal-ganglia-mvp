@@ -51,14 +51,22 @@ def dispersion_index(positions, positive, scale, offset, min_cells):
     return float(chi_square / max(use.sum() - 1, 1)), int(use.sum())
 
 
-def multiscale(positions, positive, settings, rng):
+def permute_within_strata(values, strata, rng):
+    shuffled = values.copy()
+    for stratum in np.unique(strata):
+        use = strata == stratum
+        shuffled[use] = rng.permutation(values[use])
+    return shuffled
+
+
+def multiscale(positions, positive, settings, rng, strata=None):
     rows = []
     for scale in settings["scales_mm"]:
         observed, tiles = zip(*(dispersion_index(positions, positive, scale, offset, settings["min_cells_per_tile"])
                                 for offset in settings["grid_offsets"]))
         null = []
         for _ in range(settings["permutations"]):
-            shuffled = rng.permutation(positive)
+            shuffled = rng.permutation(positive) if strata is None else permute_within_strata(positive, strata, rng)
             null.append(np.mean([dispersion_index(positions, shuffled, scale, offset, settings["min_cells_per_tile"])[0]
                                  for offset in settings["grid_offsets"]]))
         null = np.array(null)
@@ -69,8 +77,22 @@ def multiscale(positions, positive, settings, rng):
     return rows
 
 
+def prefix_completeness(tables, plane):
+    meta, coords, _, _ = tables
+    in_coords = [row for row in coords.values() if row["slab_plane_label"] == plane]
+    shared = [row for row in in_coords if row["cell_label"] in meta]
+    extra = [row for row in in_coords if row["cell_label"] not in meta]
+    xy = lambda rows: np.array([(float(r["x_slab_mm"]), float(r["y_slab_mm"])) for r in rows])
+    shared_xy = xy(shared)
+    extra_xy = xy(extra) if extra else np.empty((0, 2))
+    return {"plane_rows_in_coords_prefix": len(in_coords), "plane_rows_in_metadata_prefix": len(shared),
+            "truncated_by_metadata_prefix": len(extra) > 0,
+            "shared_xy_mm_max": shared_xy.max(axis=0).tolist(),
+            "beyond_metadata_xy_mm_max": extra_xy.max(axis=0).tolist() if len(extra_xy) else None}
+
+
 def execute(directory, settings):
-    _, _, _, selected = select_spns(directory)
+    tables, _, _, selected = select_spns(directory)
     rng = np.random.default_rng(settings["seed"])
     planes = {}
     for plane in sorted({row[3] for row in selected}):
@@ -82,11 +104,22 @@ def execute(directory, settings):
         kind = np.array([row[1] for row in group])
         compartments = np.array([compartment(row[4]) for row in group], dtype=object)
         labelled = compartments != None  # noqa: E711 - elementwise test on an object array
+        by_compartment = {}
+        for comp in ("striosome", "matrix"):
+            use = compartments == comp
+            d1 = int(np.sum(use & (kind == "D1")))
+            d2 = int(np.sum(use & (kind == "D2")))
+            by_compartment[comp] = {"D1": d1, "D2": d2, "D1_fraction": d1 / (d1 + d2) if (d1 + d2) else None}
         planes[plane] = {
             "cells": len(group), "counts": dict(Counter(kind)),
             "compartment_counts": dict(Counter(c for c in compartments if c is not None)),
+            "d1_d2_by_compartment": by_compartment,
+            "prefix_coverage": prefix_completeness(tables, plane),
             "D1_vs_D2": {"neighbors": mixing(positions, kind, sections, settings["neighbors"], settings["permutations"]),
-                         "multiscale": multiscale(positions, kind == "D1", settings, rng)},
+                         "multiscale": multiscale(positions, kind == "D1", settings, rng),
+                         "multiscale_within_compartment": multiscale(
+                             positions[labelled], kind[labelled] == "D1", settings,
+                             np.random.default_rng(settings["seed"] + 1), compartments[labelled].astype(str))},
             "striosome_vs_matrix": {
                 "cells": int(labelled.sum()),
                 "neighbors": mixing(positions[labelled], compartments[labelled].astype(str),
@@ -115,13 +148,16 @@ def make_figure(planes, path):
         scales = [r["scale_mm"] for r in rows]
         ax.plot(scales, [r["dispersion_index"] for r in rows], "o-", color=color, label=f"{name}, observed")
         ax.plot(scales, [r["null_q975"] for r in rows], ":", color=color, label=f"{name}, shuffle 97.5%")
+    stratified = data["D1_vs_D2"]["multiscale_within_compartment"]
+    ax.plot([r["scale_mm"] for r in stratified], [r["null_q975"] for r in stratified], "--", color="#207c74",
+            label="D1 vs D2, compartment-shuffle 97.5%")
     ax.axhline(1, color="#929ca9", lw=0.8, linestyle="--")
     ax.set(xscale="log", yscale="log", title="Composition differences between tiles", xlabel="Tile size (mm)",
            ylabel="Dispersion index (χ²/df, 1 = random)")
     ax.set_xticks([0.25, 0.5, 1, 2], ["0.25", "0.5", "1", "2"])
     ax.set_yticks([1, 2, 5, 10, 20, 50], ["1", "2", "5", "10", "20", "50"])
     ax.minorticks_off()
-    ax.legend(frameon=False, fontsize=8)
+    ax.legend(frameon=False, fontsize=7.5)
     ax.grid(alpha=0.2)
     save(fig, path)
 

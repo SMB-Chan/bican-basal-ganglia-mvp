@@ -1,0 +1,53 @@
+{
+  "pathway": "indirect_balanced",
+  "synapse": "delta",
+  "fluctuation": "moderate_ou",
+  "strict_candidate_fraction": 1.0,
+  "coarse_candidate_fraction": 1.0,
+  "mean_tonic_rate_mae_hz": 3.265259622367464,
+  "mean_tonic_cv_mae": 0.3530530090735056,
+  "variant": "indirect_balanced|delta|moderate_ou",
+  "selected_spec": {
+    "projection_propensity": {
+      "STN": {
+        "GPe": 4.0,
+        "GPi": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 2.4,
+        "D1": 0.2,
+        "D2": 0.2
+      }
+    },
+    "groups": {
+      "GPe": {
+        "bias_mv": 17.183529411764706,
+        "noise_multiplier": 2.2,
+        "slow_noise_mv": 9.0,
+        "jump_mv": 1.2
+      },
+      "STN": {
+        "bias_mv": 12.503186274509808,
+        "noise_multiplier": 2.2,
+        "slow_noise_mv": 9.0
+      },
+      "GPi": {
+        "bias_mv": 26.206862745098043,
+        "noise_multiplier": 2.2,
+        "slow_noise_mv": 9.0
+      }
+    },
+    "simulation": {
+      "slow_noise_tau_ms": 160.0,
+      "exc_tau_ms": 0.0,
+      "inh_tau_ms": 0.0
+    }
+  },
+  "rule": {
+    "max_tonic_rate_mae_hz": 5.0,
+    "max_blocked_late_abs_hz": 0.5,
+    "note": "Selects the factorial condition with highest strict-candidate fraction across the 12 test seeds, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz). Stage 3 cortical data are never consulted."
+  }
+}

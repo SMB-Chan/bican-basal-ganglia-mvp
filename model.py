@@ -18,6 +18,7 @@ class Population:
     threshold_mv: np.ndarray | None = None
     cue_gain: np.ndarray | None = None
     noise_scale: np.ndarray | None = None
+    slow_noise_mv: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -141,12 +142,50 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
     elif edge_weights.shape != graph.targets.shape:
         raise ValueError("Edge weights must match the directed target array")
 
+    exc_tau = float(sim.get("exc_tau_ms", 0.0))
+    inh_tau = float(sim.get("inh_tau_ms", 0.0))
+    if exc_tau < 0 or inh_tau < 0:
+        raise ValueError("Synaptic time constants must be nonnegative")
+    if exc_tau == 0.0 and inh_tau == 0.0:
+        for t in range(duration):
+            slot = t % slots
+            ready = refractory == 0
+            drive = equilibrium if t < baseline else cue_equilibrium
+            v[:] = np.where(ready, drive + (v - drive) * decay + noise[t] + pending[slot], reset)
+            pending[slot].fill(0)
+            fired = ready & (v >= thresholds)
+            spikes[t] = fired
+            v[fired] = reset
+            refractory[~ready] -= 1
+            refractory[fired] = refractory_steps
+
+            sources = np.flatnonzero(fired & active_source)
+            np.add.at(
+                pending,
+                ((t + graph.delay[sources]) % slots, graph.targets[sources]),
+                edge_weights[sources],
+            )
+        return spikes
+
+    exc_decay = np.exp(-dt / exc_tau) if exc_tau > 0 else 0.0
+    inh_decay = np.exp(-dt / inh_tau) if inh_tau > 0 else 0.0
+    exc_scale = (1.0 - exc_decay) if exc_tau > 0 else 1.0
+    inh_scale = (1.0 - inh_decay) if inh_tau > 0 else 1.0
+    pending_exc = np.zeros((slots, n))
+    pending_inh = np.zeros((slots, n))
+    syn_exc = np.zeros(n)
+    syn_inh = np.zeros(n)
+    pos_weights = np.maximum(edge_weights, 0.0)
+    neg_weights = np.minimum(edge_weights, 0.0)
     for t in range(duration):
         slot = t % slots
+        syn_exc = syn_exc * exc_decay + exc_scale * pending_exc[slot]
+        syn_inh = syn_inh * inh_decay + inh_scale * pending_inh[slot]
+        pending_exc[slot].fill(0)
+        pending_inh[slot].fill(0)
         ready = refractory == 0
         drive = equilibrium if t < baseline else cue_equilibrium
-        v[:] = np.where(ready, drive + (v - drive) * decay + noise[t] + pending[slot], reset)
-        pending[slot].fill(0)
+        v[:] = np.where(ready, drive + (v - drive) * decay + noise[t] + syn_exc + syn_inh, reset)
         fired = ready & (v >= thresholds)
         spikes[t] = fired
         v[fired] = reset
@@ -154,11 +193,9 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
         refractory[fired] = refractory_steps
 
         sources = np.flatnonzero(fired & active_source)
-        np.add.at(
-            pending,
-            ((t + graph.delay[sources]) % slots, graph.targets[sources]),
-            edge_weights[sources],
-        )
+        idx = ((t + graph.delay[sources]) % slots, graph.targets[sources])
+        np.add.at(pending_exc, idx, pos_weights[sources])
+        np.add.at(pending_inh, idx, neg_weights[sources])
     return spikes
 
 

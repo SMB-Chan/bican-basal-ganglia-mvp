@@ -1,0 +1,727 @@
+{
+  "seeds": [
+    809,
+    811,
+    821,
+    823,
+    827,
+    829,
+    839,
+    853,
+    857,
+    859,
+    863,
+    877
+  ],
+  "protocol": {
+    "calibration_seed": 800,
+    "seeds": [
+      809,
+      811,
+      821,
+      823,
+      827,
+      829,
+      839,
+      853,
+      857,
+      859,
+      863,
+      877
+    ],
+    "groups": [
+      "GPe",
+      "STN",
+      "GPi"
+    ],
+    "slow_noise_tau_ms": 160.0,
+    "fluctuation_regimes": {
+      "pacemaker": {
+        "noise_multiplier": 1.0,
+        "slow_noise_mode": "zero"
+      },
+      "moderate_ou": {
+        "noise_multiplier": 2.2,
+        "slow_noise_mode": "fixed",
+        "slow_noise_mv": 9.0
+      },
+      "high_cv_ou": {
+        "noise_multiplier": 3.0,
+        "slow_noise_mode": "match_reference_cv",
+        "max_slow_noise_mv": 32.0
+      }
+    },
+    "synapse_modes": {
+      "delta": {
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0
+      },
+      "exponential": {
+        "exc_tau_ms": 3.0,
+        "inh_tau_ms": 14.0
+      }
+    },
+    "pathway_modes": {
+      "baseline": {
+        "projection_propensity": {},
+        "gpe_jump_mv": 0.65
+      },
+      "indirect_balanced": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "gpe_jump_mv": 1.2
+      }
+    },
+    "tonic_calibration": {
+      "isolated_cells_per_bias": 250,
+      "isolated_duration_ms": 1500,
+      "isolated_burn_in_ms": 200,
+      "cv_bisection_steps": 7,
+      "network_iterations": 12,
+      "tolerance_hz": 0.15
+    },
+    "recruitment_decomposition": {
+      "regime": "moderate_ou",
+      "jump_search_mv": [
+        8.0,
+        45.0
+      ],
+      "jump_iterations": 12
+    },
+    "selection": {
+      "max_tonic_rate_mae_hz": 5.0,
+      "max_blocked_late_abs_hz": 0.5,
+      "note": "Selects the factorial condition with highest strict-candidate fraction across the 12 test seeds, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz). Stage 3 cortical data are never consulted."
+    },
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 880319
+  },
+  "identifiability_protocol": {
+    "placements": [
+      701,
+      709,
+      719,
+      727
+    ],
+    "first_graph_seed": 6101,
+    "draws_per_placement": 16,
+    "pulse_repetitions": 8,
+    "membrane_conditions": [
+      "E",
+      "F"
+    ],
+    "hypotheses": {
+      "baseline": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      },
+      "toward_GPe": {
+        "GPe": 4.0,
+        "GPi": 1.0
+      },
+      "toward_GPi": {
+        "GPe": 1.0,
+        "GPi": 4.0
+      }
+    },
+    "pair_tolerances": {
+      "rate_hz": 2.0,
+      "isi_cv": 0.1,
+      "early_hz": 1.0,
+      "late_hz": 0.5
+    },
+    "external_rate_mae_hz": 5.0,
+    "external_blocked_late_abs_hz": 0.5
+  },
+  "model_config": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67,
+      83
+    ],
+    "groups": {
+      "D1": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.8,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "D2": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.7,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "SIn": {
+        "n": 28,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.5,
+        "bias_mv": 14.0,
+        "tau_ms": 12
+      },
+      "GPe": {
+        "n": 200,
+        "region": "GPe",
+        "sign": -1,
+        "jump_mv": 0.65,
+        "bias_mv": 20.0,
+        "tau_ms": 14
+      },
+      "STN": {
+        "n": 120,
+        "region": "STN",
+        "sign": 1,
+        "jump_mv": 0.85,
+        "bias_mv": 17.0,
+        "tau_ms": 15
+      },
+      "GPi": {
+        "n": 180,
+        "region": "GPi",
+        "sign": -1,
+        "jump_mv": 0.85,
+        "bias_mv": 22.0,
+        "tau_ms": 14
+      }
+    },
+    "out_degree": 24,
+    "output_group": "GPi",
+    "distance_scale_mm": 3.0,
+    "local_cell_affinity": {
+      "D1": {
+        "D1": 1.4,
+        "D2": 1.2
+      },
+      "D2": {
+        "D1": 1.2,
+        "D2": 1.4
+      },
+      "SIn": {
+        "D1": 2.5,
+        "D2": 2.5
+      },
+      "GPe": {
+        "GPe": 1.4
+      }
+    },
+    "projection_propensity": {
+      "D1": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 0.5,
+        "GPi": 4.0
+      },
+      "D2": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 4.0,
+        "GPi": 0.4
+      },
+      "SIn": {
+        "D1": 1.0,
+        "D2": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 1.2,
+        "D1": 0.2,
+        "D2": 0.2
+      },
+      "STN": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      }
+    },
+    "topographic_projections": [
+      [
+        "D1",
+        "GPe"
+      ],
+      [
+        "D1",
+        "GPi"
+      ],
+      [
+        "D2",
+        "GPe"
+      ],
+      [
+        "D2",
+        "GPi"
+      ],
+      [
+        "GPe",
+        "STN"
+      ],
+      [
+        "GPe",
+        "GPi"
+      ]
+    ],
+    "matched_channel_gain": 4.0,
+    "synthetic_geometry_mm": {
+      "STRd": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "sd": [
+          2.4,
+          3.0,
+          2.0
+        ]
+      },
+      "GPe": {
+        "center": [
+          3.0,
+          -1.0,
+          -1.0
+        ],
+        "sd": [
+          1.3,
+          1.7,
+          1.1
+        ]
+      },
+      "STN": {
+        "center": [
+          7.0,
+          -3.0,
+          -3.0
+        ],
+        "sd": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      },
+      "GPi": {
+        "center": [
+          5.0,
+          -2.0,
+          -2.0
+        ],
+        "sd": [
+          1.2,
+          1.4,
+          1.0
+        ]
+      }
+    },
+    "simulation": {
+      "dt_ms": 1.0,
+      "rest_mv": -65,
+      "reset_mv": -68,
+      "threshold_mv": -50,
+      "refractory_ms": 2.0,
+      "noise_mv_sqrt_ms": 1.1,
+      "synaptic_offset_ms": 1.0,
+      "conduction_mm_per_ms": 0.9,
+      "baseline_ms": 200,
+      "baseline_readout_ms": 150,
+      "cue_ms": 300,
+      "cue_readout_ms": 200,
+      "cue_common_mv": 3.5,
+      "cue_stn_common_mv": 1.0,
+      "cue_deltas_mv": [
+        2.0,
+        5.0
+      ],
+      "trials_per_side": 4,
+      "equal_trials": 4
+    }
+  },
+  "validation": {
+    "seeds": [
+      101,
+      113,
+      127,
+      139,
+      151,
+      163,
+      179,
+      193,
+      211,
+      227,
+      239,
+      251
+    ],
+    "tonic": {
+      "duration_ms": 2000,
+      "burn_in_ms": 300,
+      "min_intervals": 5,
+      "reference_doi": "10.1093/cercor/bhn171",
+      "monkeys": [
+        "U",
+        "G",
+        "Y"
+      ],
+      "rate_hz": {
+        "GPe": [
+          50.0,
+          36.5,
+          38.1
+        ],
+        "STN": [
+          20.3,
+          15.4,
+          15.5
+        ],
+        "GPi": [
+          52.2,
+          45.1,
+          43.6
+        ]
+      },
+      "isi_cv": {
+        "GPe": [
+          1.5,
+          2.1,
+          1.9
+        ],
+        "STN": [
+          1.1,
+          1.2,
+          1.4
+        ],
+        "GPi": [
+          1.0,
+          1.2,
+          1.0
+        ]
+      }
+    },
+    "stn_pulse": {
+      "reference_doi": "10.1523/JNEUROSCI.1719-05.2005",
+      "repetitions": 12,
+      "pulse_at_ms": 300,
+      "after_ms": 70,
+      "fraction_stn": 0.5,
+      "voltage_jump_mv": 12.0,
+      "early_window_ms": [
+        3,
+        13
+      ],
+      "late_window_ms": [
+        14,
+        54
+      ],
+      "sign_tolerance_hz": 0.25
+    },
+    "bootstrap_replicates": 5000,
+    "resample_seed": 800242,
+    "conditions": {
+      "A_random": {
+        "wiring": "A",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "B_distance": {
+        "wiring": "B",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "C_cell_type": {
+        "wiring": "C",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "D_mask": {
+        "wiring": "D",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "E_odds": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "F_patchseq": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "G_channel": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": true,
+        "geometry": "atlas"
+      },
+      "E_channel": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": true,
+        "geometry": "atlas"
+      },
+      "E_gaussian": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "gaussian"
+      },
+      "F_gaussian": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "gaussian"
+      },
+      "C_patchseq": {
+        "wiring": "C",
+        "odds": false,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "atlas"
+      }
+    },
+    "comparisons": [
+      [
+        "B_distance",
+        "A_random"
+      ],
+      [
+        "C_cell_type",
+        "B_distance"
+      ],
+      [
+        "D_mask",
+        "C_cell_type"
+      ],
+      [
+        "E_odds",
+        "D_mask"
+      ],
+      [
+        "F_patchseq",
+        "E_odds"
+      ],
+      [
+        "G_channel",
+        "F_patchseq"
+      ],
+      [
+        "E_channel",
+        "E_odds"
+      ],
+      [
+        "G_channel",
+        "E_channel"
+      ],
+      [
+        "E_odds",
+        "E_gaussian"
+      ],
+      [
+        "F_patchseq",
+        "F_gaussian"
+      ],
+      [
+        "F_gaussian",
+        "E_gaussian"
+      ],
+      [
+        "C_patchseq",
+        "C_cell_type"
+      ],
+      [
+        "C_patchseq",
+        "A_random"
+      ],
+      [
+        "F_patchseq",
+        "C_patchseq"
+      ]
+    ]
+  },
+  "patchseq_summary": {
+    "dataset": "HMBA-Macaque-PatchSeq 20260228",
+    "paper": "10.1016/j.cell.2026.10.028",
+    "license": "CC BY-NC 4.0",
+    "source_base_url": "https://allen-brain-cell-atlas.s3.amazonaws.com/metadata/HMBA-Macaque-PatchSeq/20260228/",
+    "source_sha256": {
+      "cell_metadata.csv": "5cec3b3eac79fcb05717434cf95fabd6ebaa9828e4b5f90c88f50e94d24e7ede",
+      "cross_sweep_long_square_features.csv": "6839ec7ae3462823d9b9590821be7bcdc8004720713344542d209975116df275",
+      "mmc_results.csv": "aee9b60c16085f4e860f13f0451115c03324b05be48bb8a4cb8c480e36267e99",
+      "electrophysiological_feature_lookup.xlsx": "c10ac74f0600f7407d70944b46c4f2324c4a3e8889912babb0c162a3d0bc3fee"
+    },
+    "filter": "MapMyCells dorsal D1/D2 group and matching subclass, both bootstrap probabilities >=0.8; finite tau 1–100 ms",
+    "groups": {
+      "D1": {
+        "cells": 112,
+        "donors": 39,
+        "excluded_tau_range": 3,
+        "q1_tau_ms": 6.368468841301575,
+        "median_tau_ms": 8.794647040752452,
+        "q3_tau_ms": 11.467692761447825
+      },
+      "D2": {
+        "cells": 121,
+        "donors": 43,
+        "excluded_tau_range": 0,
+        "q1_tau_ms": 7.394008590327401,
+        "median_tau_ms": 9.0379844758998,
+        "q3_tau_ms": 14.1326372104461
+      }
+    }
+  },
+  "atlas": {
+    "release": "HMBA Adult Rhesus Macaque Brain Atlas 2025",
+    "license": "CC BY 4.0",
+    "shape": [
+      606,
+      787,
+      500
+    ],
+    "affine_ras_mm": [
+      [
+        -0.1599999964237213,
+        -0.0,
+        0.0,
+        48.0
+      ],
+      [
+        -0.0,
+        0.1599999964237213,
+        -0.0,
+        -64.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1599999964237213,
+        -48.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selection": "RAS x greater than image-grid physical midpoint",
+    "midline_ras_x_mm": -0.3999989181756973,
+    "assets": {
+      "rhesus_annotations_160.nii.gz": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/annotations_compressed_160.nii.gz",
+        "sha256": "4fe297fa8d8e90b7713c759b3c071624775bf3211097f4f116f9cba94bba69c7"
+      },
+      "terminology.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/terminologies/hmba-mammalian-homba-terminology/2025/terminology.csv",
+        "sha256": "f0131888ef69cdf81de6199101d36684eaffe056864761af3059513dd08fa43f"
+      },
+      "volumes.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/parcellation_volumes.csv",
+        "sha256": "a77e9ac590282df90efa131e6869a0712d3b595e11506d931aa0538788de545f"
+      }
+    },
+    "regions": {
+      "STRd": {
+        "homba_identifier": "HOMBA:AA30192",
+        "atlas_abbreviation": "STRd",
+        "nonzero_labels": [
+          121,
+          122,
+          123,
+          125,
+          126,
+          2446
+        ],
+        "voxels_full_volume": 736681,
+        "voxels_selected": 372123,
+        "centroid_ras_mm": [
+          9.722919352937998,
+          0.1373312225567912,
+          3.3825832120571953
+        ]
+      },
+      "GPe": {
+        "homba_identifier": "HOMBA:10343",
+        "atlas_abbreviation": "GPe",
+        "nonzero_labels": [
+          132,
+          134
+        ],
+        "voxels_full_volume": 84774,
+        "voxels_selected": 42309,
+        "centroid_ras_mm": [
+          9.293667933626388,
+          -2.285623823821005,
+          -0.029505905711086487
+        ]
+      },
+      "STN": {
+        "homba_identifier": "HOMBA:10466",
+        "atlas_abbreviation": "STH",
+        "nonzero_labels": [
+          198
+        ],
+        "voxels_full_volume": 7406,
+        "voxels_selected": 3700,
+        "centroid_ras_mm": [
+          6.052627964623876,
+          -7.184303972632498,
+          -2.997233438322673
+        ]
+      },
+      "GPi": {
+        "homba_identifier": "HOMBA:10344",
+        "atlas_abbreviation": "GPi",
+        "nonzero_labels": [
+          133
+        ],
+        "voxels_full_volume": 40711,
+        "voxels_selected": 20363,
+        "centroid_ras_mm": [
+          8.163646718629748,
+          -3.9199109829280605,
+          -1.730386537324877
+        ]
+      }
+    }
+  },
+  "python": "3.12.16",
+  "numpy": "2.5.5",
+  "raw_sha256": {
+    "calibration.json": "bdf36a2db0326a803a3bc25be3d090423d3d2caf6e3555bfa679d2b0e02587b8",
+    "mean_pulse_curves.csv": "46c40f7418a1f666e27d3ca9c22cc7e7e9709d05ab70d3c2515b2181a77b745e",
+    "network.csv": "3f57368b51b76e16e897c250cad4813b055374968914d2ae4bcf7eadc5f82737",
+    "selection.json": "a9d70eeb466f4eda956b342e4d221304a638212b1f80de9d5ae4759c870337a8",
+    "tonic.csv": "08f67abca3b4d6583e5fbd701b8daba9cc7b5e511507780d20274f9303efb166"
+  }
+}

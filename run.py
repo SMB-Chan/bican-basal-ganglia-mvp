@@ -37,6 +37,18 @@ def trial_stimuli(pop, sim, seed, trial):
     if pop.noise_scale is not None:
         # Per-cell multipliers rescale the same draws, keeping sham and evoked trials paired.
         noise *= pop.noise_scale
+    if pop.slow_noise_mv is not None:
+        slow_rng = np.random.default_rng(np.random.SeedSequence([seed, 7, trial]))
+        dt = sim["dt_ms"]
+        slow_tau = float(sim.get("slow_noise_tau_ms", 120.0))
+        ou_decay = np.exp(-dt / slow_tau)
+        ou_step = np.sqrt(max(0.0, 1.0 - ou_decay ** 2))
+        u = slow_rng.standard_normal(n) * pop.slow_noise_mv
+        innovations = slow_rng.standard_normal((steps, n)) * (ou_step * pop.slow_noise_mv)
+        mem_gain = 1.0 - np.exp(-dt / pop.tau)
+        for t in range(steps):
+            u = u * ou_decay + innovations[t]
+            noise[t] += mem_gain * u
     return noise, initial
 
 

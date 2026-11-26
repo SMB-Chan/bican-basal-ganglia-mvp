@@ -1,8 +1,9 @@
 """Which level of wiring do the stage-1 measurements constrain, and does discrimination survive animal-level noise?
 
 1. Edge level. Compare the edge overlap of functionally close pairs with all pairs drawn under the same
-   hypothesis (label-permutation test). Cells of one group are interchangeable in the model, so any
-   population measurement is unchanged when targets are swapped within a group.
+   hypothesis (stratified label-permutation test). Neuron indices within a group are exchangeable prior to
+   coordinate and wiring realization, so independent draws realize similar group-level statistics on largely
+   disjoint edge sets even though individual edges differ in spatial delay and target in-degree.
 2. Block level. Regenerate each graph from the saved seeds and count edges per (source group, target group).
    Relate functional distance to block distance and to edge distance across pairs.
 3. Measurement noise. Classify held-out graphs after adding noise to the test measurements: tonic rate and
@@ -82,41 +83,56 @@ def pair_structure(rows, pairs, blocks):
 
 
 def rank(values):
-    order = np.argsort(values, kind="stable")
-    ranks = np.empty(len(values))
-    ranks[order] = np.arange(len(values))
-    return ranks
+    _, inverse, counts = np.unique(np.asarray(values), return_inverse=True, return_counts=True)
+    starts = np.cumsum(counts) - counts
+    return starts[inverse] + (counts[inverse] - 1) / 2
 
 
 def spearman(x, y):
     return float(np.corrcoef(rank(np.asarray(x)), rank(np.asarray(y)))[0, 1])
 
 
+def demean_by_stratum(values, strata):
+    centered = np.asarray(values, dtype=float).copy()
+    for stratum in np.unique(strata):
+        use = strata == stratum
+        centered[use] -= centered[use].mean()
+    return centered
+
+
 def edge_level_test(table, replicates, seed):
-    """Is the edge Jaccard of close pairs different from pairs drawn under the same hypothesis at random?"""
+    """Is the edge Jaccard of close pairs different from pairs drawn under the same hypothesis at random?
+
+    Subtracting each (placement, hypothesis) stratum mean removes cross-hypothesis confounding (Simpson's
+    paradox) and centers the stratified permutation null at zero.
+    """
     rng = np.random.default_rng(seed)
     results = []
     for membrane in sorted({row["membrane"] for row in table}):
         within = [row for row in table if row["membrane"] == membrane and row["same_hypothesis"]]
-        jaccard = np.array([row["edge_jaccard"] for row in within])
+        jaccard = np.array([row["edge_jaccard"] for row in within], dtype=float)
         close = np.array([row["continuous_close"] for row in within], dtype=bool)
         strata = np.array([f"{row['placement']}|{row['pair']}" for row in within])
-        observed = jaccard[close].mean() - jaccard[~close].mean()
+        centered = demean_by_stratum(jaccard, strata)
+        func_centered = demean_by_stratum([row["functional_distance"] for row in within], strata)
+        block_centered = demean_by_stratum([row["block_distance"] for row in within], strata)
+        raw_diff = float(jaccard[close].mean() - jaccard[~close].mean())
+        observed = float(centered[close].mean() - centered[~close].mean())
         null = np.empty(replicates)
         for i in range(replicates):
             permuted = close.copy()
             for stratum in np.unique(strata):
                 use = strata == stratum
                 permuted[use] = rng.permutation(close[use])
-            null[i] = jaccard[permuted].mean() - jaccard[~permuted].mean()
+            null[i] = centered[permuted].mean() - centered[~permuted].mean()
+        null_mean = float(null.mean())
         results.append({"membrane": membrane, "within_hypothesis_pairs": len(within), "close_pairs": int(close.sum()),
                         "close_mean_jaccard": float(jaccard[close].mean()), "other_mean_jaccard": float(jaccard[~close].mean()),
-                        "difference": float(observed), "null_q025": float(np.quantile(null, 0.025)),
-                        "null_q975": float(np.quantile(null, 0.975)),
-                        "two_sided_p": float((np.sum(np.abs(null) >= abs(observed)) + 1) / (replicates + 1)),
-                        "spearman_functional_vs_edge_distance": spearman([row["functional_distance"] for row in within], 1 - jaccard),
-                        "spearman_functional_vs_block_distance_within": spearman([row["functional_distance"] for row in within],
-                                                                                 [row["block_distance"] for row in within])})
+                        "raw_difference": raw_diff, "difference": observed, "null_mean": null_mean,
+                        "null_q025": float(np.quantile(null, 0.025)), "null_q975": float(np.quantile(null, 0.975)),
+                        "two_sided_p": float((np.sum(np.abs(null - null_mean) >= abs(observed - null_mean)) + 1) / (replicates + 1)),
+                        "spearman_functional_vs_edge_distance": spearman(func_centered, -centered),
+                        "spearman_functional_vs_block_distance_within": spearman(func_centered, block_centered)})
     return results
 
 
@@ -194,10 +210,15 @@ def make_figure(out, table, noise_rows):
     fig.suptitle("What the stage-1 measurements constrain", fontsize=15, fontweight="bold")
     ax = axes[0]
     within = [r for r in table if r["membrane"] == "F" and r["same_hypothesis"]]
+    raw = np.array([r["edge_jaccard"] for r in within], dtype=float)
+    strata = np.array([f"{r['placement']}|{r['pair']}" for r in within])
+    adjusted = demean_by_stratum(raw, strata) + raw.mean()
+    close_mask = np.array([bool(r["continuous_close"]) for r in within])
+    bins = np.linspace(adjusted.min(), adjusted.max(), 28)
     for close, color, name in ((False, "#9aa6b2", "Other pairs"), (True, "#a34b31", "Functionally close pairs")):
-        values = [r["edge_jaccard"] for r in within if bool(r["continuous_close"]) == close]
-        ax.hist(values, bins=30, alpha=0.75, color=color, label=f"{name} (n={len(values)})", density=True)
-    ax.set(title="Edge overlap, same hypothesis | F", xlabel="Edge Jaccard", ylabel="Density")
+        values = adjusted[close_mask == close]
+        ax.hist(values, bins=bins, alpha=0.75, color=color, label=f"{name} (n={len(values)})", density=True)
+    ax.set(title="Edge overlap, same hypothesis | F", xlabel="Edge Jaccard (stratum-adjusted)", ylabel="Density")
     ax.legend(frameon=False, fontsize=8)
     ax = axes[1]
     sample = [r for r in table if r["membrane"] == "F"]
@@ -209,10 +230,12 @@ def make_figure(out, table, noise_rows):
            ylabel="Functional distance (SD units)")
     ax.legend(frameon=False, fontsize=8)
     ax = axes[2]
-    for (features, window_sd), color, name in (((
-            "tonic_rates", None), "#647b91", "Tonic rates"), (("tonic_rates_and_cv", None), "#437fb4", "Rates + CV"),
+    for (features, window_sd), color, name in (
+            (("tonic_rates", None), "#647b91", "Tonic rates"),
+            (("tonic_rates_and_cv", None), "#437fb4", "Rates + CV"),
             (("continuous", 0.0), "#207c74", "Continuous, windows noiseless"),
-            (("continuous", 5.0), "#a34b31", "Continuous, windows ±5 Hz")):
+            (("continuous", 2.0), "#937638", "Continuous, windows SD 2 Hz"),
+            (("continuous", 10.0), "#a34b31", "Continuous, windows SD 10 Hz")):
         sample = sorted((r for r in noise_rows if r["membrane"] == "F" and r["features"] == features
                          and r["window_noise_sd_hz"] == window_sd), key=lambda r: r["tonic_noise_x_reference_sd"])
         ax.plot([r["tonic_noise_x_reference_sd"] for r in sample], [r["accuracy"] for r in sample], "o-", color=color, label=name)
