@@ -25,12 +25,14 @@
     "G_channel":       {"wiring": "D", "odds": true,  "patchseq": true,  "channel": true,  "geometry": "atlas"},
     "E_channel":       {"wiring": "D", "odds": true,  "patchseq": false, "channel": true,  "geometry": "atlas"},
     "E_gaussian":      {"wiring": "D", "odds": true,  "patchseq": false, "channel": false, "geometry": "gaussian"},
-    "F_gaussian":      {"wiring": "D", "odds": true,  "patchseq": true,  "channel": false, "geometry": "gaussian"}
+    "F_gaussian":      {"wiring": "D", "odds": true,  "patchseq": true,  "channel": false, "geometry": "gaussian"},
+    "C_patchseq":      {"wiring": "C", "odds": false, "patchseq": true,  "channel": false, "geometry": "atlas"}
   },
   "comparisons": [
     ["B_distance", "A_random"], ["C_cell_type", "B_distance"], ["D_mask", "C_cell_type"],
     ["E_odds", "D_mask"], ["F_patchseq", "E_odds"], ["G_channel", "F_patchseq"],
     ["E_channel", "E_odds"], ["G_channel", "E_channel"], ["E_odds", "E_gaussian"],
-    ["F_patchseq", "F_gaussian"], ["F_gaussian", "E_gaussian"]
+    ["F_patchseq", "F_gaussian"], ["F_gaussian", "E_gaussian"],
+    ["C_patchseq", "C_cell_type"], ["C_patchseq", "A_random"], ["F_patchseq", "C_patchseq"]
   ]
 }

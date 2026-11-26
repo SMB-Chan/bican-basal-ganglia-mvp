@@ -1,4 +1,7 @@
-PASS | 12 seeds by 10 conditions; 120 graph rows, 360 tonic rows, 8,400 pulse time points
+PASS | merged the independently simulated C + Patch-seq condition with the verified first run
+PASS | 12 seeds by 11 conditions; 132 graph rows, 396 tonic rows, 9,240 pulse time points
+PASS | C and C + Patch-seq preserve all per-seed graph statistics
+PASS | separate seed 101 run reproduces every row of all three files for all 11 conditions
 PASS | all graphs fixed at 1,000 neurons, 19,680 directed edges, 2,880 excitatory edges, 16,800 inhibitory edges
 PASS | expected Patch-seq comparisons preserve graph statistics; per-seed scores satisfy metric bounds and definitions
 PASS | seed 101 reproduced all rows in three validation CSVs

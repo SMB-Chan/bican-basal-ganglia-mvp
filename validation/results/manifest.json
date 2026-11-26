@@ -372,6 +372,13 @@
         "patchseq": true,
         "channel": false,
         "geometry": "gaussian"
+      },
+      "C_patchseq": {
+        "wiring": "C",
+        "odds": false,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "atlas"
       }
     },
     "comparisons": [
@@ -418,6 +425,18 @@
       [
         "F_gaussian",
         "E_gaussian"
+      ],
+      [
+        "C_patchseq",
+        "C_cell_type"
+      ],
+      [
+        "C_patchseq",
+        "A_random"
+      ],
+      [
+        "F_patchseq",
+        "C_patchseq"
       ]
     ]
   },
@@ -568,8 +587,8 @@
     }
   },
   "raw_csv_sha256": {
-    "metrics.csv": "c3e426f9ca141f89b5d740c7822e93f2018c2739bcf88ae7de60f0a30c7603be",
-    "pulse_curves.csv": "d7812373b8d1c45ef352f0226798d8618450e37e8816eb5f71c6ae0ab79d0a74",
-    "tonic.csv": "5703afeedf7037d12289b984c20d26d364816b348fb4a04aa378046e553482bc"
+    "metrics.csv": "5a0e56529f070f6ffb2d721732970acc660ca7e11f6f152d0185b254857d5758",
+    "pulse_curves.csv": "f10d9b7531e2d86290b3e0eca1dea760ebf48dd6b1561077be8df0e955bf6416",
+    "tonic.csv": "a03ca5866ee4bc7f7eb4d22cbfa6b27bc50cf8db95aaf800d7fd616745088060"
   }
 }

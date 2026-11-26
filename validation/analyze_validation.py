@@ -20,9 +20,10 @@ OUTCOMES = ("tonic_rate_mae_hz", "tonic_cv_mae", "pulse_features", "pulse_early_
             "choice_weak_margin_hz", "choice_strong_margin_hz")
 LABELS = {"A_random": "A Random", "B_distance": "B Distance", "C_cell_type": "C Cell type",
           "D_mask": "D Mask", "E_odds": "E Odds", "F_patchseq": "F Patch-seq", "G_channel": "G Channel",
-          "E_channel": "E + channel", "E_gaussian": "E Gaussian", "F_gaussian": "F Gaussian"}
+          "E_channel": "E + channel", "E_gaussian": "E Gaussian", "F_gaussian": "F Gaussian",
+          "C_patchseq": "C + Patch-seq"}
 COLORS = ["#66788a", "#437fb4", "#277c78", "#937638", "#a44d2b", "#663f82", "#1c494c",
-          "#938686", "#be886c", "#9980ad"]
+          "#938686", "#be886c", "#9980ad", "#40655b"]
 
 
 def aggregate(metrics, protocol, seeds):
@@ -81,8 +82,8 @@ def plot_scores(directory, summary, protocol):
 
 
 def plot_pulse(directory, rows, protocol):
-    conditions = ["A_random", "C_cell_type", "D_mask", "E_odds", "F_patchseq", "G_channel"]
-    fig, axes = plt.subplots(2, 3, figsize=(12.5, 6.1), layout="constrained", sharex=True, sharey=True)
+    conditions = ["A_random", "B_distance", "C_cell_type", "C_patchseq", "D_mask", "E_odds", "F_patchseq", "G_channel"]
+    fig, axes = plt.subplots(2, 4, figsize=(14.0, 6.1), layout="constrained", sharex=True, sharey=True)
     fig.suptitle("GPi response to a single STN pulse", fontsize=16, fontweight="bold")
     spec = protocol["stn_pulse"]
     for ax, name in zip(axes.flat, conditions):
