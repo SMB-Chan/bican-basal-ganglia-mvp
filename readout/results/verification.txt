@@ -1,0 +1,3 @@
+PASS | protocol, criteria and code committed and pushed before the run (d9cfcb1); the only prior execution was a smoke test on non-protocol seed 2003 that checked row counts only
+PASS | 12 fresh seeds (2383-2467) disjoint from all earlier seeds
+NOTE | readout/analyze.py was edited after the run only to give every summary row the same columns (the isolated-GPi row has GPi columns only); scoring logic unchanged

@@ -14,3 +14,4 @@ rebound/results/** -text whitespace=cr-at-eol
 parkinsonian/results/** -text whitespace=cr-at-eol
 confirmation/results/** -text whitespace=cr-at-eol
 oscillation/results/** -text whitespace=cr-at-eol
+readout/results/** -text whitespace=cr-at-eol

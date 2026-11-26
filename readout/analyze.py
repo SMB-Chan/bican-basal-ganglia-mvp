@@ -35,7 +35,8 @@ def summarize(rows, protocol):
                 low, high = np.quantile(v[draws].mean(axis=1), [0.025, 0.975])
                 row.update({k: float(v.mean()), k + "_ci_low": float(low), k + "_ci_high": float(high)})
         out.append(row)
-    return out
+    columns = list(dict.fromkeys(k for row in out for k in row))
+    return [{k: row.get(k) for k in columns} for row in out]
 
 
 def curve(summary, state, target):
