@@ -18,7 +18,8 @@
 | Tachibana et al. 2011 | MPTPマカクの8〜15 Hz振動と薬理遮断 | 段階4Bで評価（1回） | 使用済み。振動が出なかったため、遮断テスト（テスト3・4）は振動の抑制の検証になっていない |
 | Chiken et al. 2021 | MPTPマカクの皮質誘発応答とSTN遮断 | 段階4Bで評価（1回） | 使用済み |
 | DANDI:000947（Kase, Han, Zimnik, Cox, Turner 2024） | アカゲザル2頭、MPTP投与前後のGPi単一ユニット | [ホールドアウト検証](heldout/RESULTS.md)で評価（1回、事前登録 `9457434`）。GPiの発火率の向きを3モデルとも外した | 使用済み |
-| Kase et al. 2025（原著） | 上のデータの論文 | 採点の後に、抽出の確認として発火率の報告値を参照 | 使用済み |
+| Kase et al. 2025（原著） | 上のデータの論文 | 採点の後に、抽出の確認と[食い違いの検討](heldout/DISCREPANCY.md)のため本文（方法・結果・考察）を参照 | 使用済み |
+| MPTP霊長類のGPiの先行研究（Filion & Tremblay 1991、Miller & DeLong 1987、Boraud et al.、Heimer et al.、Leblois et al. 2006・2007、Starr et al.、Raz et al. 2000、Wichmann et al. 1999、Galvan et al. 2010、Rivlin-Etzion et al.） | 発火率の変化の方向 | [食い違いの検討](heldout/DISCREPANCY.md)で、原著の分類と要旨レベルの結果を参照 | 参照済み。今後のブラインドな検証には使わない |
 
 `confirmation/`（段階4Aの新しいシードでの確認）、`oscillation/`（開ループの振動の探索）、`readout/`（振動指数の陽性対照）は、新しい外部データを使っていない。前者は上の選択用データを新しいシードで採点し直しただけで、後者はモデル内部の量だけを見た。
 

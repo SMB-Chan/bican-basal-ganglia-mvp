@@ -39,4 +39,4 @@
 
 原著：Kase et al. (2025) Movement-related activity in the internal globus pallidus of the parkinsonian macaque. *J Neurophysiol* 134:741–765. [doi:10.1152/jn.00611.2024](https://journals.physiology.org/doi/full/10.1152/jn.00611.2024) · [PubMed 39257740](https://pubmed.ncbi.nlm.nih.gov/39257740)
 
-[手順](PROTOCOL.md) · [調査](SURVEY.md) · [モデルの予測](predictions/predictions.csv)
+[手順](PROTOCOL.md) · [調査](SURVEY.md) · [先行研究との食い違いの検討](DISCREPANCY.md) · [モデルの予測](predictions/predictions.csv)
