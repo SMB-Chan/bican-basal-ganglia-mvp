@@ -1,0 +1,4 @@
+PASS | protocol, criteria and scorer committed and pushed before the run (fe176da); scorer dry-run on the already public original rows only
+PASS | calibration on seed 800 reproduced rebound/results/calibration.json byte for byte
+PASS | 36 fresh seeds (2017-2293) disjoint from all earlier seeds; seed 2003 (timing run, result seen) excluded
+PASS | run manifest seeds match confirmation/protocol.json (checked by confirmation.analyze)

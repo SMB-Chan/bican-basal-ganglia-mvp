@@ -1,0 +1,1746 @@
+{
+  "es1|se1|reb75": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.1189705882353
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.588480392156859
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.09673202614379
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.04705882352941,
+      "STN": 17.5,
+      "GPi": 44.996732026143796
+    },
+    "max_calibration_error_hz": 0.10130718954248152
+  },
+  "es1|se2|reb75": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.203235294117656
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.722303921568624
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.166503267973862
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.15882352941176,
+      "STN": 17.534313725490193,
+      "GPi": 45.13725490196079
+    },
+    "max_calibration_error_hz": 0.053921568627448124
+  },
+  "es1|se3|reb75": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.1789705882353
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.704166666666666
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.125653594771258
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.04117647058823,
+      "STN": 17.436274509803923,
+      "GPi": 45.12091503267974
+    },
+    "max_calibration_error_hz": 0.10588235294117965
+  },
+  "es1|se4|reb75": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 11.034411764705895
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.41004901960784
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.131862745098058
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.03823529411765,
+      "STN": 17.55392156862745,
+      "GPi": 45.169934640522875
+    },
+    "max_calibration_error_hz": 0.10882352941176521
+  },
+  "es2|se1|reb75": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.20426470588236
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 14.267156862745093
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.168954248366024
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.20882352941177,
+      "STN": 17.36764705882353,
+      "GPi": 45.24183006535948
+    },
+    "max_calibration_error_hz": 0.1437908496732021
+  },
+  "es2|se2|reb75": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.247352941176475
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 14.377205882352932
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.133986928104584
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.13235294117647,
+      "STN": 17.583333333333332,
+      "GPi": 45.15686274509804
+    },
+    "max_calibration_error_hz": 0.10294117647058698
+  },
+  "es2|se3|reb75": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.283088235294127
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 14.506617647058823
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.17630718954249
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.21176470588235,
+      "STN": 17.401960784313726,
+      "GPi": 45.12091503267974
+    },
+    "max_calibration_error_hz": 0.07843137254901933
+  },
+  "es2|se4|reb75": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 11.117058823529419
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 14.516666666666662
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.122385620915047
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.00294117647059,
+      "STN": 17.49019607843137,
+      "GPi": 45.12091503267974
+    },
+    "max_calibration_error_hz": 0.14411764705882035
+  },
+  "es3|se1|reb75": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.226764705882374
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 22.373039215686262
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.116176470588258
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.20294117647059,
+      "STN": 17.377450980392155,
+      "GPi": 45.045751633986924
+    },
+    "max_calibration_error_hz": 0.10294117647059053
+  },
+  "es3|se2|reb75": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.29838235294119
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 22.650245098039214
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.181045751634002
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.26176470588235,
+      "STN": 17.534313725490193,
+      "GPi": 45.18300653594771
+    },
+    "max_calibration_error_hz": 0.11470588235293633
+  },
+  "es3|se3|reb75": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.161470588235302
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 22.644852941176467
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.064215686274515
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.21764705882352,
+      "STN": 17.78921568627451,
+      "GPi": 45.05555555555556
+    },
+    "max_calibration_error_hz": 0.3088235294117645
+  },
+  "es3|se4|reb75": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 11.027941176470597
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 22.5656862745098
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.082189542483675
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.14705882352941,
+      "STN": 17.88235294117647,
+      "GPi": 45.189542483660134
+    },
+    "max_calibration_error_hz": 0.40196078431372584
+  },
+  "es4|se1|reb75": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.272058823529424
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 30.18627450980392
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.176633986928117
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.226470588235294,
+      "STN": 17.44607843137255,
+      "GPi": 45.16013071895425
+    },
+    "max_calibration_error_hz": 0.07941176470588118
+  },
+  "es4|se2|reb75": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.314852941176483
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 30.63235294117647
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.177124183006555
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.247058823529414,
+      "STN": 17.602941176470587,
+      "GPi": 45.22222222222222
+    },
+    "max_calibration_error_hz": 0.12418300653594372
+  },
+  "es4|se3|reb75": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.160441176470597
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 30.734558823529408
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.09035947712421
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.16470588235295,
+      "STN": 17.901960784313726,
+      "GPi": 45.248366013071895
+    },
+    "max_calibration_error_hz": 0.42156862745098067
+  },
+  "es4|se4|reb75": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 75.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 10.90176470588236
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 30.652450980392153
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.073366013071915
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.25,
+      "STN": 18.318627450980394,
+      "GPi": 45.24183006535948
+    },
+    "max_calibration_error_hz": 0.8382352941176485
+  },
+  "es1|se1|reb0": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.216617647058833
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 18.63553921568628
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.169771241830077
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.20294117647059,
+      "STN": 17.49019607843137,
+      "GPi": 45.11111111111111
+    },
+    "max_calibration_error_hz": 0.055882352941175384
+  },
+  "es1|se2|reb0": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.227500000000008
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 18.729411764705873
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.159967320261444
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.22941176470588,
+      "STN": 17.56862745098039,
+      "GPi": 45.12418300653595
+    },
+    "max_calibration_error_hz": 0.08823529411764497
+  },
+  "es1|se3|reb0": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.178823529411773
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 18.764215686274508
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.122549019607856
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.14705882352941,
+      "STN": 17.612745098039216,
+      "GPi": 45.12091503267974
+    },
+    "max_calibration_error_hz": 0.132352941176471
+  },
+  "es1|se4|reb0": {
+    "gpe_to_stn_scale": 1.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 11.100147058823538
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 18.67009803921568
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.105392156862763
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.055882352941175,
+      "STN": 17.470588235294116,
+      "GPi": 45.06209150326797
+    },
+    "max_calibration_error_hz": 0.09117647058823763
+  },
+  "es2|se1|reb0": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.240882352941178
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 28.599264705882344
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.17287581699348
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.28235294117647,
+      "STN": 17.470588235294116,
+      "GPi": 45.153594771241835
+    },
+    "max_calibration_error_hz": 0.13529411764705657
+  },
+  "es2|se2|reb0": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.24235294117648
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 28.71029411764705
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.12679738562093
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.16470588235295,
+      "STN": 17.602941176470587,
+      "GPi": 45.07516339869281
+    },
+    "max_calibration_error_hz": 0.12254901960784181
+  },
+  "es2|se3|reb0": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.15617647058825
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 28.823284313725495
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.082679738562106
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.03823529411765,
+      "STN": 17.700980392156865,
+      "GPi": 45.15686274509804
+    },
+    "max_calibration_error_hz": 0.22058823529411953
+  },
+  "es2|se4|reb0": {
+    "gpe_to_stn_scale": 2.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 10.931911764705891
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 28.892401960784316
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.03120915032683
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.07058823529412,
+      "STN": 17.784313725490197,
+      "GPi": 44.924836601307184
+    },
+    "max_calibration_error_hz": 0.3039215686274517
+  },
+  "es3|se1|reb0": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.255735294117663
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 37.57377450980392
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.128921568627465
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.22058823529412,
+      "STN": 17.524509803921568,
+      "GPi": 45.1437908496732
+    },
+    "max_calibration_error_hz": 0.07352941176471006
+  },
+  "es3|se2|reb0": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.236029411764715
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 37.86323529411764
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.120098039215712
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.28529411764706,
+      "STN": 17.715686274509807,
+      "GPi": 45.088235294117645
+    },
+    "max_calibration_error_hz": 0.23529411764706154
+  },
+  "es3|se3|reb0": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.16926470588236
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 38.167892156862735
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.094934640522894
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.37647058823529,
+      "STN": 18.122549019607845,
+      "GPi": 45.26143790849673
+    },
+    "max_calibration_error_hz": 0.6421568627451002
+  },
+  "es3|se4|reb0": {
+    "gpe_to_stn_scale": 3.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 10.929705882352948
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 38.452205882352935
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.103758169934665
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.28235294117647,
+      "STN": 18.299019607843135,
+      "GPi": 45.333333333333336
+    },
+    "max_calibration_error_hz": 0.8186274509803901
+  },
+  "es4|se1|reb0": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 1.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.29852941176471
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 45.78406862745098
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.21356209150329
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.26470588235294,
+      "STN": 17.441176470588236,
+      "GPi": 45.408496732026144
+    },
+    "max_calibration_error_hz": 0.3104575163398664
+  },
+  "es4|se2|reb0": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 2.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 15.33176470588236
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 46.248039215686276
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.231862745098066
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.3235294117647,
+      "STN": 17.705882352941174,
+      "GPi": 45.36601307189542
+    },
+    "max_calibration_error_hz": 0.2679738562091458
+  },
+  "es4|se3|reb0": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 3.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 13.354117647058844
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 46.87083333333333
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.252124183006554
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.58529411764706,
+      "STN": 17.975490196078432,
+      "GPi": 45.33986928104576
+    },
+    "max_calibration_error_hz": 0.4950980392156872
+  },
+  "es4|se4|reb0": {
+    "gpe_to_stn_scale": 4.0,
+    "stn_to_gpe_scale": 4.0,
+    "stn_rebound_mv": 0.0,
+    "spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 11.316617647058827
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "bias_mv": 47.31813725490195
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.256535947712432
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "calibrated_rates_hz": {
+      "GPe": 34.89411764705883,
+      "STN": 18.284313725490197,
+      "GPi": 45.45751633986928
+    },
+    "max_calibration_error_hz": 0.8039215686274517
+  }
+}

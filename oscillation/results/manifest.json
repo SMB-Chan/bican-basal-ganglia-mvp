@@ -1,0 +1,539 @@
+{
+  "seeds": [
+    2297,
+    2309,
+    2311,
+    2333,
+    2339,
+    2341,
+    2347,
+    2351,
+    2357,
+    2371,
+    2377,
+    2381
+  ],
+  "protocol": {
+    "purpose": "Exploratory, no new external data: can the open-loop GPe-STN circuit of the frozen Stage 4A model produce PD-specific 8-15 Hz oscillation once loop gain and STN rebound vary?",
+    "base_model": "rebound/results/selection.json (selected_spec)",
+    "dopamine_depletion": "parkinsonian/protocol.json (unchanged)",
+    "grid": {
+      "gpe_to_stn_scale": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "stn_to_gpe_scale": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "stn_rebound_mv": [
+        75.0,
+        0.0
+      ]
+    },
+    "calibration": {
+      "seed": 800,
+      "target": "rebound/results/calibration.json target_tonic_rates_hz (normal state, scales applied)",
+      "groups": [
+        "GPe",
+        "STN",
+        "GPi"
+      ],
+      "network_iterations": 16,
+      "tolerance_hz": 0.15
+    },
+    "seeds": [
+      2297,
+      2309,
+      2311,
+      2333,
+      2339,
+      2341,
+      2347,
+      2351,
+      2357,
+      2371,
+      2377,
+      2381
+    ],
+    "spectral": "parkinsonian/protocol.json spontaneous block (6,500 ms, first 500 ms discarded, Welch 1,000 ms Hann, 50% overlap, index = mean PSD 8-15 Hz / mean PSD 55-150 Hz)",
+    "definitions": {
+      "pd_specific_oscillation": "For one seed: STN and GPi population index in PD >= 1.5 and >= 1.25 x the normal-state index, and normal-state STN index < 1.5 (Stage 4B test 2 plus a normal-state ceiling).",
+      "variant_positive": "pd_specific_oscillation in at least 6 of 12 seeds",
+      "calibration_failure": "Any group misses its target rate by more than 2 Hz after the last iteration; reported, not dropped."
+    },
+    "interpretation_rules": [
+      "If no variant is positive, the open-loop circuit does not produce PD-specific oscillation within this range. This is consistent with, but does not prove, a need for cortico-thalamic feedback.",
+      "If some variants are positive, the claim that a closed loop is required is withdrawn for this model class, and the positive region is reported as a hypothesis about loop gain.",
+      "No outcome here is counted as agreement with Tachibana et al. (2011): their pharmacology was already used in Stage 4B."
+    ],
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2026113
+  },
+  "pd_protocol": {
+    "seeds": [
+      1103,
+      1109,
+      1117,
+      1123,
+      1129,
+      1151,
+      1153,
+      1163,
+      1171,
+      1181,
+      1187,
+      1193
+    ],
+    "dopamine_depletion": {
+      "d1_bias_shift_mv": -4.0,
+      "d2_bias_shift_mv": 5.5,
+      "d1_cortical_gain": 0.5,
+      "d2_cortical_gain": 1.3,
+      "gpe_to_stn_weight_scale": 1.5,
+      "note": "Fixed from nigrostriatal and pallidosubthalamic dopamine physiology before any PD simulation: loss of D1 facilitation (-4.0 mV bias, 0.5x M1->D1 gain; Mallet et al. 2006), loss of D2 inhibition (+5.5 mV bias, 1.3x M1->D2 gain), and loss of presynaptic D2 suppression at GPe->STN GABAergic terminals (1.5x; Shen & Johnson 2000, 2005; Baufreton & Bevan 2008). Extrastriatal intrinsic parameters are untouched."
+    },
+    "spontaneous": {
+      "duration_ms": 6500,
+      "burn_in_ms": 500,
+      "welch_window_ms": 1000,
+      "welch_overlap_ms": 500,
+      "low_beta_band_hz": [
+        8.0,
+        15.0
+      ],
+      "total_band_hz": [
+        3.0,
+        50.0
+      ],
+      "poisson_ref_band_hz": [
+        55.0,
+        150.0
+      ],
+      "min_spikes_single_unit": 10,
+      "conditions": [
+        "normal_intact",
+        "pd_intact",
+        "pd_striatal_only",
+        "pd_stn_blocked",
+        "pd_gpe_to_stn_blocked"
+      ],
+      "rate_shift_min_hz": 1.0,
+      "min_beta_index_ratio": 1.25,
+      "min_pd_beta_index": 1.5
+    },
+    "cortical_evoked": {
+      "inherit_from": "cortical/protocol.json",
+      "conditions": [
+        "normal_intact",
+        "pd_intact",
+        "pd_stn_blocked"
+      ],
+      "sign_tolerance_hz": 0.25
+    },
+    "references": {
+      "tachibana_2011_doi": "10.1111/j.1460-9568.2011.07865.x",
+      "nambu_tachibana_2014_pmc": "PMC4033056",
+      "chiken_2021_doi": "10.1093/cercor/bhab164",
+      "chiken_2021_pmc": "PMC8568006"
+    },
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 110489,
+    "note": "Pre-registered prior to Stage 4A calibration and prior to any parkinsonian simulation. Evaluates baseline_lif, Stage-2 selected_biophysics, and Stage-4A selected_rebound zero-shot without retuning."
+  },
+  "base_selection": {
+    "pathway": "stn_loop_dominant",
+    "synapse": "delta",
+    "rebound": "moderate_ifb",
+    "variant": "stn_loop_dominant|delta|moderate_ifb",
+    "joint_normal_pass_fraction": 0.6666666666666666,
+    "kita_strict_pass_fraction": 0.6666666666666666,
+    "m1_all_causal_pass_fraction": 1.0,
+    "mean_tonic_rate_mae_hz": 3.3484840232389246,
+    "mean_tonic_cv_mae": 0.38120727786435554,
+    "mean_triphasic_latency_mae_ms": 1.9166666666666667,
+    "selected_spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.101470588235298
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.686274509803918
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.061274509803923
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "rule": {
+      "max_tonic_rate_mae_hz": 5.0,
+      "max_blocked_late_abs_hz": 0.5,
+      "min_isolated_rebound_hz": 5.0,
+      "note": "Selects the factorial condition maximizing joint_normal_pass (Gatev & Wichmann tonic rate MAE <= 5 Hz + Kita 4/4 pulse features & |blocked_late_hz| <= 0.5 Hz + Stage 3 normal M1 all_causal_checks == 1 + Bevan & Wilson isolated STN post-inhibitory rebound >= +5 Hz) across seeds 1009..1069, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz + 0.05 * triphasic_latency_mae_ms). Stage 4B parkinsonian data are never consulted."
+    }
+  },
+  "model_config": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67,
+      83
+    ],
+    "groups": {
+      "D1": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.8,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "D2": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.7,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "SIn": {
+        "n": 28,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.5,
+        "bias_mv": 14.0,
+        "tau_ms": 12
+      },
+      "GPe": {
+        "n": 200,
+        "region": "GPe",
+        "sign": -1,
+        "jump_mv": 0.65,
+        "bias_mv": 20.0,
+        "tau_ms": 14
+      },
+      "STN": {
+        "n": 120,
+        "region": "STN",
+        "sign": 1,
+        "jump_mv": 0.85,
+        "bias_mv": 17.0,
+        "tau_ms": 15
+      },
+      "GPi": {
+        "n": 180,
+        "region": "GPi",
+        "sign": -1,
+        "jump_mv": 0.85,
+        "bias_mv": 22.0,
+        "tau_ms": 14
+      }
+    },
+    "out_degree": 24,
+    "output_group": "GPi",
+    "distance_scale_mm": 3.0,
+    "local_cell_affinity": {
+      "D1": {
+        "D1": 1.4,
+        "D2": 1.2
+      },
+      "D2": {
+        "D1": 1.2,
+        "D2": 1.4
+      },
+      "SIn": {
+        "D1": 2.5,
+        "D2": 2.5
+      },
+      "GPe": {
+        "GPe": 1.4
+      }
+    },
+    "projection_propensity": {
+      "D1": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 0.5,
+        "GPi": 4.0
+      },
+      "D2": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 4.0,
+        "GPi": 0.4
+      },
+      "SIn": {
+        "D1": 1.0,
+        "D2": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 1.2,
+        "D1": 0.2,
+        "D2": 0.2
+      },
+      "STN": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      }
+    },
+    "topographic_projections": [
+      [
+        "D1",
+        "GPe"
+      ],
+      [
+        "D1",
+        "GPi"
+      ],
+      [
+        "D2",
+        "GPe"
+      ],
+      [
+        "D2",
+        "GPi"
+      ],
+      [
+        "GPe",
+        "STN"
+      ],
+      [
+        "GPe",
+        "GPi"
+      ]
+    ],
+    "matched_channel_gain": 4.0,
+    "synthetic_geometry_mm": {
+      "STRd": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "sd": [
+          2.4,
+          3.0,
+          2.0
+        ]
+      },
+      "GPe": {
+        "center": [
+          3.0,
+          -1.0,
+          -1.0
+        ],
+        "sd": [
+          1.3,
+          1.7,
+          1.1
+        ]
+      },
+      "STN": {
+        "center": [
+          7.0,
+          -3.0,
+          -3.0
+        ],
+        "sd": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      },
+      "GPi": {
+        "center": [
+          5.0,
+          -2.0,
+          -2.0
+        ],
+        "sd": [
+          1.2,
+          1.4,
+          1.0
+        ]
+      }
+    },
+    "simulation": {
+      "dt_ms": 1.0,
+      "rest_mv": -65,
+      "reset_mv": -68,
+      "threshold_mv": -50,
+      "refractory_ms": 2.0,
+      "noise_mv_sqrt_ms": 1.1,
+      "synaptic_offset_ms": 1.0,
+      "conduction_mm_per_ms": 0.9,
+      "baseline_ms": 200,
+      "baseline_readout_ms": 150,
+      "cue_ms": 300,
+      "cue_readout_ms": 200,
+      "cue_common_mv": 3.5,
+      "cue_stn_common_mv": 1.0,
+      "cue_deltas_mv": [
+        2.0,
+        5.0
+      ],
+      "trials_per_side": 4,
+      "equal_trials": 4
+    }
+  },
+  "atlas": {
+    "release": "HMBA Adult Rhesus Macaque Brain Atlas 2025",
+    "license": "CC BY 4.0",
+    "shape": [
+      606,
+      787,
+      500
+    ],
+    "affine_ras_mm": [
+      [
+        -0.1599999964237213,
+        -0.0,
+        0.0,
+        48.0
+      ],
+      [
+        -0.0,
+        0.1599999964237213,
+        -0.0,
+        -64.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1599999964237213,
+        -48.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selection": "RAS x greater than image-grid physical midpoint",
+    "midline_ras_x_mm": -0.3999989181756973,
+    "assets": {
+      "rhesus_annotations_160.nii.gz": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/annotations_compressed_160.nii.gz",
+        "sha256": "4fe297fa8d8e90b7713c759b3c071624775bf3211097f4f116f9cba94bba69c7"
+      },
+      "terminology.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/terminologies/hmba-mammalian-homba-terminology/2025/terminology.csv",
+        "sha256": "f0131888ef69cdf81de6199101d36684eaffe056864761af3059513dd08fa43f"
+      },
+      "volumes.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/parcellation_volumes.csv",
+        "sha256": "a77e9ac590282df90efa131e6869a0712d3b595e11506d931aa0538788de545f"
+      }
+    },
+    "regions": {
+      "STRd": {
+        "homba_identifier": "HOMBA:AA30192",
+        "atlas_abbreviation": "STRd",
+        "nonzero_labels": [
+          121,
+          122,
+          123,
+          125,
+          126,
+          2446
+        ],
+        "voxels_full_volume": 736681,
+        "voxels_selected": 372123,
+        "centroid_ras_mm": [
+          9.722919352937998,
+          0.1373312225567912,
+          3.3825832120571953
+        ]
+      },
+      "GPe": {
+        "homba_identifier": "HOMBA:10343",
+        "atlas_abbreviation": "GPe",
+        "nonzero_labels": [
+          132,
+          134
+        ],
+        "voxels_full_volume": 84774,
+        "voxels_selected": 42309,
+        "centroid_ras_mm": [
+          9.293667933626388,
+          -2.285623823821005,
+          -0.029505905711086487
+        ]
+      },
+      "STN": {
+        "homba_identifier": "HOMBA:10466",
+        "atlas_abbreviation": "STH",
+        "nonzero_labels": [
+          198
+        ],
+        "voxels_full_volume": 7406,
+        "voxels_selected": 3700,
+        "centroid_ras_mm": [
+          6.052627964623876,
+          -7.184303972632498,
+          -2.997233438322673
+        ]
+      },
+      "GPi": {
+        "homba_identifier": "HOMBA:10344",
+        "atlas_abbreviation": "GPi",
+        "nonzero_labels": [
+          133
+        ],
+        "voxels_full_volume": 40711,
+        "voxels_selected": 20363,
+        "centroid_ras_mm": [
+          8.163646718629748,
+          -3.9199109829280605,
+          -1.730386537324877
+        ]
+      }
+    }
+  },
+  "python": "3.13.18",
+  "numpy": "2.5.5",
+  "raw_sha256": {
+    "evaluations.csv": "44e53307ce5df994dc9a006df6c8767f5f33475c723ee508b81f6c28624323ae",
+    "variants.json": "24b6f8a6a3ae74ed5eab4542047954d1e7fdf86aa417bfc2dc3f19fd6d11ec2b"
+  }
+}

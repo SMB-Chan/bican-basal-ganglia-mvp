@@ -1,0 +1,75 @@
+{
+  "seeds": 36,
+  "frozen_variant": "stn_loop_dominant|delta|moderate_ifb",
+  "frozen_joint_pass": {
+    "mean": 0.5833333333333334,
+    "ci_low": 0.4166666666666667,
+    "ci_high": 0.75
+  },
+  "frozen_rank": 1,
+  "ranking_by_joint_pass": [
+    {
+      "variant": "stn_loop_dominant|delta|moderate_ifb",
+      "joint_pass": 0.5833333333333334
+    },
+    {
+      "variant": "stn_loop_dominant|physiological_37c|moderate_ifb",
+      "joint_pass": 0.2777777777777778
+    },
+    {
+      "variant": "gpe_gpi_heavy|delta|moderate_ifb",
+      "joint_pass": 0.19444444444444445
+    },
+    {
+      "variant": "gpe_gpi_heavy|physiological_37c|moderate_ifb",
+      "joint_pass": 0.19444444444444445
+    },
+    {
+      "variant": "gpe_gpi_heavy|physiological_37c|strong_ifb",
+      "joint_pass": 0.19444444444444445
+    },
+    {
+      "variant": "gpe_gpi_heavy|delta|strong_ifb",
+      "joint_pass": 0.1388888888888889
+    },
+    {
+      "variant": "gpe_gpi_heavy|delta|passive",
+      "joint_pass": 0.0
+    },
+    {
+      "variant": "gpe_gpi_heavy|physiological_37c|passive",
+      "joint_pass": 0.0
+    },
+    {
+      "variant": "stn_loop_dominant|delta|passive",
+      "joint_pass": 0.0
+    },
+    {
+      "variant": "stn_loop_dominant|delta|strong_ifb",
+      "joint_pass": 0.0
+    },
+    {
+      "variant": "stn_loop_dominant|physiological_37c|passive",
+      "joint_pass": 0.0
+    },
+    {
+      "variant": "stn_loop_dominant|physiological_37c|strong_ifb",
+      "joint_pass": 0.0
+    }
+  ],
+  "C1_selection_stable": {
+    "reselected": "stn_loop_dominant|delta|moderate_ifb",
+    "pass": true
+  },
+  "C2_superiority": {
+    "best_alternative": "stn_loop_dominant|physiological_37c|moderate_ifb",
+    "mean_difference": 0.3055555555555556,
+    "ci_low": 0.08333333333333333,
+    "ci_high": 0.5,
+    "pass": true
+  },
+  "C3_no_shrinkage": {
+    "original_rate": 0.6666666666666666,
+    "pass": true
+  }
+}

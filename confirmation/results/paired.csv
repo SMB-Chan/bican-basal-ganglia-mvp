@@ -1,0 +1,12 @@
+frozen,alternative,metric,seeds,mean_difference,ci_low,ci_high
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|delta|moderate_ifb,joint_normal_pass,36,0.3888888888888889,0.16666666666666666,0.6111111111111112
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|delta|passive,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|delta|strong_ifb,joint_normal_pass,36,0.4444444444444444,0.2222222222222222,0.6388888888888888
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|physiological_37c|moderate_ifb,joint_normal_pass,36,0.3888888888888889,0.16666666666666666,0.5833333333333334
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|physiological_37c|passive,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75
+stn_loop_dominant|delta|moderate_ifb,gpe_gpi_heavy|physiological_37c|strong_ifb,joint_normal_pass,36,0.3888888888888889,0.16666666666666666,0.5833333333333334
+stn_loop_dominant|delta|moderate_ifb,stn_loop_dominant|delta|passive,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75
+stn_loop_dominant|delta|moderate_ifb,stn_loop_dominant|delta|strong_ifb,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75
+stn_loop_dominant|delta|moderate_ifb,stn_loop_dominant|physiological_37c|moderate_ifb,joint_normal_pass,36,0.3055555555555556,0.08333333333333333,0.5
+stn_loop_dominant|delta|moderate_ifb,stn_loop_dominant|physiological_37c|passive,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75
+stn_loop_dominant|delta|moderate_ifb,stn_loop_dominant|physiological_37c|strong_ifb,joint_normal_pass,36,0.5833333333333334,0.4166666666666667,0.75

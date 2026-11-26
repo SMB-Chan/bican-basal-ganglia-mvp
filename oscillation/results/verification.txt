@@ -1,0 +1,4 @@
+PASS | protocol, criteria and code committed and pushed before the run (fe176da); the only prior execution was a one-variant smoke test of the frozen model on non-protocol seed 2003
+PASS | 32 variants calibrated on seed 800; largest residual rate error 0.84 Hz (no calibration failure by the 2 Hz rule)
+PASS | identity variant (x1, x1, 75 mV) recalibrated biases within 0.1 mV of rebound/results/selection.json
+PASS | 12 fresh seeds (2297-2381) disjoint from all earlier seeds
