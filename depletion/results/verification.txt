@@ -1,0 +1,3 @@
+PASS | protocol and code committed and pushed before the run (28ef850)
+PASS | 12 fresh seeds (2473-2591) disjoint from all earlier seeds; 3 models x 16 conditions share noise and graph per seed
+PASS | unit test checks that each condition changes only the named components

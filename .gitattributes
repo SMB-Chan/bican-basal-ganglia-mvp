@@ -18,3 +18,4 @@ readout/results/** -text whitespace=cr-at-eol
 heldout/inventory.csv -text whitespace=cr-at-eol
 heldout/predictions/** -text whitespace=cr-at-eol
 heldout/results/** -text whitespace=cr-at-eol
+depletion/results/** -text whitespace=cr-at-eol

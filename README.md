@@ -32,6 +32,7 @@
 - [開ループのGPe–STN回路でPD特異的な振動が出るかの探索](oscillation/RESULTS.md)
 - [振動指数の陽性対照：12 Hzのリズムを外から与えた場合](readout/RESULTS.md)
 - [DANDI:000947（MPTP前後のマカクGPi）によるホールドアウト検証](heldout/RESULTS.md)
+- [ドーパミン枯渇の設定の分解と、GPiの低下を生む変化の探索](depletion/RESULTS.md)
 - [外部データの使用台帳（設定・選択・評価の区別）](DATA_LEDGER.md)
 
 ## 再現手順
