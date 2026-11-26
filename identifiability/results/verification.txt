@@ -1,0 +1,4 @@
+PASS | four placements, 192 graphs, 384 membrane evaluations, 3,264 compared pairs
+PASS | exact raw-output SHA-256 and expected counts of external matches and continuous collisions
+PASS | placement 701 reproduced evaluation rows, paired results and every 1 ms response sample
+PASS | 17 unit tests, including wiring collisions, held-out discrimination ties and spatial neighbors

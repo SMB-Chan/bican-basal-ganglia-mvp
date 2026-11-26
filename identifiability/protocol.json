@@ -1,0 +1,15 @@
+{
+  "placements": [701, 709, 719, 727],
+  "first_graph_seed": 6101,
+  "draws_per_placement": 16,
+  "pulse_repetitions": 8,
+  "membrane_conditions": ["E", "F"],
+  "hypotheses": {
+    "baseline": {"GPe": 2.0, "GPi": 2.0},
+    "toward_GPe": {"GPe": 4.0, "GPi": 1.0},
+    "toward_GPi": {"GPe": 1.0, "GPi": 4.0}
+  },
+  "pair_tolerances": {"rate_hz": 2.0, "isi_cv": 0.1, "early_hz": 1.0, "late_hz": 0.5},
+  "external_rate_mae_hz": 5.0,
+  "external_blocked_late_abs_hz": 0.5
+}

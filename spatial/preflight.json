@@ -1,0 +1,64 @@
+{
+  "release": "HMBA-BG-MERSCOPE-Macaque 20261101",
+  "license": "CC BY-NC 4.0",
+  "url_prefix": "https://allen-brain-cell-atlas.s3.amazonaws.com/metadata/HMBA-BG-MERSCOPE-Macaque/20261101/",
+  "source_sha256": {
+    "cell_metadata.csv": "e9e063a77a81c1f8f043b1ac7db2ee2acc2b92be340ea960125035a2683667e1",
+    "slab_plane_coordinates.csv": "dc3f51e8bec1ef2d3ff4f3d4df097f35a91d3140d2b9e69aeefd307448b16637",
+    "cell_anatomical_annotations.csv": "6ac140f0eb59cad71e9697abaf4ea1b4e56c219299fc2b5f40d4a6e6a88782ab",
+    "mmc_results.csv": "6fe6499db545caa6c42e3d40bf5768f9dbfb427806b3762f335313e4eef19123",
+    "specimen_metadata.csv": "00d82361c07236df63f255678918259f1698ca14ef2b64c38b7860f2b7f27100",
+    "donor.csv": "e68d29cead3c6b0550d9bff3982c2564e63dc9af470469636d06de308d1d4995"
+  },
+  "ranged_first_bytes_per_table": 8388608,
+  "donors": [
+    "QM23.50.001"
+  ],
+  "table_rows": {
+    "cell_metadata.csv": 37728,
+    "slab_plane_coordinates.csv": 62083,
+    "cell_anatomical_annotations.csv": 101871,
+    "mmc_results.csv": 53664
+  },
+  "shared_cell_ids": 37728,
+  "qc_pass_and_matched_specimen_plane": 36857,
+  "coordinate_system": "2D slab plane, millimetres",
+  "planes": {
+    "QM23.50.001.CX.44.Plane.05": {
+      "counts": {
+        "D2": 4039,
+        "D1": 4277
+      },
+      "sections": [
+        "QM23.50.001.CX.44.01.05.01"
+      ],
+      "slab_xy_mm_min": [
+        37.376032943431674,
+        22.19084523563675
+      ],
+      "slab_xy_mm_max": [
+        44.95063774365067,
+        27.502830774270368
+      ],
+      "neighbors_per_cell": 8,
+      "permutations": 500,
+      "observed_same_type_fraction": 0.5064333814333815,
+      "nulls": {
+        "by_section": {
+          "strata": 1,
+          "mean": 0.5002224326599326,
+          "q025": 0.4951362584175084,
+          "q975": 0.5054315476190476,
+          "observed_minus_mean": 0.006210948773448854
+        },
+        "by_section_and_0_5_mm_tile": {
+          "strata": 120,
+          "mean": 0.5053203763828764,
+          "q025": 0.5005595388407889,
+          "q975": 0.5095534962722463,
+          "observed_minus_mean": 0.0011130050505050448
+        }
+      }
+    }
+  }
+}

@@ -4,4 +4,5 @@ results/** -text
 validation/results/** -text whitespace=cr-at-eol
 validation/patchseq_tau.json -text whitespace=cr-at-eol
 heterogeneity/results/** -text whitespace=cr-at-eol
+identifiability/results/** -text whitespace=cr-at-eol
 config.json -text

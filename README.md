@@ -14,6 +14,10 @@
 - [検証指標・データ出典・再現手順](validation/PROTOCOL.md)
 - [細胞ごとの膜特性を加えた結果](heterogeneity/RESULTS.md)
 - [同一細胞内の膜特性の組み合わせとドナー単位の検証手順](heterogeneity/PROTOCOL.md)
+- [同じ出力を与える配線と、投射仮説を区別できる指標](identifiability/RESULTS.md)
+- [配線の識別実験の設定と再現手順](identifiability/PROTOCOL.md)
+- [マカクMERSCOPE実座標の予備解析](spatial/RESULTS.md)
+- [皮質刺激の設定用・評価用の資料](identifiability/CORTICAL_BENCHMARK.md)
 
 ## 再現手順
 
