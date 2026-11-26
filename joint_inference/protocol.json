@@ -1,0 +1,28 @@
+{
+  "parent": "e6f80f061b9fe560eafebb604de191bb6d47c892",
+  "train_seeds": [4201,4211,4217,4219,4229,4231,4241,4243,4253,4259,4261,4271,4273,4283,4289,4297],
+  "test_seeds": [5101,5107,5113,5119,5147,5153,5167,5171,5179,5189,5197,5209,5227,5231,5233,5237],
+  "train_strengths": [0,0.5,1],
+  "test_strengths": [0.125,0.375,0.625,0.875],
+  "train_block": [0.25,0.5,0.75],
+  "test_block": [0.35,0.65],
+  "burn_ms": 500,
+  "measure_ms": 3000,
+  "gpi_sample": 24,
+  "isolated_steps_mv": [-2,2],
+  "probe": {"repetitions": 12, "gpe_fraction": 0.3, "max_jitter_ms": 2, "last_ms": 35, "noise_mv_sd": 1.5},
+  "trials": {"pre": 6011, "post": 6012, "isol_low": 6013, "isol_high": 6014},
+  "features": {
+    "rates": ["rate_pre","rate_delta"],
+    "rates_efficacy": ["rate_pre","rate_delta","eff_proxy"],
+    "rates_known_efficacy": ["rate_pre","rate_delta","eff_true"],
+    "rates_isolated": ["rate_pre","rate_delta","isol_low","isol_high"],
+    "rates_pathway": ["rate_pre","rate_delta","peak_pre","eff_proxy"],
+    "joint": ["rate_pre","rate_delta","isol_low","isol_high","peak_pre","eff_proxy"]
+  },
+  "ridge": 1,
+  "primary_mae_max": 0.15,
+  "primary_improvement_min": 0.025,
+  "bootstrap_seed": 20261128,
+  "bootstrap_replicates": 10000
+}
