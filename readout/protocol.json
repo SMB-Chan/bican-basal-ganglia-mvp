@@ -1,0 +1,26 @@
+{
+  "purpose": "Positive control for the Stage 4B oscillation index, no external data: can the GPi index reach 1.5 when a known 12 Hz rhythm is imposed on STN, or on GPi directly, in the frozen Stage 4A model?",
+  "base_model": "rebound/results/selection.json (selected_spec)",
+  "dopamine_depletion": "parkinsonian/protocol.json (unchanged)",
+  "spectral": "parkinsonian/protocol.json spontaneous block (unchanged)",
+  "seeds": [2383, 2389, 2393, 2399, 2411, 2417, 2423, 2437, 2441, 2447, 2459, 2467],
+  "imposed_rhythm": {
+    "frequency_hz": 12.0,
+    "amplitudes_mv": [0.0, 0.5, 1.0, 2.0, 4.0, 8.0],
+    "targets": ["STN", "GPi"],
+    "definition": "Each step adds (1 - exp(-dt/tau_cell)) * A * sin(2*pi*f*t) to every cell of the target group, with one shared phase: the cell's equilibrium potential oscillates by A mV.",
+    "states": ["normal", "pd"]
+  },
+  "isolated_gpi": "GPi cells of the same seed with all synapses removed, normal-state biases and noise, no imposed rhythm.",
+  "criteria": {
+    "R1_gpi_reachable_via_stn": "In the PD state, at some STN amplitude where the 12-seed mean STN index is >= 1.5, the mean GPi index is also >= 1.5.",
+    "R2_gpi_metric_can_register": "With the rhythm imposed on GPi directly (PD state), the mean GPi index reaches >= 1.5 at some amplitude up to 8 mV."
+  },
+  "interpretation_rules": [
+    "R2 fails: the index cannot register a GPi rhythm of this size in this model, so the GPi part of Stage 4B test 2 was not attainable as designed.",
+    "R2 passes and R1 fails: the index works for GPi, but the model circuit does not pass an STN rhythm to the GPi population at the threshold level; the bottleneck is transmission.",
+    "R1 and R2 pass: the GPi criterion is attainable, and the Stage 4B failure reflects the absence of an STN rhythm at the frozen loop gains."
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 2026114
+}

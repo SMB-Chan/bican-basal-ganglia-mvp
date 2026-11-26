@@ -45,3 +45,16 @@ class FollowUpTests(unittest.TestCase):
         self.assertEqual(verdict["C2_superiority"]["best_alternative"], "b|x|y")
         self.assertAlmostEqual(verdict["C2_superiority"]["mean_difference"], 0.5)
         self.assertFalse(verdict["C3_no_shrinkage"]["pass"])
+
+
+class ReadoutTests(unittest.TestCase):
+    def test_rhythm_moves_only_target_cells_with_the_requested_equilibrium_amplitude(self):
+        from readout.run import rhythm
+        pop = population(CONFIG, None, 11)
+        drive = rhythm(pop, "STN", 2.0, 12.0, 500, 1.0)
+        stn = pop.cell_type == pop.names.index("STN")
+        self.assertTrue(np.all(drive[:, ~stn] == 0))
+        # Summing the per-step input through the membrane filter gives an equilibrium shift of `amplitude`.
+        tau = pop.tau[stn][0]
+        self.assertAlmostEqual(np.abs(drive[:, stn][:, 0]).max() / (1 - np.exp(-1 / tau)), 2.0, places=2)
+        np.testing.assert_array_equal(rhythm(pop, "GPi", 0.0, 12.0, 10, 1.0), 0)
