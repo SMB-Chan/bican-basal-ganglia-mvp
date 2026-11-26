@@ -6,3 +6,5 @@ validation/patchseq_tau.json -text whitespace=cr-at-eol
 heterogeneity/results/** -text whitespace=cr-at-eol
 identifiability/results/** -text whitespace=cr-at-eol
 config.json -text
+dynamics/results/** -text whitespace=cr-at-eol
+spatial/composition.json -text whitespace=cr-at-eol

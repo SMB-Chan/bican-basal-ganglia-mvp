@@ -2,8 +2,10 @@
   "seeds": [307, 317, 331, 347, 359, 373, 389, 401, 419, 433, 449, 463],
   "bootstrap_replicates": 5000,
   "bootstrap_seed": 721305,
-  "conditions": ["original", "median", "tau", "shuffled", "joint", "rhesus_joint"],
-  "comparisons": [["median", "original"], ["tau", "median"], ["shuffled", "tau"], ["joint", "shuffled"], ["joint", "median"], ["rhesus_joint", "joint"]],
+  "conditions": ["original", "median", "tau", "shuffled", "joint", "rhesus_joint", "shuffled_matched", "joint_matched"],
+  "comparisons": [["median", "original"], ["tau", "median"], ["shuffled", "tau"], ["joint", "shuffled"], ["joint", "median"], ["rhesus_joint", "joint"],
+                  ["joint_matched", "median"], ["joint_matched", "shuffled_matched"], ["joint", "joint_matched"], ["shuffled", "shuffled_matched"]],
+  "rate_matching": {"duration_ms": 3000, "burn_in_ms": 300, "trial": 4000, "offset_search_mv": [-15.0, 15.0], "iterations": 25},
   "wiring": ["cell_type", "projection"],
   "patchseq_qc": {
     "min_bootstrapping_probability": 0.8,

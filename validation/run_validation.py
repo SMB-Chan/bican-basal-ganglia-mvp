@@ -73,16 +73,21 @@ def block_stn_to_gpe(pop, graph):
 
 
 def measure_pulse(pop, graph, sim, spec, seed):
+    return measure_pulse_groups(pop, graph, sim, spec, seed, ("GPi",))["GPi"]
+
+
+def measure_pulse_groups(pop, graph, sim, spec, seed, groups):
+    """Sham-subtracted responses (intact, STN→GPe blocked) of each listed group to the STN pulse."""
     params = {**sim, "baseline_ms": spec["pulse_at_ms"], "cue_ms": spec["after_ms"]}
     boundary = ticks(spec["pulse_at_ms"], sim["dt_ms"])
     n_steps = ticks(spec["after_ms"], sim["dt_ms"])
     stn = np.flatnonzero(pop.cell_type == pop.names.index("STN"))
-    gpi = pop.cell_type == pop.names.index("GPi")
+    masks = {name: pop.cell_type == pop.names.index(name) for name in groups}
     blocked = block_stn_to_gpe(pop, graph)
     n_stimulated = round(len(stn) * spec["fraction_stn"])
     rng = np.random.default_rng(np.random.SeedSequence([seed, 5]))
     driven = rng.choice(stn, n_stimulated, replace=False)
-    responses = np.zeros((2, n_steps))
+    responses = {name: np.zeros((2, n_steps)) for name in groups}
     zeros = np.zeros(len(pop.cell_type))
     for trial in range(spec["repetitions"]):
         noise, initial = trial_stimuli(pop, params, seed, 2000 + trial)
@@ -91,8 +96,10 @@ def measure_pulse(pop, graph, sim, spec, seed):
         for i, weights in enumerate((None, blocked)):
             sham = simulate(pop, graph, params, noise, initial, zeros, edge_weights=weights)
             evoked = simulate(pop, graph, params, pulse, initial, zeros, edge_weights=weights)
-            responses[i] += evoked[boundary:, gpi].mean(axis=1) - sham[boundary:, gpi].mean(axis=1)
-    return responses * (1000 / (sim["dt_ms"] * spec["repetitions"]))
+            for name, mask in masks.items():
+                responses[name][i] += evoked[boundary:, mask].mean(axis=1) - sham[boundary:, mask].mean(axis=1)
+    scale = 1000 / (sim["dt_ms"] * spec["repetitions"])
+    return {name: values * scale for name, values in responses.items()}
 
 
 def pulse_metrics(responses, dt, spec):

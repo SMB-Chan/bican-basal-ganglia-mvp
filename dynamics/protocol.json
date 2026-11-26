@@ -1,0 +1,33 @@
+{
+  "groups": ["GPe", "STN", "GPi"],
+  "noise_multipliers": [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0],
+  "isolated": {
+    "cells": 3000,
+    "seed": 5101,
+    "duration_ms": 1200,
+    "burn_in_ms": 200,
+    "min_intervals": 5,
+    "bias_search_mv": [-40.0, 30.0],
+    "bias_iterations": 30,
+    "probe_at_ms": 1000,
+    "probe_jump_mv": 4.0,
+    "probe_window_ms": 70,
+    "immediate_window_ms": [0, 3],
+    "post_window_ms": [3, 54],
+    "trough_window_ms": [3, 28]
+  },
+  "network": {
+    "seeds": [503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587],
+    "membrane_conditions": ["E", "F"],
+    "pulse_groups": ["GPi", "STN"],
+    "decomposition": {"noise_multiplier": 5.0, "single_groups": ["GPi", "STN", "GPe"]}
+  },
+  "selection": {
+    "membrane": "E",
+    "max_tonic_rate_mae_hz": 5.0,
+    "minimize": "tonic_cv_mae",
+    "note": "Selection reads only tonic rate and CV summaries. Kita pulse and blockade outcomes are not inputs to the choice."
+  },
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 330917
+}

@@ -1,0 +1,8 @@
+PASS | isolated cells: 3 groups x 8 noise levels; every recalibrated bias reproduces the default isolated rate within 0.001 Hz (isolated.csv)
+PASS | network: 12 seeds x (8 regimes + 3 single-group splits) x membranes E/F = 264 rows; 1,000 neurons and 19,680 edges per graph, graph fixed across regimes
+PASS | separate one-seed run (seed 503, before the single-group splits were added) reproduced all 16 shared network rows and the isolated table byte for byte
+PASS | selection read only tonic rate and CV (unit test: changing blocked-pulse columns leaves the choice unchanged); selected multiplier 10 is the grid edge
+PASS | ensemble: the 192 stage-1 graphs regenerated from saved seeds match the saved STN->GPe fractions exactly (identifiability.structure check)
+PASS | all 25 unit tests
+PASS | refactored pulse/identifiability code: validation seed 101 tonic and pulse rows and identifiability placement 701 (96 rows) reproduce the committed results byte for byte
+NOTE | validation seed 101 metrics differ from the committed file only in mean_length_mm of the two Gaussian-geometry conditions (14th significant digit); the unmodified main code gives the same value in this Linux environment, so the gap comes from the platform's linear algebra in multivariate_normal

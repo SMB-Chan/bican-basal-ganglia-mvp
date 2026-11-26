@@ -1,0 +1,36 @@
+{
+  "noise_multiplier": 10.0,
+  "mean_tonic_rate_mae_hz": 4.2538943355119825,
+  "mean_tonic_cv_mae": 0.25998844116098724,
+  "eligible_multipliers": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    8.0,
+    10.0
+  ],
+  "grid_edge": true,
+  "regime": {
+    "GPe": {
+      "bias_mv": -2.8534604655578732,
+      "noise_multiplier": 10.0
+    },
+    "STN": {
+      "bias_mv": -13.143727486021817,
+      "noise_multiplier": 10.0
+    },
+    "GPi": {
+      "bias_mv": 2.455112407915294,
+      "noise_multiplier": 10.0
+    }
+  },
+  "rule": {
+    "membrane": "E",
+    "max_tonic_rate_mae_hz": 5.0,
+    "minimize": "tonic_cv_mae",
+    "note": "Selection reads only tonic rate and CV summaries. Kita pulse and blockade outcomes are not inputs to the choice."
+  }
+}

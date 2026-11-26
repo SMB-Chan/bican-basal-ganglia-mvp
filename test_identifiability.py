@@ -31,3 +31,28 @@ class IdentifiabilityTests(unittest.TestCase):
     def test_spatial_neighbors_exclude_each_cell_itself(self):
         locations = np.array([[0., 0.], [1., 0.], [4., 0.]])
         np.testing.assert_array_equal(neighbors(locations, 1).ravel(), [1, 0, 1])
+
+
+class StructureAndCompositionTests(unittest.TestCase):
+    def test_block_distance_counts_edges_moved_between_group_pairs(self):
+        from identifiability.structure import pair_structure
+        row = {**dict.fromkeys(CONTINUOUS, 0.0), "placement": "1", "membrane": "E"}
+        rows = [{**row, "hypothesis": "h", "graph_seed": "1"}, {**row, "hypothesis": "h", "graph_seed": "2", "GPe_rate_hz": 2.0}]
+        blocks = {(1, "h", 1): np.array([[3, 1], [0, 0]]), (1, "h", 2): np.array([[2, 2], [0, 0]])}
+        pairs = [{"placement": "1", "membrane": "E", "left_hypothesis": "h", "right_hypothesis": "h",
+                  "left_graph_seed": "1", "right_graph_seed": "2", "continuous_close": "1", "edge_jaccard": "0.5"}]
+        result, = pair_structure(rows, pairs, blocks)
+        self.assertAlmostEqual(result["block_distance"], 0.25)
+        self.assertGreater(result["functional_distance"], 0)
+
+    def test_dispersion_index_separates_patches_from_random_labels(self):
+        from spatial.composition import compartment, dispersion_index
+        rng = np.random.default_rng(3)
+        positions = rng.uniform(0, 4, size=(4000, 2))
+        random_labels = rng.random(4000) < 0.5
+        patches = positions[:, 0] < 2
+        self.assertLess(dispersion_index(positions, random_labels, 0.5, (0, 0), 10)[0], 1.5)
+        self.assertGreater(dispersion_index(positions, patches, 0.5, (0, 0), 10)[0], 20)
+        self.assertEqual(compartment("STRd D1 Striosome SPN"), "striosome")
+        self.assertEqual(compartment("STRd D2 Matrix SPN"), "matrix")
+        self.assertIsNone(compartment("STR D1D2 eSPN"))

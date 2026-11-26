@@ -11,8 +11,8 @@ import numpy as np
 
 from atlas import ROOT, load_atlas
 from heterogeneity.patchseq import PATCHSEQ_ASSETS, RHESUS, TYPES, load_cells, summarize
-from model import connect, population
-from run import write_csv
+from model import Graph, connect, population, simulate, ticks
+from run import trial_stimuli, write_csv
 from validation.prepare_patchseq import BASE
 from validation.run_validation import measure_choices, measure_pulse, measure_tonic, pulse_metrics
 
@@ -48,6 +48,50 @@ def measured_parameters(pop, cells, sim, mode, seed):
     if mode in ("median", "tau"):
         return replace(pop, tau=tau)
     return replace(pop, tau=tau, threshold_mv=threshold, bias=pop.bias * gain, cue_gain=gain)
+
+
+def isolated_mean_rate(pop, use, sim, spec, seed, offset_mv=0.0):
+    """Mean firing rate of the selected cells with no synapses, on a noise realization fixed by `seed`."""
+    cells = np.flatnonzero(use)
+    subset = replace(pop, cell_type=pop.cell_type[cells], channel=pop.channel[cells], xyz=pop.xyz[cells],
+                     sign=pop.sign[cells], jump=pop.jump[cells], bias=pop.bias[cells], tau=pop.tau[cells],
+                     threshold_mv=(np.full(len(cells), float(sim["threshold_mv"])) if pop.threshold_mv is None
+                                   else pop.threshold_mv[cells]) + offset_mv,
+                     cue_gain=None if pop.cue_gain is None else pop.cue_gain[cells],
+                     noise_scale=None if pop.noise_scale is None else pop.noise_scale[cells])
+    n = len(cells)
+    params = {**sim, "baseline_ms": spec["duration_ms"], "cue_ms": 0}
+    graph = Graph(np.array([], dtype=int), np.full((n, 1), -1), np.zeros(n), np.zeros((n, 1), dtype=int), np.empty((0, 1)))
+    noise, initial = trial_stimuli(subset, params, seed, spec["trial"])
+    spikes = simulate(subset, graph, params, noise, initial, np.zeros(n))[ticks(spec["burn_in_ms"], sim["dt_ms"]):]
+    return float(spikes.mean() * 1000 / sim["dt_ms"])
+
+
+def match_mean_rate(pop, reference, sim, spec, seed):
+    """Shift each SPN group's thresholds by one constant so its synapse-free mean rate equals the reference.
+
+    The shift keeps the measured spread and pairing of traits; only the group's average excitability moves.
+    """
+    threshold = (np.full(len(pop.tau), float(sim["threshold_mv"])) if pop.threshold_mv is None
+                 else pop.threshold_mv.astype(float, copy=True))
+    offsets = {}
+    for j, kind in enumerate(TYPES):
+        use = pop.cell_type == pop.names.index(kind)
+        group_seed = seed * 10 + j
+        target = isolated_mean_rate(reference, use, sim, spec, group_seed)
+        low, high = spec["offset_search_mv"]
+        rate = lambda offset: isolated_mean_rate(pop, use, sim, spec, group_seed, offset)
+        if not rate(high) <= target <= rate(low):
+            raise ValueError(f"{kind}: reference rate {target} Hz lies outside the offset search range")
+        for _ in range(spec["iterations"]):
+            middle = (low + high) / 2
+            if rate(middle) > target:
+                low = middle
+            else:
+                high = middle
+        offsets[kind] = (low + high) / 2
+        threshold[use] += offsets[kind]
+    return replace(pop, threshold_mv=threshold), offsets
 
 
 def passive_rheobase(gap_mv, resistance_mohm):
@@ -90,26 +134,38 @@ def experiment(config, protocol, validation, cells, out, seeds):
     tonic = validation["tonic"]
     pulse = validation["stn_pulse"]
     references = {key: {name: np.mean(values) for name, values in tonic[key].items()} for key in ("rate_hz", "isi_cv")}
-    network, firing = [], []
+    # Record every group, score only the externally referenced ones.
+    recorded = {**tonic, "rate_hz": dict.fromkeys(config["groups"])}
+    network, firing, offsets = [], [], []
     for seed in seeds:
         baseline = population(config, atlas, seed)
-        populations = {mode: measured_parameters(baseline, cells, sim, mode, seed) for mode in protocol["conditions"]}
+        populations = {}
+        for mode in protocol["conditions"]:
+            base_mode = mode.removesuffix("_matched")
+            pop = measured_parameters(baseline, cells, sim, base_mode, seed)
+            if mode != base_mode:
+                pop, shift = match_mean_rate(pop, populations["median"], sim, protocol["rate_matching"], seed)
+                offsets.extend({"seed": seed, "mode": mode, "group": kind, "threshold_offset_mv": value}
+                               for kind, value in shift.items())
+            populations[mode] = pop
         graphs = {name: connect(code, baseline, {**config, "matched_channel_gain": 1.0}, seed)
                   for name, code in zip(protocol["wiring"], ("C", "D"))}
         for wiring, graph in graphs.items():
             for mode, pop in populations.items():
                 keys = {"seed": seed, "wiring": wiring, "mode": mode}
-                measured = measure_tonic(pop, graph, sim, tonic, seed)
-                firing.extend({**keys, "group": group, **values} for group, values in measured.items())
+                everything = measure_tonic(pop, graph, sim, recorded, seed)
+                firing.extend({**keys, "group": group, **values} for group, values in everything.items())
+                measured = {group: everything[group] for group in tonic["rate_hz"]}
                 errors = {key: float(np.mean([abs(values[key] - references[key][group]) for group, values in measured.items()]))
                           for key in references}
                 response = measure_pulse(pop, graph, sim, pulse, seed)
                 network.append({**keys, "neurons": len(pop.cell_type), "edges": len(graph.sources) * graph.targets.shape[1],
                                 "graph_sha256": hashlib.sha256(graph.targets.tobytes() + graph.delay.tobytes()).hexdigest(),
                                 "tonic_rate_mae_hz": errors["rate_hz"], "tonic_cv_mae": errors["isi_cv"],
+                                **{f"{kind}_rate_hz": everything[kind]["rate_hz"] for kind in TYPES},
                                 **pulse_metrics(response, sim["dt_ms"], pulse), **measure_choices(pop, graph, sim, seed)})
         print(f"seed {seed}: {len(graphs) * len(populations)} conditions", flush=True)
-    for file, rows in (("network", network), ("tonic", firing), ("cell_cohort", summarize(cells)),
+    for file, rows in (("network", network), ("tonic", firing), ("rate_matching", offsets), ("cell_cohort", summarize(cells)),
                        ("donor_validation", donor_validation(cells))):
         write_csv(out / f"{file}.csv", rows)
     manifest = {"seeds": seeds, "protocol": protocol, "external_validation": validation,

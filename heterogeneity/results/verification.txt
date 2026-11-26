@@ -4,3 +4,5 @@ PASS | 207 cells from 46 held-out donor folds; Patch-seq assets redownloaded and
 PASS | seed 307 reproduced all network and tonic rows, plus byte-identical cohort and donor validation tables
 PASS | prior validation seed 101 reproduced every row for its 11 conditions in all three data tables
 PASS | all 14 unit tests, including fixed marginals, donor holdout, and cell-specific simulation
+PASS | follow-up rerun with 2 mean-matched controls: all 144 original network rows, 432 original tonic rows and donor tables byte-identical; summary means identical
+PASS | mean matching shifts each SPN group's thresholds by one constant and reproduces the reference isolated rate (unit test)

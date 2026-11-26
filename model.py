@@ -17,6 +17,7 @@ class Population:
     tau: np.ndarray
     threshold_mv: np.ndarray | None = None
     cue_gain: np.ndarray | None = None
+    noise_scale: np.ndarray | None = None
 
 
 @dataclass(frozen=True)

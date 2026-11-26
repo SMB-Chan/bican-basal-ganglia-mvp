@@ -58,7 +58,8 @@ def pair_stats(rows, edge_ids, protocol):
     return results
 
 
-def execute(config, validation, patchseq, protocol, out, placements):
+def execute(config, validation, patchseq, protocol, out, placements, transform=None, extra=None):
+    """Evaluate the graph ensemble. `transform` changes cell dynamics only; graphs use the untransformed cells."""
     if out.exists() and any(out.iterdir()):
         raise FileExistsError(f"Choose an empty output directory: {out}")
     atlas, info = load_atlas(ROOT / "atlas_data")
@@ -70,7 +71,8 @@ def execute(config, validation, patchseq, protocol, out, placements):
     pulse = {**validation["stn_pulse"], "repetitions": protocol["pulse_repetitions"]}
     for placement in placements:
         original = population(config, atlas, placement)
-        populations = {"E": original, "F": patchseq_population(original, patchseq)}
+        dynamic = original if transform is None else transform(original)
+        populations = {"E": dynamic, "F": patchseq_population(dynamic, patchseq)}
         indices = {name: original.names.index(name) for name in ("STN", "GPe", "GPi")}
         for draw in range(protocol["draws_per_placement"]):
             graph_seed = protocol["first_graph_seed"] + draw
@@ -100,7 +102,7 @@ def execute(config, validation, patchseq, protocol, out, placements):
     write_csv(out / "evaluations.csv", rows)
     write_csv(out / "pairs.csv", pair_stats(rows, edges, protocol))
     np.savez_compressed(out / "response_arrays.npz", responses=np.array(curves))
-    manifest = {"protocol": protocol, "placements": placements, "model_config": config, "validation": validation,
+    manifest = {**(extra or {}), "protocol": protocol, "placements": placements, "model_config": config, "validation": validation,
                 "patchseq_summary": patchseq, "atlas": info, "python": platform.python_version(), "numpy": np.__version__,
                 "raw_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(out.iterdir())}}
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

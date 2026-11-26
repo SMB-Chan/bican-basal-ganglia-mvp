@@ -17,11 +17,13 @@ from run import write_csv
 
 
 NETWORK_METRICS = ("tonic_rate_mae_hz", "tonic_cv_mae", "pulse_features", "pulse_early_hz", "pulse_late_hz",
-                   "blocked_late_hz", "late_attenuation_hz", "choice_weak_accuracy", "choice_strong_accuracy")
+                   "blocked_late_hz", "late_attenuation_hz", "choice_weak_accuracy", "choice_strong_accuracy",
+                   "D1_rate_hz", "D2_rate_hz")
 DONOR_METRICS = ("mae_pa", "signed_error_pa")
 DONOR_MODELS = ("train_median", "cell_passive", "calibrated_cell")
 NETWORK_LABELS = {"original": "Original", "median": "Median τ", "tau": "Variable τ", "shuffled": "Shuffled traits",
-                  "joint": "Paired traits", "rhesus_joint": "Rhesus only"}
+                  "joint": "Paired traits", "rhesus_joint": "Rhesus only", "shuffled_matched": "Shuffled, mean-matched",
+                  "joint_matched": "Paired, mean-matched"}
 
 
 def bootstrap(values, rng, repetitions):

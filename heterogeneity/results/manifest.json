@@ -36,7 +36,9 @@
       "tau",
       "shuffled",
       "joint",
-      "rhesus_joint"
+      "rhesus_joint",
+      "shuffled_matched",
+      "joint_matched"
     ],
     "comparisons": [
       [
@@ -62,8 +64,34 @@
       [
         "rhesus_joint",
         "joint"
+      ],
+      [
+        "joint_matched",
+        "median"
+      ],
+      [
+        "joint_matched",
+        "shuffled_matched"
+      ],
+      [
+        "joint",
+        "joint_matched"
+      ],
+      [
+        "shuffled",
+        "shuffled_matched"
       ]
     ],
+    "rate_matching": {
+      "duration_ms": 3000,
+      "burn_in_ms": 300,
+      "trial": 4000,
+      "offset_search_mv": [
+        -15.0,
+        15.0
+      ],
+      "iterations": 25
+    },
     "wiring": [
       "cell_type",
       "projection"
@@ -641,12 +669,13 @@
       }
     }
   },
-  "python": "3.12.14",
+  "python": "3.13.18",
   "numpy": "2.5.5",
   "raw_csv_sha256": {
     "cell_cohort.csv": "ed669574224bed65abe964d17566dcfaeb4d87cf2ab36ee8346c4312a0c2aa61",
     "donor_validation.csv": "124c669b743595a88f4195b8eb40bbb04eeaa9f8bcf48ebac27919f9f0455902",
-    "network.csv": "ec02ac822294ebaba28aa808b1ee0beb1aa2109333d8a22da57fa90b44d3446e",
-    "tonic.csv": "ac5127e733819263dd95bbff686ff8fa8b3ed791d17cee7021444a00ce2f4c10"
+    "network.csv": "88dad2796229c6d9b5ebbd9de54a6302f975522fa1f0a9246494c7fa6935a565",
+    "rate_matching.csv": "8e6ac883777eb01da26fbd3bf1c4fe2ae258983d76689d2d4c1924351cc37e90",
+    "tonic.csv": "1ee2b134ee953434ccb879211b3fbfaf390cebe238f473976ba5eb1d8ece6029"
   }
 }

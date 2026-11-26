@@ -34,6 +34,9 @@ def trial_stimuli(pop, sim, seed, trial):
     steps = ticks(sim["baseline_ms"], sim["dt_ms"]) + ticks(sim["cue_ms"], sim["dt_ms"])
     initial = rng.uniform(sim["reset_mv"], sim["threshold_mv"], n)
     noise = rng.standard_normal((steps, n)) * sim["noise_mv_sqrt_ms"] * np.sqrt(sim["dt_ms"])
+    if pop.noise_scale is not None:
+        # Per-cell multipliers rescale the same draws, keeping sham and evoked trials paired.
+        noise *= pop.noise_scale
     return noise, initial
 
 

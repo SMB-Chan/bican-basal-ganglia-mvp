@@ -53,3 +53,21 @@ class HeterogeneityTests(unittest.TestCase):
         variable = replace(pop, threshold_mv=np.array([-1.5, 0.]), cue_gain=np.array([1., 3.]))
         spikes = simulate(variable, graph, sim, np.zeros((3, 2)), initial, np.ones(2))
         np.testing.assert_array_equal(np.argwhere(spikes), [[1, 0], [2, 1]])
+
+    def test_mean_matching_shifts_each_group_by_one_constant(self):
+        from heterogeneity.run import isolated_mean_rate, match_mean_rate
+        config = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
+        sim = config["simulation"]
+        pop = population(config, None, 307)
+        cells = [Cell(kind, f"d{i}", "Macaca mulatta", 8 + i % 5, 8 + 2 * (i % 7), 60 + 10 * (i % 9), 150)
+                 for kind in ("D1", "D2") for i in range(40)]
+        reference = measured_parameters(pop, cells, sim, "median", 307)
+        joint = measured_parameters(pop, cells, sim, "joint", 307)
+        spec = {"duration_ms": 1500, "burn_in_ms": 300, "trial": 4000, "offset_search_mv": [-15.0, 15.0], "iterations": 20}
+        matched, offsets = match_mean_rate(joint, reference, sim, spec, 307)
+        for j, kind in enumerate(("D1", "D2")):
+            use = pop.cell_type == pop.names.index(kind)
+            np.testing.assert_allclose(matched.threshold_mv[use] - joint.threshold_mv[use], offsets[kind])
+            target = isolated_mean_rate(reference, use, sim, spec, 307 * 10 + j)
+            self.assertAlmostEqual(isolated_mean_rate(matched, use, sim, spec, 307 * 10 + j), target, delta=0.05 * target + 0.05)
+        np.testing.assert_array_equal(matched.tau, joint.tau)

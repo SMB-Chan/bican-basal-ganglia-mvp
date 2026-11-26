@@ -77,8 +77,12 @@ def mixing(positions, labels, sections, k=8, permutations=500):
     return {"neighbors_per_cell": k, "permutations": permutations, "observed_same_type_fraction": observed, "nulls": stats}
 
 
-def execute(directory):
-    meta, coords, anatomy, types = [{row["cell_label"]: row for row in read(directory, name)} for name in RANGED]
+def select_spns(directory):
+    """Join the four tables and keep confidently typed dorsal-striatum D1/D2 SPNs with finite slab coordinates.
+
+    Returns (tables, shared ids, validated ids, rows); each row is (xy, D1/D2, section, plane, group).
+    """
+    meta, coords, anatomy, types = tables = [{row["cell_label"]: row for row in read(directory, name)} for name in RANGED]
     specimens = {row["brain_section_label"]: row for row in read(directory, "specimen_metadata.csv")}
     shared = sorted(set(meta) & set(coords) & set(anatomy) & set(types))
     validated = [c for c in shared if meta[c]["qc_pass"] == "True"
@@ -96,8 +100,13 @@ def execute(directory):
         xyz = (float(coord["x_slab_mm"]), float(coord["y_slab_mm"]))
         if not np.isfinite(xyz).all():
             continue
-        selected.append((xyz, row["Subclass"].split()[1], meta[cell]["brain_section_label"], coord["slab_plane_label"]))
+        selected.append((xyz, row["Subclass"].split()[1], meta[cell]["brain_section_label"], coord["slab_plane_label"],
+                         row["Group"]))
+    return tables, shared, validated, selected
 
+
+def execute(directory):
+    (meta, coords, anatomy, types), shared, validated, selected = select_spns(directory)
     tested = {}
     for plane in sorted({row[3] for row in selected}):
         group = [row for row in selected if row[3] == plane]
