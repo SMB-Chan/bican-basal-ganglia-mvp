@@ -24,6 +24,10 @@
 - [皮質刺激の設定用・評価用の資料](identifiability/CORTICAL_BENCHMARK.md)
 - [段階3：皮質（M1）刺激と経路遮断によるホールドアウト検証](cortical/RESULTS.md)
 - [段階3皮質刺激ベンチマークの設定と再現手順](cortical/PROTOCOL.md)
+- [段階4A：STN脱抑制後リバウンド（Cav3）と淡蒼球―視床下核ルーティングの要因比較](rebound/RESULTS.md)
+- [段階4A正常状態要因比較の設定と再現手順](rebound/PROTOCOL.md)
+- [段階4B：パーキンソン病（MPTPマカク）8〜15 Hz病態振動・皮質応答とSTN遮断回復の盲検検証](parkinsonian/RESULTS.md)
+- [段階4Bパーキンソン病ホールドアウト検証の事前登録手順](parkinsonian/PROTOCOL.md)
 
 ## 再現手順
 

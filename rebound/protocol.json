@@ -1,0 +1,63 @@
+{
+  "calibration_seed": 800,
+  "seeds": [1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049, 1051, 1061, 1063, 1069],
+  "groups": ["GPe", "STN", "GPi"],
+  "fluctuation_spec": {
+    "noise_multiplier": 2.2,
+    "slow_noise_mv": 9.0,
+    "slow_noise_tau_ms": 160.0
+  },
+  "pathway_modes": {
+    "gpe_gpi_heavy": {
+      "projection_propensity": {
+        "STN": {"GPe": 4.0, "GPi": 1.0},
+        "GPe": {"GPe": 0.7, "STN": 4.0, "GPi": 2.4, "D1": 0.2, "D2": 0.2}
+      },
+      "gpe_jump_mv": 1.20,
+      "stn_jump_mv": 0.85
+    },
+    "stn_loop_dominant": {
+      "projection_propensity": {
+        "STN": {"GPe": 2.6, "GPi": 1.8},
+        "GPe": {"GPe": 0.6, "STN": 9.0, "GPi": 1.5, "D1": 0.2, "D2": 0.2}
+      },
+      "gpe_jump_mv": 1.30,
+      "stn_jump_mv": 1.15
+    }
+  },
+  "synapse_modes": {
+    "delta": {"exc_tau_ms": 0.0, "inh_tau_ms": 0.0},
+    "physiological_37c": {"exc_tau_ms": 2.0, "inh_tau_ms": 4.0}
+  },
+  "rebound_modes": {
+    "passive": {"rebound_mv": 0.0},
+    "moderate_ifb": {"rebound_mv": 75.0},
+    "strong_ifb": {"rebound_mv": 120.0}
+  },
+  "rebound_kinetics": {
+    "rebound_vh_mv": -68.5,
+    "rebound_va_mv": -68.0,
+    "rebound_tau_plus_ms": 25.0,
+    "rebound_tau_minus_ms": 20.0
+  },
+  "isolated_stn_rebound": {
+    "cells": 200,
+    "duration_ms": 400,
+    "hyperpol_window_ms": [200, 220],
+    "hyperpol_step_mv": -3.5,
+    "readout_window_ms": [222, 250],
+    "min_rebound_hz": 5.0
+  },
+  "tonic_calibration": {
+    "network_iterations": 12,
+    "tolerance_hz": 0.15
+  },
+  "selection": {
+    "max_tonic_rate_mae_hz": 5.0,
+    "max_blocked_late_abs_hz": 0.5,
+    "min_isolated_rebound_hz": 5.0,
+    "note": "Selects the factorial condition maximizing joint_normal_pass (Gatev & Wichmann tonic rate MAE <= 5 Hz + Kita 4/4 pulse features & |blocked_late_hz| <= 0.5 Hz + Stage 3 normal M1 all_causal_checks == 1 + Bevan & Wilson isolated STN post-inhibitory rebound >= +5 Hz) across seeds 1009..1069, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz + 0.05 * triphasic_latency_mae_ms). Stage 4B parkinsonian data are never consulted."
+  },
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 100921
+}

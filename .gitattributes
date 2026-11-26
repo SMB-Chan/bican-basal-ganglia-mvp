@@ -10,3 +10,5 @@ dynamics/results/** -text whitespace=cr-at-eol
 spatial/composition.json -text whitespace=cr-at-eol
 biophysics/results/** -text whitespace=cr-at-eol
 cortical/results/** -text whitespace=cr-at-eol
+rebound/results/** -text whitespace=cr-at-eol
+parkinsonian/results/** -text whitespace=cr-at-eol

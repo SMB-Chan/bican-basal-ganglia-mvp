@@ -1,0 +1,7 @@
+PASS | protocol.json and PROTOCOL.md were pre-registered and locked before Stage 4A model selection and before any parkinsonian simulation ran; zero parameters were tuned on PD data
+PASS | 12 held-out seeds (1103-1193), strictly disjoint from all prior MVP, validation, heterogeneity, dynamics, identifiability, biophysics, cortical, and rebound seeds
+PASS | 3 frozen models (baseline_lif, biophysics/results/selection.json, rebound/results/selection.json) evaluated identically across 5 spontaneous and 3 cortical conditions
+PASS | independent single-seed run (seed 1103) reproduced evaluations.csv (3 rows), spontaneous.csv (75 rows), and cortical_windows.csv (27 rows) byte-for-byte
+PASS | Welch 8-15 Hz / 55-150 Hz oscillation index verified invariant to 3x Poisson firing-rate changes in test_rebound.py
+PASS | Stage 4A selected_rebound improved held-out macaque PD checks over Stage 2 selected_biophysics by +1.83 checks/seed (95% CI +1.25 to +2.33), passing Tachibana STN inactivation (11/12), GPe->STN blockade (12/12), and Chiken STN-blockade unmasking of GPi inhibition (6/12 vs 0/12)
+PASS | all 36 unit tests and all 38 manifest SHA-256 checksums pass across the repository

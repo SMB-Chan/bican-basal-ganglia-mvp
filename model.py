@@ -19,6 +19,7 @@ class Population:
     cue_gain: np.ndarray | None = None
     noise_scale: np.ndarray | None = None
     slow_noise_mv: np.ndarray | None = None
+    rebound_mv: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -146,7 +147,8 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
     inh_tau = float(sim.get("inh_tau_ms", 0.0))
     if exc_tau < 0 or inh_tau < 0:
         raise ValueError("Synaptic time constants must be nonnegative")
-    if exc_tau == 0.0 and inh_tau == 0.0:
+    has_rebound = pop.rebound_mv is not None
+    if exc_tau == 0.0 and inh_tau == 0.0 and not has_rebound:
         for t in range(duration):
             slot = t % slots
             ready = refractory == 0
@@ -167,6 +169,19 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
             )
         return spikes
 
+    if has_rebound:
+        vh = float(sim.get("rebound_vh_mv", -68.5))
+        va = float(sim.get("rebound_va_mv", -68.0))
+        tau_plus = float(sim.get("rebound_tau_plus_ms", 25.0))
+        tau_minus = float(sim.get("rebound_tau_minus_ms", 20.0))
+        if tau_plus <= 0 or tau_minus <= 0:
+            raise ValueError("Rebound time constants must be positive")
+        h_grow = np.exp(-dt / tau_plus)
+        h_decay = np.exp(-dt / tau_minus)
+        h_hold = np.exp(-dt / (3.0 * tau_minus))
+        rebound_gain = (1.0 - decay) * pop.rebound_mv
+        h = np.where(initial < vh, 0.2, 0.0)
+
     exc_decay = np.exp(-dt / exc_tau) if exc_tau > 0 else 0.0
     inh_decay = np.exp(-dt / inh_tau) if inh_tau > 0 else 0.0
     exc_scale = (1.0 - exc_decay) if exc_tau > 0 else 1.0
@@ -185,10 +200,17 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
         pending_inh[slot].fill(0)
         ready = refractory == 0
         drive = equilibrium if t < baseline else cue_equilibrium
-        v[:] = np.where(ready, drive + (v - drive) * decay + noise[t] + syn_exc + syn_inh, reset)
+        v_next = drive + (v - drive) * decay + noise[t] + syn_exc + syn_inh
+        if has_rebound:
+            v_next = v_next + (ready & (v_next >= va)) * (rebound_gain * h)
+        v[:] = np.where(ready, v_next, reset)
         fired = ready & (v >= thresholds)
         spikes[t] = fired
         v[fired] = reset
+        if has_rebound:
+            deinact = ready & (~fired) & (v < vh)
+            inact_fast = (~ready) | fired | (v >= va)
+            h = np.where(deinact, 1.0 + (h - 1.0) * h_grow, np.where(inact_fast, h * h_decay, h * h_hold))
         refractory[~ready] -= 1
         refractory[fired] = refractory_steps
 

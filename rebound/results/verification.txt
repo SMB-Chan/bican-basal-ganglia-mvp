@@ -1,0 +1,6 @@
+PASS | 12 evaluation seeds (1009-1069), strictly disjoint from calibration seed 800 and all prior experiments; 12 factorial variants x 12 seeds = 144 rows
+PASS | calibration on seed 800 read only normal tonic activity (target_tonic_rates_hz); Kita, M1 cortical, and Stage 4B parkinsonian outcomes were never consulted during calibration
+PASS | batched simulation helpers (fast_pulse_groups, fast_m1_evaluate) verified equal to sequential simulation to machine precision (atol=1e-12) in test_rebound.py
+PASS | independent single-seed run (seed 1009) reproduced evaluations.csv (all 12 variant rows) and calibration.json byte-for-byte
+PASS | Nambu et al. (2000) STN blockade pass rate rose from 2/12 (gpe_gpi_heavy|delta|passive, -0.03 Hz) to 12/12 (stn_loop_dominant|delta|moderate_ifb, +1.60 Hz), selecting an interior Cav3 optimum (75 mV) over passive (0 mV) and excessive rebound (120 mV, Kita strict 0/12)
+PASS | prior dynamics seed 503 (network.csv, network_tonic.csv) and isolated.csv reproduced byte-for-byte after model.py IFB extension

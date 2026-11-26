@@ -1,0 +1,658 @@
+{
+  "seeds": [
+    1103,
+    1109,
+    1117,
+    1123,
+    1129,
+    1151,
+    1153,
+    1163,
+    1171,
+    1181,
+    1187,
+    1193
+  ],
+  "protocol": {
+    "seeds": [
+      1103,
+      1109,
+      1117,
+      1123,
+      1129,
+      1151,
+      1153,
+      1163,
+      1171,
+      1181,
+      1187,
+      1193
+    ],
+    "dopamine_depletion": {
+      "d1_bias_shift_mv": -4.0,
+      "d2_bias_shift_mv": 5.5,
+      "d1_cortical_gain": 0.5,
+      "d2_cortical_gain": 1.3,
+      "gpe_to_stn_weight_scale": 1.5,
+      "note": "Fixed from nigrostriatal and pallidosubthalamic dopamine physiology before any PD simulation: loss of D1 facilitation (-4.0 mV bias, 0.5x M1->D1 gain; Mallet et al. 2006), loss of D2 inhibition (+5.5 mV bias, 1.3x M1->D2 gain), and loss of presynaptic D2 suppression at GPe->STN GABAergic terminals (1.5x; Shen & Johnson 2000, 2005; Baufreton & Bevan 2008). Extrastriatal intrinsic parameters are untouched."
+    },
+    "spontaneous": {
+      "duration_ms": 6500,
+      "burn_in_ms": 500,
+      "welch_window_ms": 1000,
+      "welch_overlap_ms": 500,
+      "low_beta_band_hz": [
+        8.0,
+        15.0
+      ],
+      "total_band_hz": [
+        3.0,
+        50.0
+      ],
+      "poisson_ref_band_hz": [
+        55.0,
+        150.0
+      ],
+      "min_spikes_single_unit": 10,
+      "conditions": [
+        "normal_intact",
+        "pd_intact",
+        "pd_striatal_only",
+        "pd_stn_blocked",
+        "pd_gpe_to_stn_blocked"
+      ],
+      "rate_shift_min_hz": 1.0,
+      "min_beta_index_ratio": 1.25,
+      "min_pd_beta_index": 1.5
+    },
+    "cortical_evoked": {
+      "inherit_from": "cortical/protocol.json",
+      "conditions": [
+        "normal_intact",
+        "pd_intact",
+        "pd_stn_blocked"
+      ],
+      "sign_tolerance_hz": 0.25
+    },
+    "references": {
+      "tachibana_2011_doi": "10.1111/j.1460-9568.2011.07865.x",
+      "nambu_tachibana_2014_pmc": "PMC4033056",
+      "chiken_2021_doi": "10.1093/cercor/bhab164",
+      "chiken_2021_pmc": "PMC8568006"
+    },
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 110489,
+    "note": "Pre-registered prior to Stage 4A calibration and prior to any parkinsonian simulation. Evaluates baseline_lif, Stage-2 selected_biophysics, and Stage-4A selected_rebound zero-shot without retuning."
+  },
+  "cortical_protocol": {
+    "seeds": [
+      907,
+      911,
+      919,
+      929,
+      937,
+      941,
+      947,
+      953,
+      967,
+      971,
+      977,
+      983
+    ],
+    "m1_stimulus": {
+      "stim_at_ms": 300,
+      "after_ms": 80,
+      "repetitions": 12,
+      "fraction_stimulated": 0.5,
+      "stn": {
+        "delay_ms": 4,
+        "tau_ms": 3.0,
+        "amplitude_mv": 10.0
+      },
+      "striatum": {
+        "groups": [
+          "D1",
+          "D2",
+          "SIn"
+        ],
+        "delay_ms": 9,
+        "tau_ms": 4.0,
+        "amplitude_mv": 18.0
+      }
+    },
+    "windows": {
+      "early_excitation_ms": [
+        6,
+        16
+      ],
+      "inhibition_ms": [
+        16,
+        28
+      ],
+      "late_excitation_ms": [
+        28,
+        50
+      ],
+      "sign_tolerance_hz": 0.25,
+      "onset_smoothing_ms": 3,
+      "onset_threshold_hz": 1.0,
+      "early_search_ms": [
+        4,
+        20
+      ],
+      "inhibition_search_ms": [
+        12,
+        36
+      ],
+      "late_search_ms": [
+        20,
+        60
+      ]
+    },
+    "iwamuro_m1_forelimb_gpi_ms": {
+      "early_excitation": {
+        "mean": 10.2,
+        "sd": 3.0
+      },
+      "inhibition": {
+        "mean": 20.1,
+        "sd": 4.2
+      },
+      "late_excitation": {
+        "mean": 27.8,
+        "sd": 4.4
+      }
+    },
+    "interventions": [
+      "intact",
+      "hyperdirect_only",
+      "hyperdirect_gpe_blocked",
+      "direct_only",
+      "d1_gpi_blocked",
+      "stn_blocked",
+      "gpi_gaba_blocked"
+    ],
+    "non_synaptic_inhibition_max_fraction": 0.5,
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 940211,
+    "note": "Pre-registered before running cortical simulations. M1->STN and M1->STR parameters are fixed from macaque corticofugal conduction physiology and resting thresholds, never tuned to GPi latencies or waveforms."
+  },
+  "biophysics_selection": {
+    "pathway": "indirect_balanced",
+    "synapse": "delta",
+    "fluctuation": "moderate_ou",
+    "strict_candidate_fraction": 1.0,
+    "coarse_candidate_fraction": 1.0,
+    "mean_tonic_rate_mae_hz": 3.265259622367464,
+    "mean_tonic_cv_mae": 0.3530530090735056,
+    "variant": "indirect_balanced|delta|moderate_ou",
+    "selected_spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 4.0,
+          "GPi": 1.0
+        },
+        "GPe": {
+          "GPe": 0.7,
+          "STN": 4.0,
+          "GPi": 2.4,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "bias_mv": 17.183529411764706,
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.2
+        },
+        "STN": {
+          "bias_mv": 12.503186274509808,
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        },
+        "GPi": {
+          "bias_mv": 26.206862745098043,
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0
+      }
+    },
+    "rule": {
+      "max_tonic_rate_mae_hz": 5.0,
+      "max_blocked_late_abs_hz": 0.5,
+      "note": "Selects the factorial condition with highest strict-candidate fraction across the 12 test seeds, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz). Stage 3 cortical data are never consulted."
+    }
+  },
+  "rebound_selection": {
+    "pathway": "stn_loop_dominant",
+    "synapse": "delta",
+    "rebound": "moderate_ifb",
+    "variant": "stn_loop_dominant|delta|moderate_ifb",
+    "joint_normal_pass_fraction": 0.6666666666666666,
+    "kita_strict_pass_fraction": 0.6666666666666666,
+    "m1_all_causal_pass_fraction": 1.0,
+    "mean_tonic_rate_mae_hz": 3.3484840232389246,
+    "mean_tonic_cv_mae": 0.38120727786435554,
+    "mean_triphasic_latency_mae_ms": 1.9166666666666667,
+    "selected_spec": {
+      "projection_propensity": {
+        "STN": {
+          "GPe": 2.6,
+          "GPi": 1.8
+        },
+        "GPe": {
+          "GPe": 0.6,
+          "STN": 9.0,
+          "GPi": 1.5,
+          "D1": 0.2,
+          "D2": 0.2
+        }
+      },
+      "groups": {
+        "GPe": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.3,
+          "bias_mv": 17.101470588235298
+        },
+        "STN": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "jump_mv": 1.15,
+          "rebound_mv": 75.0,
+          "bias_mv": 5.686274509803918
+        },
+        "GPi": {
+          "noise_multiplier": 2.2,
+          "slow_noise_mv": 9.0,
+          "bias_mv": 22.061274509803923
+        }
+      },
+      "simulation": {
+        "slow_noise_tau_ms": 160.0,
+        "exc_tau_ms": 0.0,
+        "inh_tau_ms": 0.0,
+        "rebound_vh_mv": -68.5,
+        "rebound_va_mv": -68.0,
+        "rebound_tau_plus_ms": 25.0,
+        "rebound_tau_minus_ms": 20.0
+      }
+    },
+    "rule": {
+      "max_tonic_rate_mae_hz": 5.0,
+      "max_blocked_late_abs_hz": 0.5,
+      "min_isolated_rebound_hz": 5.0,
+      "note": "Selects the factorial condition maximizing joint_normal_pass (Gatev & Wichmann tonic rate MAE <= 5 Hz + Kita 4/4 pulse features & |blocked_late_hz| <= 0.5 Hz + Stage 3 normal M1 all_causal_checks == 1 + Bevan & Wilson isolated STN post-inhibitory rebound >= +5 Hz) across seeds 1009..1069, breaking ties by lowest (tonic_cv_mae + 0.1 * tonic_rate_mae_hz + 0.05 * triphasic_latency_mae_ms). Stage 4B parkinsonian data are never consulted."
+    }
+  },
+  "model_config": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67,
+      83
+    ],
+    "groups": {
+      "D1": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.8,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "D2": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.7,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "SIn": {
+        "n": 28,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.5,
+        "bias_mv": 14.0,
+        "tau_ms": 12
+      },
+      "GPe": {
+        "n": 200,
+        "region": "GPe",
+        "sign": -1,
+        "jump_mv": 0.65,
+        "bias_mv": 20.0,
+        "tau_ms": 14
+      },
+      "STN": {
+        "n": 120,
+        "region": "STN",
+        "sign": 1,
+        "jump_mv": 0.85,
+        "bias_mv": 17.0,
+        "tau_ms": 15
+      },
+      "GPi": {
+        "n": 180,
+        "region": "GPi",
+        "sign": -1,
+        "jump_mv": 0.85,
+        "bias_mv": 22.0,
+        "tau_ms": 14
+      }
+    },
+    "out_degree": 24,
+    "output_group": "GPi",
+    "distance_scale_mm": 3.0,
+    "local_cell_affinity": {
+      "D1": {
+        "D1": 1.4,
+        "D2": 1.2
+      },
+      "D2": {
+        "D1": 1.2,
+        "D2": 1.4
+      },
+      "SIn": {
+        "D1": 2.5,
+        "D2": 2.5
+      },
+      "GPe": {
+        "GPe": 1.4
+      }
+    },
+    "projection_propensity": {
+      "D1": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 0.5,
+        "GPi": 4.0
+      },
+      "D2": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 4.0,
+        "GPi": 0.4
+      },
+      "SIn": {
+        "D1": 1.0,
+        "D2": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 1.2,
+        "D1": 0.2,
+        "D2": 0.2
+      },
+      "STN": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      }
+    },
+    "topographic_projections": [
+      [
+        "D1",
+        "GPe"
+      ],
+      [
+        "D1",
+        "GPi"
+      ],
+      [
+        "D2",
+        "GPe"
+      ],
+      [
+        "D2",
+        "GPi"
+      ],
+      [
+        "GPe",
+        "STN"
+      ],
+      [
+        "GPe",
+        "GPi"
+      ]
+    ],
+    "matched_channel_gain": 4.0,
+    "synthetic_geometry_mm": {
+      "STRd": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "sd": [
+          2.4,
+          3.0,
+          2.0
+        ]
+      },
+      "GPe": {
+        "center": [
+          3.0,
+          -1.0,
+          -1.0
+        ],
+        "sd": [
+          1.3,
+          1.7,
+          1.1
+        ]
+      },
+      "STN": {
+        "center": [
+          7.0,
+          -3.0,
+          -3.0
+        ],
+        "sd": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      },
+      "GPi": {
+        "center": [
+          5.0,
+          -2.0,
+          -2.0
+        ],
+        "sd": [
+          1.2,
+          1.4,
+          1.0
+        ]
+      }
+    },
+    "simulation": {
+      "dt_ms": 1.0,
+      "rest_mv": -65,
+      "reset_mv": -68,
+      "threshold_mv": -50,
+      "refractory_ms": 2.0,
+      "noise_mv_sqrt_ms": 1.1,
+      "synaptic_offset_ms": 1.0,
+      "conduction_mm_per_ms": 0.9,
+      "baseline_ms": 200,
+      "baseline_readout_ms": 150,
+      "cue_ms": 300,
+      "cue_readout_ms": 200,
+      "cue_common_mv": 3.5,
+      "cue_stn_common_mv": 1.0,
+      "cue_deltas_mv": [
+        2.0,
+        5.0
+      ],
+      "trials_per_side": 4,
+      "equal_trials": 4
+    }
+  },
+  "patchseq_summary": {
+    "dataset": "HMBA-Macaque-PatchSeq 20260228",
+    "paper": "10.1016/j.cell.2026.10.028",
+    "license": "CC BY-NC 4.0",
+    "source_base_url": "https://allen-brain-cell-atlas.s3.amazonaws.com/metadata/HMBA-Macaque-PatchSeq/20260228/",
+    "source_sha256": {
+      "cell_metadata.csv": "5cec3b3eac79fcb05717434cf95fabd6ebaa9828e4b5f90c88f50e94d24e7ede",
+      "cross_sweep_long_square_features.csv": "6839ec7ae3462823d9b9590821be7bcdc8004720713344542d209975116df275",
+      "mmc_results.csv": "aee9b60c16085f4e860f13f0451115c03324b05be48bb8a4cb8c480e36267e99",
+      "electrophysiological_feature_lookup.xlsx": "c10ac74f0600f7407d70944b46c4f2324c4a3e8889912babb0c162a3d0bc3fee"
+    },
+    "filter": "MapMyCells dorsal D1/D2 group and matching subclass, both bootstrap probabilities >=0.8; finite tau 1–100 ms",
+    "groups": {
+      "D1": {
+        "cells": 112,
+        "donors": 39,
+        "excluded_tau_range": 3,
+        "q1_tau_ms": 6.368468841301575,
+        "median_tau_ms": 8.794647040752452,
+        "q3_tau_ms": 11.467692761447825
+      },
+      "D2": {
+        "cells": 121,
+        "donors": 43,
+        "excluded_tau_range": 0,
+        "q1_tau_ms": 7.394008590327401,
+        "median_tau_ms": 9.0379844758998,
+        "q3_tau_ms": 14.1326372104461
+      }
+    }
+  },
+  "atlas": {
+    "release": "HMBA Adult Rhesus Macaque Brain Atlas 2025",
+    "license": "CC BY 4.0",
+    "shape": [
+      606,
+      787,
+      500
+    ],
+    "affine_ras_mm": [
+      [
+        -0.1599999964237213,
+        -0.0,
+        0.0,
+        48.0
+      ],
+      [
+        -0.0,
+        0.1599999964237213,
+        -0.0,
+        -64.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1599999964237213,
+        -48.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selection": "RAS x greater than image-grid physical midpoint",
+    "midline_ras_x_mm": -0.3999989181756973,
+    "assets": {
+      "rhesus_annotations_160.nii.gz": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/annotations_compressed_160.nii.gz",
+        "sha256": "4fe297fa8d8e90b7713c759b3c071624775bf3211097f4f116f9cba94bba69c7"
+      },
+      "terminology.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/terminologies/hmba-mammalian-homba-terminology/2025/terminology.csv",
+        "sha256": "f0131888ef69cdf81de6199101d36684eaffe056864761af3059513dd08fa43f"
+      },
+      "volumes.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/parcellation_volumes.csv",
+        "sha256": "a77e9ac590282df90efa131e6869a0712d3b595e11506d931aa0538788de545f"
+      }
+    },
+    "regions": {
+      "STRd": {
+        "homba_identifier": "HOMBA:AA30192",
+        "atlas_abbreviation": "STRd",
+        "nonzero_labels": [
+          121,
+          122,
+          123,
+          125,
+          126,
+          2446
+        ],
+        "voxels_full_volume": 736681,
+        "voxels_selected": 372123,
+        "centroid_ras_mm": [
+          9.722919352937998,
+          0.1373312225567912,
+          3.3825832120571953
+        ]
+      },
+      "GPe": {
+        "homba_identifier": "HOMBA:10343",
+        "atlas_abbreviation": "GPe",
+        "nonzero_labels": [
+          132,
+          134
+        ],
+        "voxels_full_volume": 84774,
+        "voxels_selected": 42309,
+        "centroid_ras_mm": [
+          9.293667933626388,
+          -2.285623823821005,
+          -0.029505905711086487
+        ]
+      },
+      "STN": {
+        "homba_identifier": "HOMBA:10466",
+        "atlas_abbreviation": "STH",
+        "nonzero_labels": [
+          198
+        ],
+        "voxels_full_volume": 7406,
+        "voxels_selected": 3700,
+        "centroid_ras_mm": [
+          6.052627964623876,
+          -7.184303972632498,
+          -2.997233438322673
+        ]
+      },
+      "GPi": {
+        "homba_identifier": "HOMBA:10344",
+        "atlas_abbreviation": "GPi",
+        "nonzero_labels": [
+          133
+        ],
+        "voxels_full_volume": 40711,
+        "voxels_selected": 20363,
+        "centroid_ras_mm": [
+          8.163646718629748,
+          -3.9199109829280605,
+          -1.730386537324877
+        ]
+      }
+    }
+  },
+  "python": "3.12.16",
+  "numpy": "2.5.5",
+  "raw_sha256": {
+    "cortical_windows.csv": "70b515333d84e492aae7d69dad385dc232f4adee9fca2358594d637d7e82b1c7",
+    "evaluations.csv": "8f4971677f92117326d5fa15566510dcade9432b0af6e3aa3e1876293a1e1789",
+    "mean_cortical_curves.csv": "6015cd5751237b2f7212f67961fa4525e69bad26da9eda8c5a5f2594b3e2a647",
+    "mean_spectra.csv": "0296885ad23de5541c965090e04018d9add7ca9e4bfb6bb53ff97b0485311eb7",
+    "spontaneous.csv": "30bbd86c448d2f8bee56d9679b9e5e429524bdacf276a3ac276200d4e02773bb"
+  }
+}

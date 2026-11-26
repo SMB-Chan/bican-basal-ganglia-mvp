@@ -30,7 +30,9 @@ def apply_model_spec(pop, config, spec):
     jump = pop.jump.astype(float, copy=True)
     noise_scale = np.ones(len(bias)) if pop.noise_scale is None else pop.noise_scale.astype(float, copy=True)
     slow_noise = np.zeros(len(bias)) if pop.slow_noise_mv is None else pop.slow_noise_mv.astype(float, copy=True)
-    has_slow = False
+    rebound = np.zeros(len(bias)) if pop.rebound_mv is None else pop.rebound_mv.astype(float, copy=True)
+    has_slow = pop.slow_noise_mv is not None
+    has_rebound = pop.rebound_mv is not None
     for group, values in spec.get("groups", {}).items():
         mask = pop.cell_type == pop.names.index(group)
         if "bias_mv" in values:
@@ -42,8 +44,12 @@ def apply_model_spec(pop, config, spec):
         if "slow_noise_mv" in values and float(values["slow_noise_mv"]) > 0:
             slow_noise[mask] = float(values["slow_noise_mv"])
             has_slow = True
+        if "rebound_mv" in values and float(values["rebound_mv"]) > 0:
+            rebound[mask] = float(values["rebound_mv"])
+            has_rebound = True
     updated = replace(pop, bias=bias, jump=jump, noise_scale=noise_scale,
-                      slow_noise_mv=slow_noise if has_slow else None)
+                      slow_noise_mv=slow_noise if has_slow else None,
+                      rebound_mv=rebound if has_rebound else None)
     sim = {**config["simulation"], **spec.get("simulation", {})}
     return updated, cfg, sim
 

@@ -1,0 +1,654 @@
+{
+  "calibration_seed": 800,
+  "target_tonic_rates_hz": {
+    "GPe": 34.14705882352941,
+    "STN": 17.480392156862745,
+    "GPi": 45.09803921568628
+  },
+  "variants": {
+    "gpe_gpi_heavy|delta|passive": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "delta",
+      "rebound": "passive",
+      "biases": {
+        "GPe": 17.183529411764706,
+        "STN": 12.503186274509808,
+        "GPi": 26.206862745098043
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.183529411764706
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "bias_mv": 12.503186274509808
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.206862745098043
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "gpe_gpi_heavy|delta|moderate_ifb": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "delta",
+      "rebound": "moderate_ifb",
+      "biases": {
+        "GPe": 17.115588235294116,
+        "STN": 0.0855392156862762,
+        "GPi": 26.181045751633995
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.115588235294116
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "rebound_mv": 75.0,
+            "bias_mv": 0.0855392156862762
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.181045751633995
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "gpe_gpi_heavy|delta|strong_ifb": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "delta",
+      "rebound": "strong_ifb",
+      "biases": {
+        "GPe": 17.12911764705883,
+        "STN": -8.40514705882353,
+        "GPi": 26.155065359477128
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.12911764705883
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "rebound_mv": 120.0,
+            "bias_mv": -8.40514705882353
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.155065359477128
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "gpe_gpi_heavy|physiological_37c|passive": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "physiological_37c",
+      "rebound": "passive",
+      "biases": {
+        "GPe": 17.230882352941173,
+        "STN": 12.64558823529412,
+        "GPi": 26.322385620915032
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.230882352941173
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "bias_mv": 12.64558823529412
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.322385620915032
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "gpe_gpi_heavy|physiological_37c|moderate_ifb": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "physiological_37c",
+      "rebound": "moderate_ifb",
+      "biases": {
+        "GPe": 17.21485294117647,
+        "STN": 0.6279411764705922,
+        "GPi": 26.315359477124183
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.21485294117647
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "rebound_mv": 75.0,
+            "bias_mv": 0.6279411764705922
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.315359477124183
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "gpe_gpi_heavy|physiological_37c|strong_ifb": {
+      "pathway": "gpe_gpi_heavy",
+      "synapse": "physiological_37c",
+      "rebound": "strong_ifb",
+      "biases": {
+        "GPe": 17.233823529411765,
+        "STN": -7.889705882352939,
+        "GPi": 26.283496732026155
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 4.0,
+            "GPi": 1.0
+          },
+          "GPe": {
+            "GPe": 0.7,
+            "STN": 4.0,
+            "GPi": 2.4,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.2,
+            "bias_mv": 17.233823529411765
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 0.85,
+            "rebound_mv": 120.0,
+            "bias_mv": -7.889705882352939
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 26.283496732026155
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|delta|passive": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "delta",
+      "rebound": "passive",
+      "biases": {
+        "GPe": 17.14852941176471,
+        "STN": 18.652205882352938,
+        "GPi": 22.07320261437909
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.14852941176471
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "bias_mv": 18.652205882352938
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.07320261437909
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|delta|moderate_ifb": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "delta",
+      "rebound": "moderate_ifb",
+      "biases": {
+        "GPe": 17.101470588235298,
+        "STN": 5.686274509803918,
+        "GPi": 22.061274509803923
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.101470588235298
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "rebound_mv": 75.0,
+            "bias_mv": 5.686274509803918
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.061274509803923
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|delta|strong_ifb": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "delta",
+      "rebound": "strong_ifb",
+      "biases": {
+        "GPe": 17.134264705882355,
+        "STN": -2.309558823529414,
+        "GPi": 22.10915032679739
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.134264705882355
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "rebound_mv": 120.0,
+            "bias_mv": -2.309558823529414
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.10915032679739
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 0.0,
+          "inh_tau_ms": 0.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|physiological_37c|passive": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "physiological_37c",
+      "rebound": "passive",
+      "biases": {
+        "GPe": 17.290588235294123,
+        "STN": 18.95759803921569,
+        "GPi": 22.303104575163395
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.290588235294123
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "bias_mv": 18.95759803921569
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.303104575163395
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|physiological_37c|moderate_ifb": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "physiological_37c",
+      "rebound": "moderate_ifb",
+      "biases": {
+        "GPe": 17.22514705882354,
+        "STN": 6.841421568627451,
+        "GPi": 22.274346405228762
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.22514705882354
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "rebound_mv": 75.0,
+            "bias_mv": 6.841421568627451
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.274346405228762
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    },
+    "stn_loop_dominant|physiological_37c|strong_ifb": {
+      "pathway": "stn_loop_dominant",
+      "synapse": "physiological_37c",
+      "rebound": "strong_ifb",
+      "biases": {
+        "GPe": 17.25029411764706,
+        "STN": -1.7889705882352953,
+        "GPi": 22.258169934640527
+      },
+      "spec": {
+        "projection_propensity": {
+          "STN": {
+            "GPe": 2.6,
+            "GPi": 1.8
+          },
+          "GPe": {
+            "GPe": 0.6,
+            "STN": 9.0,
+            "GPi": 1.5,
+            "D1": 0.2,
+            "D2": 0.2
+          }
+        },
+        "groups": {
+          "GPe": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.3,
+            "bias_mv": 17.25029411764706
+          },
+          "STN": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "jump_mv": 1.15,
+            "rebound_mv": 120.0,
+            "bias_mv": -1.7889705882352953
+          },
+          "GPi": {
+            "noise_multiplier": 2.2,
+            "slow_noise_mv": 9.0,
+            "bias_mv": 22.258169934640527
+          }
+        },
+        "simulation": {
+          "slow_noise_tau_ms": 160.0,
+          "exc_tau_ms": 2.0,
+          "inh_tau_ms": 4.0,
+          "rebound_vh_mv": -68.5,
+          "rebound_va_mv": -68.0,
+          "rebound_tau_plus_ms": 25.0,
+          "rebound_tau_minus_ms": 20.0
+        }
+      }
+    }
+  }
+}
