@@ -1,0 +1,99 @@
+{
+  "purpose": "Held-out test of the frozen Stage 4B parkinsonian predictions for GPi against single units recorded before and after MPTP in the same monkeys (DANDI:000947).",
+  "data": {
+    "dandiset": "000947",
+    "version": "0.240510.2211",
+    "license": "CC-BY-4.0",
+    "subjects": [
+      "Gaia",
+      "Isis"
+    ],
+    "region": "GPi (location label compared case-insensitively)",
+    "file_list": "heldout/inventory.csv rows with at least one GPi unit"
+  },
+  "windows": {
+    "definition": "[cue_onset_time - 1.0 s, cue_onset_time) for trials with finite cue time, cue - start >= 1.0 s, and no error_onset_time before the cue; only windows inside the unit's first-to-last spike span",
+    "window_s": 1.0
+  },
+  "metrics": {
+    "window_s": 1.0,
+    "bin_ms": 1.0,
+    "beta_band_hz": [
+      8.0,
+      15.0
+    ],
+    "reference_band_hz": [
+      55.0,
+      150.0
+    ],
+    "min_windows": 20,
+    "min_isis": 20,
+    "min_spikes": 50
+  },
+  "unit_selection": {
+    "primary": "All GPi units with >= 20 windows; identical spike trains within a file kept once. Quality labels are not used because they are undocumented and missing for most units of Gaia before MPTP.",
+    "sensitivity": "Only units whose unit_quality_post_sorting contains 'excellent' or 'good' (case-insensitive)."
+  },
+  "model_predictions": {
+    "models": [
+      "baseline_lif",
+      "selected_biophysics",
+      "selected_rebound"
+    ],
+    "specs": {
+      "selected_biophysics": "biophysics/results/selection.json",
+      "selected_rebound": "rebound/results/selection.json"
+    },
+    "dopamine_depletion": "parkinsonian/protocol.json (unchanged)",
+    "seeds": [
+      1103,
+      1109,
+      1117,
+      1123,
+      1129,
+      1151,
+      1153,
+      1163,
+      1171,
+      1181,
+      1187,
+      1193
+    ],
+    "duration_ms": 30500,
+    "burn_in_ms": 500,
+    "trial": 4100,
+    "note": "Normal and dopamine-depleted states share noise. Every GPi cell is treated as a unit, with 30 consecutive 1 s windows, and scored by heldout/metrics.py."
+  },
+  "statistics": {
+    "effect": "median over units after MPTP minus median before MPTP (data, per monkey); median over GPi cells in the depleted state minus normal state (model, per seed, then averaged over seeds)",
+    "data_interval": "95% interval from 5000 bootstrap resamples of sessions within each MPTP state, per monkey",
+    "model_interval": "95% interval from 5000 bootstrap resamples of the 12 seeds",
+    "bootstrap_seed": 20261128,
+    "replicates": 5000
+  },
+  "directions": {
+    "minimum_effect": {
+      "rate_hz": 1.0,
+      "isi_cv": 0.05,
+      "beta_index": 0.1
+    },
+    "minimum_effect_note": "Added after computing the model predictions and before reading any spike time, because with 12 seeds x 180 cells even tiny model changes (e.g. -0.025 in the index) have intervals excluding 0. Rate margin from Stage 4B (1 Hz); CV margin half the Stage 1 pair tolerance (0.10); index margin 0.10, small next to the ~2 that a strongly 12 Hz-modulated 40 Hz single unit reaches in test_heldout.",
+    "data": "Per monkey, a change is reliable when its interval excludes 0 and |change| >= minimum_effect. increase if reliable and positive in both monkeys; decrease if reliable and negative in both; opposite if reliable in opposite directions; otherwise no reliable change",
+    "model": "increase if the seed interval lies above 0 and change >= minimum_effect; decrease if the interval lies below 0 and change <= -minimum_effect; otherwise no reliable change"
+  },
+  "scoring": {
+    "primary": "For each of rate_hz, isi_cv and beta_index, a model scores 1 when its direction equals the data direction (both 'no reliable change' counts as agreement; data 'opposite' never agrees). Score out of 3 per model, primary unit selection.",
+    "secondary": [
+      "Same score with the sensitivity unit selection",
+      "Magnitude: whether the model's mean change lies between the smaller lower bound and the larger upper bound of the two monkeys' intervals",
+      "Per-monkey effects and unit counts, reported for every metric"
+    ]
+  },
+  "known_limits": [
+    "Pre-cue hold is an attentive, motionless period, not rest",
+    "Only two monkeys; animal-level variance cannot be estimated",
+    "MPTP route reported in search results as intracarotid (unilateral); not verified in the primary text",
+    "Pre- and post-MPTP sessions differ in date and possibly in electrode tracks",
+    "Model GPi cells are not sampled like recorded units (no sorting, no selection bias)"
+  ]
+}

@@ -16,3 +16,4 @@ confirmation/results/** -text whitespace=cr-at-eol
 oscillation/results/** -text whitespace=cr-at-eol
 readout/results/** -text whitespace=cr-at-eol
 heldout/inventory.csv -text whitespace=cr-at-eol
+heldout/predictions/** -text whitespace=cr-at-eol
