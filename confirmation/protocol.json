@@ -1,0 +1,16 @@
+{
+  "purpose": "Re-evaluate the unchanged Stage 4A factorial on fresh seeds to remove the optimism of selecting and reporting on the same 12 seeds.",
+  "frozen_variant": "stn_loop_dominant|delta|moderate_ifb",
+  "original_joint_normal_pass": [8, 12],
+  "rebound_protocol": "rebound/protocol.json (unchanged; calibration seed 800 reproduces rebound/results/calibration.json)",
+  "seeds": [2017, 2027, 2029, 2039, 2053, 2063, 2069, 2081, 2083, 2087, 2089, 2099, 2111, 2113, 2129, 2131, 2137, 2141, 2143, 2153, 2161, 2179, 2203, 2207, 2213, 2221, 2237, 2239, 2243, 2251, 2267, 2269, 2273, 2281, 2287, 2293],
+  "excluded_seed_note": "Seed 2003 was run once to time the pipeline and its result was seen, so it is not part of this set.",
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 2026112,
+  "criteria": {
+    "C1_selection_stable": "Applying rebound.run.select_rebound_variant to the fresh-seed rows selects the frozen variant.",
+    "C2_superiority": "Paired difference in joint_normal_pass (frozen minus the alternative with the highest fresh-seed rate) has a seed-bootstrap 95% interval above 0.",
+    "C3_no_shrinkage": "The original rate 8/12 lies inside the fresh-seed 95% interval of the frozen variant."
+  },
+  "scope_note": "Fresh seeds remove seed-selection optimism only. The benchmarks themselves (Gatev & Wichmann, Kita, Iwamuro, Nambu, Tachibana 2008, Bevan & Wilson) were used for selection and remain in-sample for any model built on this choice."
+}

@@ -1,0 +1,31 @@
+{
+  "purpose": "Exploratory, no new external data: can the open-loop GPe-STN circuit of the frozen Stage 4A model produce PD-specific 8-15 Hz oscillation once loop gain and STN rebound vary?",
+  "base_model": "rebound/results/selection.json (selected_spec)",
+  "dopamine_depletion": "parkinsonian/protocol.json (unchanged)",
+  "grid": {
+    "gpe_to_stn_scale": [1.0, 2.0, 3.0, 4.0],
+    "stn_to_gpe_scale": [1.0, 2.0, 3.0, 4.0],
+    "stn_rebound_mv": [75.0, 0.0]
+  },
+  "calibration": {
+    "seed": 800,
+    "target": "rebound/results/calibration.json target_tonic_rates_hz (normal state, scales applied)",
+    "groups": ["GPe", "STN", "GPi"],
+    "network_iterations": 16,
+    "tolerance_hz": 0.15
+  },
+  "seeds": [2297, 2309, 2311, 2333, 2339, 2341, 2347, 2351, 2357, 2371, 2377, 2381],
+  "spectral": "parkinsonian/protocol.json spontaneous block (6,500 ms, first 500 ms discarded, Welch 1,000 ms Hann, 50% overlap, index = mean PSD 8-15 Hz / mean PSD 55-150 Hz)",
+  "definitions": {
+    "pd_specific_oscillation": "For one seed: STN and GPi population index in PD >= 1.5 and >= 1.25 x the normal-state index, and normal-state STN index < 1.5 (Stage 4B test 2 plus a normal-state ceiling).",
+    "variant_positive": "pd_specific_oscillation in at least 6 of 12 seeds",
+    "calibration_failure": "Any group misses its target rate by more than 2 Hz after the last iteration; reported, not dropped."
+  },
+  "interpretation_rules": [
+    "If no variant is positive, the open-loop circuit does not produce PD-specific oscillation within this range. This is consistent with, but does not prove, a need for cortico-thalamic feedback.",
+    "If some variants are positive, the claim that a closed loop is required is withdrawn for this model class, and the positive region is reported as a hypothesis about loop gain.",
+    "No outcome here is counted as agreement with Tachibana et al. (2011): their pharmacology was already used in Stage 4B."
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 2026113
+}
