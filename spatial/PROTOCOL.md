@@ -63,4 +63,6 @@ python -m spatial.composition --census spatial_reproduced/census.json --out spat
 python -m spatial.analyze spatial_reproduced
 ```
 
+前回の1切片面の予備解析は `python -m spatial.preflight --fetch --cache merscope_probe_cache --out merscope_probe_cache/spatial_check.json` で再現でき、結果は [`preflight.json`](preflight.json)。
+
 `census.json` には入力ハッシュ、領域別のサブクラス数、背側線条体の組成、格子別の密度、モデル用の群の大きさが入る。`spn_mixing_by_section.csv` は切片ごとの近傍統計、`composition/composition_metrics.csv` は各シード・組成・配線・入力条件の評価、`composition_paired.csv` は対応差。

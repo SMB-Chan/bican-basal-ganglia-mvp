@@ -1,0 +1,689 @@
+{
+  "seeds": [
+    503,
+    509,
+    521,
+    523,
+    541,
+    547,
+    557,
+    563,
+    569,
+    571,
+    577,
+    587,
+    593,
+    599,
+    601,
+    607,
+    613,
+    617,
+    619,
+    631,
+    641,
+    643,
+    647,
+    653
+  ],
+  "python": "3.13.18",
+  "numpy": "2.5.5",
+  "counts": {
+    "assumed": {
+      "D1": 236,
+      "D2": 236,
+      "SIn": 28,
+      "GPe": 200,
+      "STN": 120,
+      "GPi": 180
+    },
+    "striatal_measured": {
+      "D1": 224,
+      "D2": 228,
+      "SIn": 48,
+      "GPe": 200,
+      "STN": 120,
+      "GPi": 180
+    },
+    "pallidal_measured": {
+      "D1": 236,
+      "D2": 236,
+      "SIn": 28,
+      "GPe": 310,
+      "STN": 80,
+      "GPi": 110
+    },
+    "both_measured": {
+      "D1": 224,
+      "D2": 228,
+      "SIn": 48,
+      "GPe": 310,
+      "STN": 80,
+      "GPi": 110
+    },
+    "striatal_literature": {
+      "D1": 216,
+      "D2": 214,
+      "SIn": 70,
+      "GPe": 200,
+      "STN": 120,
+      "GPi": 180
+    }
+  },
+  "protocol": {
+    "seeds": [
+      503,
+      509,
+      521,
+      523,
+      541,
+      547,
+      557,
+      563,
+      569,
+      571,
+      577,
+      587,
+      593,
+      599,
+      601,
+      607,
+      613,
+      617,
+      619,
+      631,
+      641,
+      643,
+      647,
+      653
+    ],
+    "wirings": [
+      "E_odds",
+      "F_patchseq"
+    ],
+    "compositions": {
+      "assumed": "config.json",
+      "striatal_measured": "MERSCOPE dorsal striatum D1/D2/interneuron shares; GPe, STN, GPi as config.json",
+      "pallidal_measured": "MERSCOPE GPe/STN/GPi density x MRI volume shares; striatum as config.json",
+      "both_measured": "both measured substitutions",
+      "striatal_literature": "interneurons 14% of striatal neurons (Del Rey et al. 2022, doi 10.1111/nan.12812), D1:D2 1:1; GPe, STN, GPi as config.json"
+    },
+    "literature_interneuron_fraction": 0.14,
+    "fixed_stimulated_stn_cells": 60,
+    "comparisons": [
+      [
+        "striatal_measured",
+        "assumed"
+      ],
+      [
+        "pallidal_measured",
+        "assumed"
+      ],
+      [
+        "both_measured",
+        "assumed"
+      ],
+      [
+        "both_measured",
+        "pallidal_measured"
+      ],
+      [
+        "striatal_literature",
+        "assumed"
+      ]
+    ],
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 902117
+  },
+  "validation_protocol": {
+    "seeds": [
+      101,
+      113,
+      127,
+      139,
+      151,
+      163,
+      179,
+      193,
+      211,
+      227,
+      239,
+      251
+    ],
+    "tonic": {
+      "duration_ms": 2000,
+      "burn_in_ms": 300,
+      "min_intervals": 5,
+      "reference_doi": "10.1093/cercor/bhn171",
+      "monkeys": [
+        "U",
+        "G",
+        "Y"
+      ],
+      "rate_hz": {
+        "GPe": [
+          50.0,
+          36.5,
+          38.1
+        ],
+        "STN": [
+          20.3,
+          15.4,
+          15.5
+        ],
+        "GPi": [
+          52.2,
+          45.1,
+          43.6
+        ]
+      },
+      "isi_cv": {
+        "GPe": [
+          1.5,
+          2.1,
+          1.9
+        ],
+        "STN": [
+          1.1,
+          1.2,
+          1.4
+        ],
+        "GPi": [
+          1.0,
+          1.2,
+          1.0
+        ]
+      }
+    },
+    "stn_pulse": {
+      "reference_doi": "10.1523/JNEUROSCI.1719-05.2005",
+      "repetitions": 12,
+      "pulse_at_ms": 300,
+      "after_ms": 70,
+      "fraction_stn": 0.5,
+      "voltage_jump_mv": 12.0,
+      "early_window_ms": [
+        3,
+        13
+      ],
+      "late_window_ms": [
+        14,
+        54
+      ],
+      "sign_tolerance_hz": 0.25
+    },
+    "bootstrap_replicates": 5000,
+    "resample_seed": 800242,
+    "conditions": {
+      "A_random": {
+        "wiring": "A",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "B_distance": {
+        "wiring": "B",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "C_cell_type": {
+        "wiring": "C",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "D_mask": {
+        "wiring": "D",
+        "odds": false,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "E_odds": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "F_patchseq": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "atlas"
+      },
+      "G_channel": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": true,
+        "geometry": "atlas"
+      },
+      "E_channel": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": true,
+        "geometry": "atlas"
+      },
+      "E_gaussian": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": false,
+        "channel": false,
+        "geometry": "gaussian"
+      },
+      "F_gaussian": {
+        "wiring": "D",
+        "odds": true,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "gaussian"
+      },
+      "C_patchseq": {
+        "wiring": "C",
+        "odds": false,
+        "patchseq": true,
+        "channel": false,
+        "geometry": "atlas"
+      }
+    },
+    "comparisons": [
+      [
+        "B_distance",
+        "A_random"
+      ],
+      [
+        "C_cell_type",
+        "B_distance"
+      ],
+      [
+        "D_mask",
+        "C_cell_type"
+      ],
+      [
+        "E_odds",
+        "D_mask"
+      ],
+      [
+        "F_patchseq",
+        "E_odds"
+      ],
+      [
+        "G_channel",
+        "F_patchseq"
+      ],
+      [
+        "E_channel",
+        "E_odds"
+      ],
+      [
+        "G_channel",
+        "E_channel"
+      ],
+      [
+        "E_odds",
+        "E_gaussian"
+      ],
+      [
+        "F_patchseq",
+        "F_gaussian"
+      ],
+      [
+        "F_gaussian",
+        "E_gaussian"
+      ],
+      [
+        "C_patchseq",
+        "C_cell_type"
+      ],
+      [
+        "C_patchseq",
+        "A_random"
+      ],
+      [
+        "F_patchseq",
+        "C_patchseq"
+      ]
+    ]
+  },
+  "model_config": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67,
+      83
+    ],
+    "groups": {
+      "D1": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.8,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "D2": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.7,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "SIn": {
+        "n": 28,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.5,
+        "bias_mv": 14.0,
+        "tau_ms": 12
+      },
+      "GPe": {
+        "n": 200,
+        "region": "GPe",
+        "sign": -1,
+        "jump_mv": 0.65,
+        "bias_mv": 20.0,
+        "tau_ms": 14
+      },
+      "STN": {
+        "n": 120,
+        "region": "STN",
+        "sign": 1,
+        "jump_mv": 0.85,
+        "bias_mv": 17.0,
+        "tau_ms": 15
+      },
+      "GPi": {
+        "n": 180,
+        "region": "GPi",
+        "sign": -1,
+        "jump_mv": 0.85,
+        "bias_mv": 22.0,
+        "tau_ms": 14
+      }
+    },
+    "out_degree": 24,
+    "output_group": "GPi",
+    "distance_scale_mm": 3.0,
+    "local_cell_affinity": {
+      "D1": {
+        "D1": 1.4,
+        "D2": 1.2
+      },
+      "D2": {
+        "D1": 1.2,
+        "D2": 1.4
+      },
+      "SIn": {
+        "D1": 2.5,
+        "D2": 2.5
+      },
+      "GPe": {
+        "GPe": 1.4
+      }
+    },
+    "projection_propensity": {
+      "D1": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 0.5,
+        "GPi": 4.0
+      },
+      "D2": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 4.0,
+        "GPi": 0.4
+      },
+      "SIn": {
+        "D1": 1.0,
+        "D2": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 1.2,
+        "D1": 0.2,
+        "D2": 0.2
+      },
+      "STN": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      }
+    },
+    "topographic_projections": [
+      [
+        "D1",
+        "GPe"
+      ],
+      [
+        "D1",
+        "GPi"
+      ],
+      [
+        "D2",
+        "GPe"
+      ],
+      [
+        "D2",
+        "GPi"
+      ],
+      [
+        "GPe",
+        "STN"
+      ],
+      [
+        "GPe",
+        "GPi"
+      ]
+    ],
+    "matched_channel_gain": 4.0,
+    "synthetic_geometry_mm": {
+      "STRd": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "sd": [
+          2.4,
+          3.0,
+          2.0
+        ]
+      },
+      "GPe": {
+        "center": [
+          3.0,
+          -1.0,
+          -1.0
+        ],
+        "sd": [
+          1.3,
+          1.7,
+          1.1
+        ]
+      },
+      "STN": {
+        "center": [
+          7.0,
+          -3.0,
+          -3.0
+        ],
+        "sd": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      },
+      "GPi": {
+        "center": [
+          5.0,
+          -2.0,
+          -2.0
+        ],
+        "sd": [
+          1.2,
+          1.4,
+          1.0
+        ]
+      }
+    },
+    "simulation": {
+      "dt_ms": 1.0,
+      "rest_mv": -65,
+      "reset_mv": -68,
+      "threshold_mv": -50,
+      "refractory_ms": 2.0,
+      "noise_mv_sqrt_ms": 1.1,
+      "synaptic_offset_ms": 1.0,
+      "conduction_mm_per_ms": 0.9,
+      "baseline_ms": 200,
+      "baseline_readout_ms": 150,
+      "cue_ms": 300,
+      "cue_readout_ms": 200,
+      "cue_common_mv": 3.5,
+      "cue_stn_common_mv": 1.0,
+      "cue_deltas_mv": [
+        2.0,
+        5.0
+      ],
+      "trials_per_side": 4,
+      "equal_trials": 4
+    }
+  },
+  "census_sha256": {
+    "cell_metadata.csv": "bf5a03ef9e6d58159b804c012da59cbb05aa711ade1c69c18032e4c963457873",
+    "slab_plane_coordinates.csv": "6a3e677d09a781d86810ff2e76b6ea357f5d4151d0bcec8277e4227f0b04eece",
+    "cell_anatomical_annotations.csv": "1dea2b8f7eff52956720adb43bcce32d9e420ed82b78abb2f3507bb91dc52b4d",
+    "mmc_results.csv": "a8f30768a970a40fcb101e1920f4cdf1af7e2ca859551c596f77b5b1c502a069",
+    "specimen_metadata.csv": "00d82361c07236df63f255678918259f1698ca14ef2b64c38b7860f2b7f27100",
+    "donor.csv": "e68d29cead3c6b0550d9bff3982c2564e63dc9af470469636d06de308d1d4995"
+  },
+  "atlas": {
+    "release": "HMBA Adult Rhesus Macaque Brain Atlas 2025",
+    "license": "CC BY 4.0",
+    "shape": [
+      606,
+      787,
+      500
+    ],
+    "affine_ras_mm": [
+      [
+        -0.1599999964237213,
+        -0.0,
+        0.0,
+        48.0
+      ],
+      [
+        -0.0,
+        0.1599999964237213,
+        -0.0,
+        -64.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1599999964237213,
+        -48.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selection": "RAS x greater than image-grid physical midpoint",
+    "midline_ras_x_mm": -0.3999989181756973,
+    "assets": {
+      "rhesus_annotations_160.nii.gz": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/annotations_compressed_160.nii.gz",
+        "sha256": "4fe297fa8d8e90b7713c759b3c071624775bf3211097f4f116f9cba94bba69c7"
+      },
+      "terminology.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/terminologies/hmba-mammalian-homba-terminology/2025/terminology.csv",
+        "sha256": "f0131888ef69cdf81de6199101d36684eaffe056864761af3059513dd08fa43f"
+      },
+      "volumes.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/parcellation_volumes.csv",
+        "sha256": "a77e9ac590282df90efa131e6869a0712d3b595e11506d931aa0538788de545f"
+      }
+    },
+    "regions": {
+      "STRd": {
+        "homba_identifier": "HOMBA:AA30192",
+        "atlas_abbreviation": "STRd",
+        "nonzero_labels": [
+          121,
+          122,
+          123,
+          125,
+          126,
+          2446
+        ],
+        "voxels_full_volume": 736681,
+        "voxels_selected": 372123,
+        "centroid_ras_mm": [
+          9.722919352937998,
+          0.1373312225567912,
+          3.3825832120571953
+        ]
+      },
+      "GPe": {
+        "homba_identifier": "HOMBA:10343",
+        "atlas_abbreviation": "GPe",
+        "nonzero_labels": [
+          132,
+          134
+        ],
+        "voxels_full_volume": 84774,
+        "voxels_selected": 42309,
+        "centroid_ras_mm": [
+          9.293667933626388,
+          -2.285623823821005,
+          -0.029505905711086487
+        ]
+      },
+      "STN": {
+        "homba_identifier": "HOMBA:10466",
+        "atlas_abbreviation": "STH",
+        "nonzero_labels": [
+          198
+        ],
+        "voxels_full_volume": 7406,
+        "voxels_selected": 3700,
+        "centroid_ras_mm": [
+          6.052627964623876,
+          -7.184303972632498,
+          -2.997233438322673
+        ]
+      },
+      "GPi": {
+        "homba_identifier": "HOMBA:10344",
+        "atlas_abbreviation": "GPi",
+        "nonzero_labels": [
+          133
+        ],
+        "voxels_full_volume": 40711,
+        "voxels_selected": 20363,
+        "centroid_ras_mm": [
+          8.163646718629748,
+          -3.9199109829280605,
+          -1.730386537324877
+        ]
+      }
+    }
+  },
+  "raw_csv_sha256": {
+    "composition_metrics.csv": "b437f2080e54f07ca5b34c03b2bd5093e436dbecb7e4d7136731c607a8d37a46",
+    "composition_tonic.csv": "f3b5c83ccb1d23c7670cf9e6a908782e0f3ae7dd6ecc70b91b3df65ec2dbb2b1"
+  }
+}

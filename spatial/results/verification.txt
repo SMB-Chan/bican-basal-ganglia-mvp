@@ -1,0 +1,9 @@
+2026-11-26 verification (Linux, Python 3.13.18, numpy 2.5.5, scipy 1.18.1)
+
+python -m unittest -v                                   -> 23 tests OK
+python -m spatial.census --permutations 20 (separate)   -> source SHA-256 identical; every census value identical except mixing_permutations
+python -m spatial.census --permutations 500             -> spatial/results/census.json, spn_mixing_by_section.csv
+python -m spatial.composition --out <separate> --seeds 653 -> 20/20 rows identical to spatial/results/composition/composition_metrics.csv
+validation seed 101, E_odds and F_patchseq, after adding the optional edge_weights argument
+                                                        -> pulse_late_hz and blocked_late_hz equal to validation/results/metrics.csv
+Downloaded table sizes equal the public Content-Length; a first download of slab_plane_coordinates.csv was truncated and was fetched again.

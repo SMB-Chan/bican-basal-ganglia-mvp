@@ -24,7 +24,7 @@
 
 ## 確認したその他の公開データ
 
-ABC Atlasはアカウント不要の公開AWSバケット `allen-brain-cell-atlas` で配布している。以下の個別データセットはドキュメントに **CC BY-NC 4.0** と明記されており、帰属と非営利条件がある。今回のファイル同梱と解析の範囲は上表のMRIアトラスに限る。 [ABC Atlasの取得案内](https://alleninstitute.github.io/abc_atlas_access/notebooks/getting_started.html) · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+ABC Atlasはアカウント不要の公開AWSバケット `allen-brain-cell-atlas` で配布している。以下の個別データセットはドキュメントに **CC BY-NC 4.0** と明記されており、帰属と非営利条件がある。同梱するデータファイルは上表のMRIアトラスに限る。Patch-seqとMERSCOPEは実行時に再取得し、リポジトリには要約統計・入力ハッシュ・出典だけを含める。MERSCOPEは2026-11-26時点で最新版の20261101を全行取得した（[集計の手順](spatial/PROTOCOL.md)）。 [ABC Atlasの取得案内](https://alleninstitute.github.io/abc_atlas_access/notebooks/getting_started.html) · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
 | 公開データ | 固定版・取得の入口 | 将来使える測定 |
 |---|---|---|
@@ -39,3 +39,8 @@ ABC Atlasはアカウント不要の公開AWSバケット `allen-brain-cell-atla
 - 線条体からGPe・GPiへの投射と軸索側枝は霊長類の単一軸索トレーシングに基づく。D1→GPi、D2→GPeの優先度は作業仮説として採用し、D1→GPeとD2→GPiにも正の重みを置いた。霊長類での細胞型別の数値的な接続オッズは測定値として扱っていない。 [Lévesque & Parent (2005)](https://pmc.ncbi.nlm.nih.gov/articles/PMC1187973/) · [Gerfenら (1990)、齧歯類](https://pubmed.ncbi.nlm.nih.gov/2147780/)
 - GPe→STN/GPi/線条体、STN→GPe/GPiは霊長類のトレーシングで報告された方向を採用した。GPe内および線条体内の接続は細胞種を粗くまとめた局所回路の仮定。 [Satoら、GPe](https://pubmed.ncbi.nlm.nih.gov/10660885/) · [Satoら、STN](https://pubmed.ncbi.nlm.nih.gov/10888744/) · [Shinkら、GPe–STN](https://pubmed.ncbi.nlm.nih.gov/8783253/)
 - 二択課題では、GPi発火の減少で下流の脱抑制を近似する既存の計算モデルを参考にした。チャネルの割当・同チャネル選好・入力強度・判定窓は本MVPの設計。 [Gurneyら (2001)](https://pubmed.ncbi.nlm.nih.gov/11417052/) · [Girardらの霊長類スパイキングモデル](https://pmc.ncbi.nlm.nih.gov/articles/PMC8246891/)
+
+## 組成の比較に用いた文献
+
+- 対照サルの線条体ニューロンの約86%が投射ニューロン、約14%が介在ニューロン。介在ニューロンの内訳はカルレチニン陽性約8%、PV陽性2.6%、NADPH-d陽性1.8%、ChAT陽性1.5%（いずれも全線条体ニューロンに対する割合）。免疫組織化学と立体解析による。 [Del Reyら (2022)](https://doi.org/10.1111/nan.12812)
+- ラット・マーモセット・マカク・ヒヒ・ヒトの立体解析で、GPeのニューロン数はGPi・STN・黒質緻密部より一貫して多く、後3者は各種内で同程度。本文の数表は未確認で、比較には要旨の順序関係だけを使った。 [Hardmanら (2002)](https://doi.org/10.1002/cne.10165)

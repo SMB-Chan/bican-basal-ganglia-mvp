@@ -16,7 +16,8 @@
 - [同一細胞内の膜特性の組み合わせとドナー単位の検証手順](heterogeneity/PROTOCOL.md)
 - [同じ出力を与える配線と、投射仮説を区別できる指標](identifiability/RESULTS.md)
 - [配線の識別実験の設定と再現手順](identifiability/PROTOCOL.md)
-- [マカクMERSCOPE実座標の予備解析](spatial/RESULTS.md)
+- [マカクMERSCOPE全データの組成・局所配置と、実測組成を代入したネットワーク](spatial/RESULTS.md)
+- [MERSCOPE全データの集計・組成代入の手順](spatial/PROTOCOL.md)
 - [皮質刺激の設定用・評価用の資料](identifiability/CORTICAL_BENCHMARK.md)
 
 ## 再現手順
