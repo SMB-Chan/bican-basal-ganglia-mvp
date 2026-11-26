@@ -5,3 +5,5 @@ PASS | independent single-seed run (seed 1103) reproduced evaluations.csv (3 row
 PASS | Welch 8-15 Hz / 55-150 Hz oscillation index verified invariant to 3x Poisson firing-rate changes in test_rebound.py
 PASS | Stage 4A selected_rebound improved held-out macaque PD checks over Stage 2 selected_biophysics by +1.83 checks/seed (95% CI +1.25 to +2.33), passing Tachibana STN inactivation (11/12), GPe->STN blockade (12/12), and Chiken STN-blockade unmasking of GPi inhibition (6/12 vs 0/12)
 PASS | all 36 unit tests and all 38 manifest SHA-256 checksums pass across the repository
+NOTE | protocol.json and PROTOCOL.md first appear in the same commit as the results (56400f7); the pre-registration order cannot be confirmed from the git history
+NOTE | against baseline_lif the Stage 4A model differs by -0.08 checks/seed (95% CI -0.42 to +0.25); with tests 3-4 credited only when test 2 passed: -0.50 (-0.75 to -0.25). See comparisons.csv

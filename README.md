@@ -28,6 +28,9 @@
 - [段階4A正常状態要因比較の設定と再現手順](rebound/PROTOCOL.md)
 - [段階4B：パーキンソン病（MPTPマカク）8〜15 Hz病態振動・皮質応答とSTN遮断回復の盲検検証](parkinsonian/RESULTS.md)
 - [段階4Bパーキンソン病ホールドアウト検証の事前登録手順](parkinsonian/PROTOCOL.md)
+- [段階4Aの新しいシードでの確認と、段階4Bの比較の補足](confirmation/RESULTS.md)
+- [開ループのGPe–STN回路でPD特異的な振動が出るかの探索](oscillation/RESULTS.md)
+- [外部データの使用台帳（設定・選択・評価の区別）](DATA_LEDGER.md)
 
 ## 再現手順
 
