@@ -1,0 +1,10 @@
+Starting research revision 7eaf41470ba9141f965869720aa30ebc4558abef.
+Protocol and analysis frozen on GitHub at 8a69b26dce3451e72e34074dbe76c38d93f497e4 before either simulation.
+Python 3.12.14 / NumPy 2.3.5 / NiBabel sources from tag 5.3.2 / Matplotlib 3.10.8.
+All 3 atlas asset SHA-256 checks passed (atlas.load_atlas).
+python -m unittest -v test_model: 7/7 tests passed.
+python -m partial_block.run --out partial_block/results --workers 4: exit 0, 720 unique rows.
+Second complete run in a fresh directory with --workers 3: exit 0; rates.csv, contrasts.csv and manifest.json byte-identical.
+python -m partial_block.verify partial_block/results: 720 unique rows; seed 3001, all 60 unstacked rates matched within 1e-12 Hz. This uses the same LIF integrator and graph generator with separately constructed network manipulations.
+Each simulation checked equality of all upstream spike trains across the three PD-based conditions at each block fraction, and exact agreement of full-block PD vs H2 spike trains at every cell.
+Primary decision: 3/3 frozen models met both criteria in protocol.json.

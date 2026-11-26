@@ -1,0 +1,37 @@
+{
+  "base": "7eaf41470ba9141f965869720aa30ebc4558abef",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "interpolation_mv": {
+    "baseline_lif": -1.47347910803204,
+    "selected_biophysics": -5.0089517759168345,
+    "selected_rebound": -3.182888314671262
+  },
+  "runs": 720,
+  "decisions": {
+    "baseline_lif": {
+      "matched_sham": true,
+      "separated_at_half": true,
+      "passed": true
+    },
+    "selected_biophysics": {
+      "matched_sham": true,
+      "separated_at_half": true,
+      "passed": true
+    },
+    "selected_rebound": {
+      "matched_sham": true,
+      "separated_at_half": true,
+      "passed": true
+    }
+  },
+  "inputs_sha256": {
+    "partial_block/protocol.json": "cd034edb0bb939bf160e2b0e228e5ba2cdf4fc0ffeaf669e045e5900ade7c2e2",
+    "depletion/results/summary.csv": "7c0727332956676ace88539d76fc8720634b4a3eced0a61a40413bae725539c8",
+    "config.json": "e19273d14d645b2dd1c09cc10b10de80da66df6ddb5f32ea2c7b67c52369d44d",
+    "parkinsonian/protocol.json": "df7950e99f4a228f4a77b344ba669540f13e9da9c726d2ba67273c881dbcae46",
+    "validation/patchseq_tau.json": "2d383ff5b7ab47a7db6db9a1c03077428096f51d290a622d8edbb5f2477b761d",
+    "biophysics/results/selection.json": "a9d70eeb466f4eda956b342e4d221304a638212b1f80de9d5ae4759c870337a8",
+    "rebound/results/selection.json": "9bc1e4d2ef868a3f652a3d3650107bdc87ff223346bc716ff7b8d301fdc9f018"
+  }
+}
