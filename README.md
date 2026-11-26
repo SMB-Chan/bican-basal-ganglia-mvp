@@ -12,6 +12,8 @@
 
 - [検証結果](validation/RESULTS.md)
 - [検証指標・データ出典・再現手順](validation/PROTOCOL.md)
+- [細胞ごとの膜特性を加えた結果](heterogeneity/RESULTS.md)
+- [同一細胞内の膜特性の組み合わせとドナー単位の検証手順](heterogeneity/PROTOCOL.md)
 
 ## 再現手順
 

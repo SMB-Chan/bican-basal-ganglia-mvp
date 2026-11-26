@@ -1,0 +1,6 @@
+PASS | 12 seeds, two wiring rules, six cell-parameter variants; 144 network and 432 tonic rows
+PASS | 1,000 neurons and 19,680 edges per graph; exact targets and delays held fixed across six variants
+PASS | 207 cells from 46 held-out donor folds; Patch-seq assets redownloaded and SHA-256 checked
+PASS | seed 307 reproduced all network and tonic rows, plus byte-identical cohort and donor validation tables
+PASS | prior validation seed 101 reproduced every row for its 11 conditions in all three data tables
+PASS | all 14 unit tests, including fixed marginals, donor holdout, and cell-specific simulation

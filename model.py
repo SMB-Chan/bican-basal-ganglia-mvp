@@ -15,6 +15,8 @@ class Population:
     jump: np.ndarray
     bias: np.ndarray
     tau: np.ndarray
+    threshold_mv: np.ndarray | None = None
+    cue_gain: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -124,8 +126,8 @@ def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
     v = initial.copy()
     rest = sim["rest_mv"]
     equilibrium = rest + pop.bias
-    cue_equilibrium = equilibrium + cue_bias
-    thresholds = sim["threshold_mv"]
+    cue_equilibrium = equilibrium + (cue_bias if pop.cue_gain is None else cue_bias * pop.cue_gain)
+    thresholds = sim["threshold_mv"] if pop.threshold_mv is None else pop.threshold_mv
     reset = sim["reset_mv"]
     refractory = np.zeros(n, dtype=np.int32)
     slots = int(graph.delay.max()) + 1

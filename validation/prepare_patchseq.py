@@ -20,9 +20,9 @@ ASSETS = {
 }
 
 
-def get_files(directory, fetch):
+def get_files(directory, fetch, assets=ASSETS):
     directory.mkdir(parents=True, exist_ok=True)
-    for name, digest in ASSETS.items():
+    for name, digest in assets.items():
         path = directory / name
         if fetch and not path.exists():
             temp = path.with_suffix(path.suffix + ".partial")
