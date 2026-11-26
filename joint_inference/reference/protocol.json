@@ -1,0 +1,11 @@
+{
+  "reference_seeds": [7103,7109,7121,7127,7129,7151,7159,7177],
+  "evaluation_seeds": [8209,8219,8221,8231,8233,8237,8243,8263,8269,8273,8287,8291,8293,8297,8311,8317],
+  "strengths": [0.125,0.375,0.625,0.875],
+  "block": 0.5,
+  "h1_physical_cap_mv": 6,
+  "max_normalized_mae": 0.15,
+  "min_improvement": 0.025,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 601927
+}
