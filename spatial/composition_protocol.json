@@ -1,0 +1,19 @@
+{
+  "seeds": [503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653],
+  "wirings": ["E_odds", "F_patchseq"],
+  "compositions": {
+    "assumed": "config.json",
+    "striatal_measured": "MERSCOPE dorsal striatum D1/D2/interneuron shares; GPe, STN, GPi as config.json",
+    "pallidal_measured": "MERSCOPE GPe/STN/GPi density x MRI volume shares; striatum as config.json",
+    "both_measured": "both measured substitutions",
+    "striatal_literature": "interneurons 14% of striatal neurons (Del Rey et al. 2022, doi 10.1111/nan.12812), D1:D2 1:1; GPe, STN, GPi as config.json"
+  },
+  "literature_interneuron_fraction": 0.14,
+  "fixed_stimulated_stn_cells": 60,
+  "comparisons": [
+    ["striatal_measured", "assumed"], ["pallidal_measured", "assumed"], ["both_measured", "assumed"],
+    ["both_measured", "pallidal_measured"], ["striatal_literature", "assumed"]
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 902117
+}

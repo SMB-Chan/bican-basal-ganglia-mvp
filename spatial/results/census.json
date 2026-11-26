@@ -1,0 +1,876 @@
+{
+  "release": "HMBA-BG-MERSCOPE-Macaque 20261101",
+  "license": "CC BY-NC 4.0",
+  "url_prefix": "https://allen-brain-cell-atlas.s3.amazonaws.com/metadata/HMBA-BG-MERSCOPE-Macaque/20261101/",
+  "source_sha256": {
+    "cell_metadata.csv": "bf5a03ef9e6d58159b804c012da59cbb05aa711ade1c69c18032e4c963457873",
+    "slab_plane_coordinates.csv": "6a3e677d09a781d86810ff2e76b6ea357f5d4151d0bcec8277e4227f0b04eece",
+    "cell_anatomical_annotations.csv": "1dea2b8f7eff52956720adb43bcce32d9e420ed82b78abb2f3507bb91dc52b4d",
+    "mmc_results.csv": "a8f30768a970a40fcb101e1920f4cdf1af7e2ca859551c596f77b5b1c502a069",
+    "specimen_metadata.csv": "00d82361c07236df63f255678918259f1698ca14ef2b64c38b7860f2b7f27100",
+    "donor.csv": "e68d29cead3c6b0550d9bff3982c2564e63dc9af470469636d06de308d1d4995"
+  },
+  "joined_cells": 3255402,
+  "qc_pass_and_matched_specimen_plane": 3164713,
+  "slab_planes": 28,
+  "sections": 85,
+  "hemispheres": [
+    "right"
+  ],
+  "slabs": [
+    "QM23.50.001.CX.42",
+    "QM23.50.001.CX.43",
+    "QM23.50.001.CX.44",
+    "QM23.50.001.CX.45",
+    "QM23.50.001.CX.46"
+  ],
+  "donors": [
+    "QM23.50.001"
+  ],
+  "coordinate_system": "2D slab plane, millimetres; neighbours are computed within one tissue section",
+  "neuron_subclasses_by_region": {
+    "Basal ganglia and adjacent": {
+      "STR Eccentric SPN": 13647,
+      "STR D2 SPN": 10104,
+      "F GABA": 8006,
+      "CN LHX8 GABA": 7300,
+      "CN Cholinergic GABA": 6285,
+      "F M Glut": 3924,
+      "OB MEIS2 GABA": 3783,
+      "STR D1 SPN": 3721,
+      "CN VIP GABA": 3306,
+      "F Glut": 3015,
+      "STR RSPO2 GABA": 2847,
+      "CN ST18 GABA": 2256
+    },
+    "GPe": {
+      "CN LHX8 GABA": 6004,
+      "CN MEIS2 GABA": 1542,
+      "CN Cholinergic GABA": 591,
+      "STR D1 SPN": 280,
+      "STR Eccentric SPN": 233,
+      "STR D2 SPN": 224,
+      "CN ST18 GABA": 169,
+      "F Glut": 118,
+      "F GABA": 39,
+      "STR SST-CHODL GABA": 30,
+      "CN LAMP5-CXCL14 GABA": 24,
+      "OB MEIS2 GABA": 22
+    },
+    "GPi": {
+      "CN ONECUT1 GABA": 1537,
+      "CN GABA-Glut": 388,
+      "CN Cholinergic GABA": 114,
+      "F Glut": 48,
+      "CN LHX8 GABA": 30,
+      "CN MEIS2 GABA": 20,
+      "CN ST18 GABA": 15,
+      "F M Glut": 11,
+      "STR RSPO2 GABA": 10,
+      "STR D2 SPN": 8,
+      "OB MEIS2 GABA": 6,
+      "F GABA": 5
+    },
+    "SN": {
+      "M Dopa": 3928,
+      "F M GATA3 GABA": 1799,
+      "F M Glut": 64,
+      "F Glut": 23,
+      "CN ONECUT1 GABA": 10,
+      "F GABA": 9,
+      "STR D2 SPN": 5,
+      "CN ST18 GABA": 3,
+      "STR RSPO2 GABA": 2,
+      "STR D1 SPN": 2,
+      "STR Eccentric SPN": 2,
+      "CN VIP GABA": 2
+    },
+    "STH": {
+      "F Glut": 4538,
+      "F M Glut": 86,
+      "M Dopa": 30,
+      "F M GATA3 GABA": 9,
+      "F GABA": 6,
+      "CN LAMP5-CXCL14 GABA": 3,
+      "CN ONECUT1 GABA": 3,
+      "STR RSPO2 GABA": 2,
+      "CN LHX8 GABA": 1,
+      "CN VIP GABA": 1,
+      "CN ST18 GABA": 1,
+      "OB MEIS2 GABA": 1
+    },
+    "STR": {
+      "STR D2 SPN": 277256,
+      "STR D1 SPN": 276827,
+      "STR Eccentric SPN": 40039,
+      "CN ST18 GABA": 36437,
+      "CN Cholinergic GABA": 11382,
+      "OT Granule GABA": 8646,
+      "STR SST-CHODL GABA": 7039,
+      "OB MEIS2 GABA": 3006,
+      "CN VIP GABA": 1750,
+      "CN LAMP5-CXCL14 GABA": 1225,
+      "CN LHX8 GABA": 718,
+      "CN LAMP5-LHX6 GABA": 652
+    },
+    "VeP": {
+      "CN LHX8 GABA": 634,
+      "CN Cholinergic GABA": 139,
+      "CN MEIS2 GABA": 136,
+      "CN ST18 GABA": 29,
+      "F Glut": 28,
+      "STR Eccentric SPN": 18,
+      "STR SST-CHODL GABA": 16,
+      "F GABA": 15,
+      "STR D1 SPN": 7,
+      "STR D2 SPN": 4,
+      "STR RSPO2 GABA": 4,
+      "CN LAMP5-CXCL14 GABA": 2
+    }
+  },
+  "dorsal_striatum_composition": {
+    "0.25": {
+      "tile_mm": 0.25,
+      "dorsal_cells": 1348265,
+      "counts": {
+        "STRv_SPN": 19720,
+        "STRd_SPN": 433612,
+        "other": 811849,
+        "eSPN": 25333,
+        "interneuron": 47101,
+        "neuron": 10650
+      },
+      "d1_fraction_of_dorsal_spn": 0.4954706050570556,
+      "striosome_fraction_of_dorsal_spn": 0.2815950665571986,
+      "interneuron_fraction_of_spn_plus_interneurons": 0.09798153992090915,
+      "interneuron_fraction_of_all_striatal_neurons": 0.08958548099344575,
+      "interneuron_groups_fraction_of_all_striatal_neurons": {
+        "STR FS PTHLH-PVALB GABA": 0.0329500195904642,
+        "STR TAC3-PLPP4 GABA": 0.02327841663401589,
+        "STRd Cholinergic GABA": 0.01750588664919375,
+        "STR SST-CHODL GABA": 0.010050098332718358,
+        "VIP GABA": 0.002404111334700228,
+        "LAMP5-CXCL14 GABA": 0.001356116599399733,
+        "STR-BF TAC3-PLPP4-LHX8 GABA": 0.0007303629371241199,
+        "LAMP5-LHX6 GABA": 0.0005972238600442022,
+        "STR SST-RSPO2 GABA": 0.00039371127079347086,
+        "STR LYPD6-RSPO2 GABA": 0.0001236291430027807,
+        "STR Cholinergic GABA": 0.00011411920892564372,
+        "GPin-BF Cholinergic GABA": 7.798145943252322e-05,
+        "STR SST-ADARB2 GABA": 3.803973630854791e-06
+      },
+      "sections_with_500_dorsal_spn": [
+        {
+          "section": "QM23.50.001.CX.42.01.03.02",
+          "dorsal_spn": 3552,
+          "d1_fraction": 0.48367117117117114
+        },
+        {
+          "section": "QM23.50.001.CX.42.01.05.03",
+          "dorsal_spn": 938,
+          "d1_fraction": 0.47761194029850745
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.03.02",
+          "dorsal_spn": 3247,
+          "d1_fraction": 0.5220203264551894
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.05.03",
+          "dorsal_spn": 5156,
+          "d1_fraction": 0.5102792862684251
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.07.03",
+          "dorsal_spn": 1860,
+          "d1_fraction": 0.48870967741935484
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.01.02",
+          "dorsal_spn": 2894,
+          "d1_fraction": 0.4695922598479613
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.03.02",
+          "dorsal_spn": 5983,
+          "d1_fraction": 0.4883837539695805
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.05.02",
+          "dorsal_spn": 9808,
+          "d1_fraction": 0.48674551386623166
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.07.02",
+          "dorsal_spn": 11995,
+          "d1_fraction": 0.5024593580658607
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.09.03",
+          "dorsal_spn": 13874,
+          "d1_fraction": 0.5201816347124117
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.11.03",
+          "dorsal_spn": 13442,
+          "d1_fraction": 0.5160690373456331
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.13.03",
+          "dorsal_spn": 12396,
+          "d1_fraction": 0.5218618909325589
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.03.03",
+          "dorsal_spn": 1701,
+          "d1_fraction": 0.5596707818930041
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.05.02",
+          "dorsal_spn": 4953,
+          "d1_fraction": 0.5057540884312538
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.07.03",
+          "dorsal_spn": 9456,
+          "d1_fraction": 0.5020093062605753
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.09.02",
+          "dorsal_spn": 11948,
+          "d1_fraction": 0.4816705724807499
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.11.02",
+          "dorsal_spn": 14110,
+          "d1_fraction": 0.49411764705882355
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.01.02",
+          "dorsal_spn": 10997,
+          "d1_fraction": 0.5182322451577703
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.03.02",
+          "dorsal_spn": 13871,
+          "d1_fraction": 0.5236104102083483
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.05.02",
+          "dorsal_spn": 14695,
+          "d1_fraction": 0.5152092548485879
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.07.02",
+          "dorsal_spn": 13386,
+          "d1_fraction": 0.5156880322725236
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.09.03",
+          "dorsal_spn": 10545,
+          "d1_fraction": 0.5262209577999052
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.11.02",
+          "dorsal_spn": 8429,
+          "d1_fraction": 0.5128722268359236
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.13.03",
+          "dorsal_spn": 5474,
+          "d1_fraction": 0.5124223602484472
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.01.02",
+          "dorsal_spn": 8995,
+          "d1_fraction": 0.5136186770428015
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.03.02",
+          "dorsal_spn": 9301,
+          "d1_fraction": 0.5268250725728416
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.05.01",
+          "dorsal_spn": 10111,
+          "d1_fraction": 0.5128078330531105
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.07.02",
+          "dorsal_spn": 9216,
+          "d1_fraction": 0.5036892361111112
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.09.02",
+          "dorsal_spn": 9458,
+          "d1_fraction": 0.4832945654472404
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.01.03",
+          "dorsal_spn": 17384,
+          "d1_fraction": 0.45495858260469396
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.03.02",
+          "dorsal_spn": 18631,
+          "d1_fraction": 0.47254575707154745
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.05.02",
+          "dorsal_spn": 18556,
+          "d1_fraction": 0.47919810303944815
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.07.02",
+          "dorsal_spn": 18845,
+          "d1_fraction": 0.47031042716901034
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.09.02",
+          "dorsal_spn": 18250,
+          "d1_fraction": 0.4684931506849315
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.01.02",
+          "dorsal_spn": 4023,
+          "d1_fraction": 0.5068356947551579
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.03.02",
+          "dorsal_spn": 5235,
+          "d1_fraction": 0.5096466093600764
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.05.02",
+          "dorsal_spn": 3770,
+          "d1_fraction": 0.5143236074270557
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.07.02",
+          "dorsal_spn": 2907,
+          "d1_fraction": 0.5273477812177503
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.09.03",
+          "dorsal_spn": 2270,
+          "d1_fraction": 0.5286343612334802
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.11.02",
+          "dorsal_spn": 2006,
+          "d1_fraction": 0.5463609172482552
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.01.03",
+          "dorsal_spn": 7922,
+          "d1_fraction": 0.45518808381721787
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.03.02",
+          "dorsal_spn": 12095,
+          "d1_fraction": 0.46928482844150476
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.05.03",
+          "dorsal_spn": 12452,
+          "d1_fraction": 0.47389977513652426
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.07.02",
+          "dorsal_spn": 11539,
+          "d1_fraction": 0.46988473871219344
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.09.03",
+          "dorsal_spn": 10404,
+          "d1_fraction": 0.47856593617839294
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.11.02",
+          "dorsal_spn": 8588,
+          "d1_fraction": 0.4682114578481602
+        },
+        {
+          "section": "QM23.50.001.CX.46.01.01.02",
+          "dorsal_spn": 1674,
+          "d1_fraction": 0.5095579450418161
+        },
+        {
+          "section": "QM23.50.001.CX.46.01.03.02",
+          "dorsal_spn": 1590,
+          "d1_fraction": 0.5150943396226415
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.01.03",
+          "dorsal_spn": 1049,
+          "d1_fraction": 0.5481410867492851
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.03.02",
+          "dorsal_spn": 679,
+          "d1_fraction": 0.5036818851251841
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.05.02",
+          "dorsal_spn": 558,
+          "d1_fraction": 0.5806451612903226
+        }
+      ]
+    },
+    "0.5": {
+      "tile_mm": 0.5,
+      "dorsal_cells": 1427626,
+      "counts": {
+        "STRv_SPN": 21776,
+        "STRd_SPN": 435272,
+        "other": 883565,
+        "eSPN": 27283,
+        "interneuron": 48225,
+        "neuron": 11505
+      },
+      "d1_fraction_of_dorsal_spn": 0.4952213788160047,
+      "striosome_fraction_of_dorsal_spn": 0.28104036096969254,
+      "interneuron_fraction_of_spn_plus_interneurons": 0.09974208733456465,
+      "interneuron_fraction_of_all_striatal_neurons": 0.09055385724693742,
+      "interneuron_groups_fraction_of_all_striatal_neurons": {
+        "STR FS PTHLH-PVALB GABA": 0.032907337444325106,
+        "STR TAC3-PLPP4 GABA": 0.02341537791330865,
+        "STRd Cholinergic GABA": 0.017449808095298898,
+        "STR SST-CHODL GABA": 0.010366984880463274,
+        "VIP GABA": 0.0025649884706960397,
+        "LAMP5-CXCL14 GABA": 0.0014496128106715538,
+        "STR-BF TAC3-PLPP4-LHX8 GABA": 0.0008355928766176703,
+        "LAMP5-LHX6 GABA": 0.0006158976708552715,
+        "STR SST-RSPO2 GABA": 0.00045816777953867763,
+        "GPin-BF Cholinergic GABA": 0.00019528462734435438,
+        "STR LYPD6-RSPO2 GABA": 0.00015772989131659394,
+        "STR Cholinergic GABA": 0.00013331931289854964,
+        "STR SST-ADARB2 GABA": 3.755473602776046e-06
+      },
+      "sections_with_500_dorsal_spn": [
+        {
+          "section": "QM23.50.001.CX.42.01.03.02",
+          "dorsal_spn": 3581,
+          "d1_fraction": 0.4845015358838313
+        },
+        {
+          "section": "QM23.50.001.CX.42.01.05.03",
+          "dorsal_spn": 949,
+          "d1_fraction": 0.4773445732349842
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.03.02",
+          "dorsal_spn": 3273,
+          "d1_fraction": 0.5218454017720745
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.05.03",
+          "dorsal_spn": 5170,
+          "d1_fraction": 0.5098646034816248
+        },
+        {
+          "section": "QM23.50.001.CX.42.02.07.03",
+          "dorsal_spn": 1875,
+          "d1_fraction": 0.48906666666666665
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.01.02",
+          "dorsal_spn": 2917,
+          "d1_fraction": 0.4706890641069592
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.03.02",
+          "dorsal_spn": 6007,
+          "d1_fraction": 0.488596637256534
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.05.02",
+          "dorsal_spn": 9873,
+          "d1_fraction": 0.4865795604172997
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.07.02",
+          "dorsal_spn": 12021,
+          "d1_fraction": 0.5025372265202562
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.09.03",
+          "dorsal_spn": 13934,
+          "d1_fraction": 0.5202382661116693
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.11.03",
+          "dorsal_spn": 13531,
+          "d1_fraction": 0.5162959130884636
+        },
+        {
+          "section": "QM23.50.001.CX.43.01.13.03",
+          "dorsal_spn": 12396,
+          "d1_fraction": 0.521297192642788
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.03.03",
+          "dorsal_spn": 1739,
+          "d1_fraction": 0.5589419206440484
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.05.02",
+          "dorsal_spn": 5017,
+          "d1_fraction": 0.5064779748853897
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.07.03",
+          "dorsal_spn": 9524,
+          "d1_fraction": 0.501889962200756
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.09.02",
+          "dorsal_spn": 11986,
+          "d1_fraction": 0.4818955448022693
+        },
+        {
+          "section": "QM23.50.001.CX.43.02.11.02",
+          "dorsal_spn": 14173,
+          "d1_fraction": 0.49410851619276086
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.01.02",
+          "dorsal_spn": 11039,
+          "d1_fraction": 0.5182534649877706
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.03.02",
+          "dorsal_spn": 13835,
+          "d1_fraction": 0.522370798698952
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.05.02",
+          "dorsal_spn": 14381,
+          "d1_fraction": 0.5134552534594257
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.07.02",
+          "dorsal_spn": 13483,
+          "d1_fraction": 0.5159089223466587
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.09.03",
+          "dorsal_spn": 10448,
+          "d1_fraction": 0.5250765696784073
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.11.02",
+          "dorsal_spn": 8457,
+          "d1_fraction": 0.5148397776989476
+        },
+        {
+          "section": "QM23.50.001.CX.43.03.13.03",
+          "dorsal_spn": 5486,
+          "d1_fraction": 0.508749544294568
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.01.02",
+          "dorsal_spn": 9024,
+          "d1_fraction": 0.5139627659574468
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.03.02",
+          "dorsal_spn": 9424,
+          "d1_fraction": 0.525679117147708
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.05.01",
+          "dorsal_spn": 10187,
+          "d1_fraction": 0.5134975949739865
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.07.02",
+          "dorsal_spn": 9219,
+          "d1_fraction": 0.5036337997613624
+        },
+        {
+          "section": "QM23.50.001.CX.44.01.09.02",
+          "dorsal_spn": 9501,
+          "d1_fraction": 0.48310704136406696
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.01.03",
+          "dorsal_spn": 17475,
+          "d1_fraction": 0.4550500715307582
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.03.02",
+          "dorsal_spn": 18655,
+          "d1_fraction": 0.4728491021173948
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.05.02",
+          "dorsal_spn": 18622,
+          "d1_fraction": 0.4788422296208785
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.07.02",
+          "dorsal_spn": 18931,
+          "d1_fraction": 0.47007553747821035
+        },
+        {
+          "section": "QM23.50.001.CX.44.03.09.02",
+          "dorsal_spn": 18347,
+          "d1_fraction": 0.46808742573717776
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.01.02",
+          "dorsal_spn": 4007,
+          "d1_fraction": 0.5073621162964812
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.03.02",
+          "dorsal_spn": 5285,
+          "d1_fraction": 0.5025543992431409
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.05.02",
+          "dorsal_spn": 3848,
+          "d1_fraction": 0.5145530145530145
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.07.02",
+          "dorsal_spn": 2906,
+          "d1_fraction": 0.5282174810736407
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.09.03",
+          "dorsal_spn": 2357,
+          "d1_fraction": 0.5269410267288926
+        },
+        {
+          "section": "QM23.50.001.CX.45.01.11.02",
+          "dorsal_spn": 2016,
+          "d1_fraction": 0.5471230158730159
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.01.03",
+          "dorsal_spn": 7949,
+          "d1_fraction": 0.45515159139514405
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.03.02",
+          "dorsal_spn": 12075,
+          "d1_fraction": 0.4688198757763975
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.05.03",
+          "dorsal_spn": 12403,
+          "d1_fraction": 0.47415947754575505
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.07.02",
+          "dorsal_spn": 11586,
+          "d1_fraction": 0.4702226825479026
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.09.03",
+          "dorsal_spn": 10462,
+          "d1_fraction": 0.47839801185241826
+        },
+        {
+          "section": "QM23.50.001.CX.45.02.11.02",
+          "dorsal_spn": 8587,
+          "d1_fraction": 0.46814952835681845
+        },
+        {
+          "section": "QM23.50.001.CX.46.01.01.02",
+          "dorsal_spn": 1710,
+          "d1_fraction": 0.508187134502924
+        },
+        {
+          "section": "QM23.50.001.CX.46.01.03.02",
+          "dorsal_spn": 1656,
+          "d1_fraction": 0.5114734299516909
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.01.03",
+          "dorsal_spn": 1074,
+          "d1_fraction": 0.5558659217877095
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.03.02",
+          "dorsal_spn": 746,
+          "d1_fraction": 0.4973190348525469
+        },
+        {
+          "section": "QM23.50.001.CX.46.02.05.02",
+          "dorsal_spn": 596,
+          "d1_fraction": 0.5889261744966443
+        }
+      ]
+    }
+  },
+  "regional_density": {
+    "0.05": {
+      "tile_mm": 0.05,
+      "regions": {
+        "STRd": {
+          "neurons": 536416,
+          "cells": 1348265,
+          "area_mm2": 1076.6550000000002,
+          "neurons_per_mm2": 498.2245937649478,
+          "neuron_fraction": 0.3978565044705603,
+          "sections": 63,
+          "mri_volume_mm3": 1524.2158080000002,
+          "median_segmented_neuron_diameter_um": 11.192822715208335,
+          "relative_count_vs_GPe": 57.02960670009923
+        },
+        "GPe": {
+          "neurons": 9323,
+          "cells": 157490,
+          "area_mm2": 121.33250000000002,
+          "neurons_per_mm2": 76.83843982444932,
+          "neuron_fraction": 0.0591974093593244,
+          "sections": 17,
+          "mri_volume_mm3": 173.29766400000003,
+          "median_segmented_neuron_diameter_um": 11.40036412137018,
+          "relative_count_vs_GPe": 1.0,
+          "share_of_GPe_STN_GPi": 0.6177578414359746
+        },
+        "STN": {
+          "neurons": 4681,
+          "cells": 34714,
+          "area_mm2": 20.942500000000003,
+          "neurons_per_mm2": 223.51677211412198,
+          "neuron_fraction": 0.13484473123235582,
+          "sections": 6,
+          "mri_volume_mm3": 15.155200000000002,
+          "median_segmented_neuron_diameter_um": 10.95890190782733,
+          "relative_count_vs_GPe": 0.25439029700241894,
+          "share_of_GPe_STN_GPi": 0.1571516007584708
+        },
+        "GPi": {
+          "neurons": 2206,
+          "cells": 46538,
+          "area_mm2": 37.92250000000001,
+          "neurons_per_mm2": 58.17127035401146,
+          "neuron_fraction": 0.04740212299626112,
+          "sections": 10,
+          "mri_volume_mm3": 83.40684800000001,
+          "median_segmented_neuron_diameter_um": 11.390566989106585,
+          "relative_count_vs_GPe": 0.36436697797689294,
+          "share_of_GPe_STN_GPi": 0.22509055780555468
+        }
+      }
+    },
+    "0.1": {
+      "tile_mm": 0.1,
+      "regions": {
+        "STRd": {
+          "neurons": 536416,
+          "cells": 1348265,
+          "area_mm2": 1188.9700000000003,
+          "neurons_per_mm2": 451.1602479457008,
+          "neuron_fraction": 0.3978565044705603,
+          "sections": 63,
+          "mri_volume_mm3": 1524.2158080000002,
+          "median_segmented_neuron_diameter_um": 11.192822715208335,
+          "relative_count_vs_GPe": 57.68519082820658
+        },
+        "GPe": {
+          "neurons": 9323,
+          "cells": 157490,
+          "area_mm2": 135.53000000000003,
+          "neurons_per_mm2": 68.78919796355049,
+          "neuron_fraction": 0.0591974093593244,
+          "sections": 17,
+          "mri_volume_mm3": 173.29766400000003,
+          "median_segmented_neuron_diameter_um": 11.40036412137018,
+          "relative_count_vs_GPe": 1.0,
+          "share_of_GPe_STN_GPi": 0.6189223657070254
+        },
+        "STN": {
+          "neurons": 4681,
+          "cells": 34714,
+          "area_mm2": 22.860000000000003,
+          "neurons_per_mm2": 204.76815398075237,
+          "neuron_fraction": 0.13484473123235582,
+          "sections": 6,
+          "mri_volume_mm3": 15.155200000000002,
+          "median_segmented_neuron_diameter_um": 10.95890190782733,
+          "relative_count_vs_GPe": 0.26032215609579545,
+          "share_of_GPe_STN_GPi": 0.16111920469676325
+        },
+        "GPi": {
+          "neurons": 2206,
+          "cells": 46538,
+          "area_mm2": 43.43000000000001,
+          "neurons_per_mm2": 50.79438176375776,
+          "neuron_fraction": 0.04740212299626112,
+          "sections": 10,
+          "mri_volume_mm3": 83.40684800000001,
+          "median_segmented_neuron_diameter_um": 11.390566989106585,
+          "relative_count_vs_GPe": 0.35538936994939924,
+          "share_of_GPe_STN_GPi": 0.21995842959621142
+        }
+      }
+    },
+    "0.2": {
+      "tile_mm": 0.2,
+      "regions": {
+        "STRd": {
+          "neurons": 536416,
+          "cells": 1348265,
+          "area_mm2": 1282.5200000000002,
+          "neurons_per_mm2": 418.2515672270217,
+          "neuron_fraction": 0.3978565044705603,
+          "sections": 63,
+          "mri_volume_mm3": 1524.2158080000002,
+          "median_segmented_neuron_diameter_um": 11.192822715208335,
+          "relative_count_vs_GPe": 58.80828135553898
+        },
+        "GPe": {
+          "neurons": 9323,
+          "cells": 157490,
+          "area_mm2": 149.04000000000002,
+          "neurons_per_mm2": 62.55367686527106,
+          "neuron_fraction": 0.0591974093593244,
+          "sections": 17,
+          "mri_volume_mm3": 173.29766400000003,
+          "median_segmented_neuron_diameter_um": 11.40036412137018,
+          "relative_count_vs_GPe": 1.0,
+          "share_of_GPe_STN_GPi": 0.6263842092925825
+        },
+        "STN": {
+          "neurons": 4681,
+          "cells": 34714,
+          "area_mm2": 26.440000000000005,
+          "neurons_per_mm2": 177.04236006051434,
+          "neuron_fraction": 0.13484473123235582,
+          "sections": 6,
+          "mri_volume_mm3": 15.155200000000002,
+          "median_segmented_neuron_diameter_um": 10.95890190782733,
+          "relative_count_vs_GPe": 0.24751031986589395,
+          "share_of_GPe_STN_GPi": 0.15503655600095217
+        },
+        "GPi": {
+          "neurons": 2206,
+          "cells": 46538,
+          "area_mm2": 48.64000000000001,
+          "neurons_per_mm2": 45.35361842105262,
+          "neuron_fraction": 0.04740212299626112,
+          "sections": 10,
+          "mri_volume_mm3": 83.40684800000001,
+          "median_segmented_neuron_diameter_um": 11.390566989106585,
+          "relative_count_vs_GPe": 0.34895393508294426,
+          "share_of_GPe_STN_GPi": 0.21857923470646523
+        }
+      }
+    }
+  },
+  "model_counts_from_measurement": {
+    "D1": 224,
+    "D2": 228,
+    "SIn": 48,
+    "GPe": 310,
+    "STN": 80,
+    "GPi": 110
+  },
+  "mixing_permutations": 500
+}

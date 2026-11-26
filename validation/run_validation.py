@@ -47,11 +47,11 @@ def patchseq_population(pop, patchseq):
     return replace(pop, tau=tau)
 
 
-def measure_tonic(pop, graph, sim, spec, seed):
+def measure_tonic(pop, graph, sim, spec, seed, edge_weights=None):
     params = {**sim, "baseline_ms": spec["duration_ms"], "cue_ms": 0}
     burn = ticks(spec["burn_in_ms"], sim["dt_ms"])
     noise, initial = trial_stimuli(pop, params, seed, 1000)
-    spikes = simulate(pop, graph, params, noise, initial, np.zeros(len(pop.cell_type)))[burn:]
+    spikes = simulate(pop, graph, params, noise, initial, np.zeros(len(pop.cell_type)), edge_weights=edge_weights)[burn:]
     duration_s = len(spikes) * sim["dt_ms"] / 1000
     result = {}
     for name in spec["rate_hz"]:
@@ -63,22 +63,22 @@ def measure_tonic(pop, graph, sim, spec, seed):
     return result
 
 
-def block_stn_to_gpe(pop, graph):
+def block_stn_to_gpe(pop, graph, edge_weights=None):
     stn = pop.cell_type == pop.names.index("STN")
     gpe = pop.cell_type == pop.names.index("GPe")
-    weights = np.broadcast_to(graph.weights[:, None], graph.targets.shape).copy()
+    weights = np.broadcast_to(graph.weights[:, None], graph.targets.shape).copy() if edge_weights is None else edge_weights.copy()
     blocked = stn[:, None] & (graph.targets >= 0) & gpe[graph.targets]
     weights[blocked] = 0
     return weights
 
 
-def measure_pulse(pop, graph, sim, spec, seed):
+def measure_pulse(pop, graph, sim, spec, seed, edge_weights=None):
     params = {**sim, "baseline_ms": spec["pulse_at_ms"], "cue_ms": spec["after_ms"]}
     boundary = ticks(spec["pulse_at_ms"], sim["dt_ms"])
     n_steps = ticks(spec["after_ms"], sim["dt_ms"])
     stn = np.flatnonzero(pop.cell_type == pop.names.index("STN"))
     gpi = pop.cell_type == pop.names.index("GPi")
-    blocked = block_stn_to_gpe(pop, graph)
+    blocked = block_stn_to_gpe(pop, graph, edge_weights)
     n_stimulated = round(len(stn) * spec["fraction_stn"])
     rng = np.random.default_rng(np.random.SeedSequence([seed, 5]))
     driven = rng.choice(stn, n_stimulated, replace=False)
@@ -88,7 +88,7 @@ def measure_pulse(pop, graph, sim, spec, seed):
         noise, initial = trial_stimuli(pop, params, seed, 2000 + trial)
         pulse = noise.copy()
         pulse[boundary, driven] += spec["voltage_jump_mv"]
-        for i, weights in enumerate((None, blocked)):
+        for i, weights in enumerate((edge_weights, blocked)):
             sham = simulate(pop, graph, params, noise, initial, zeros, edge_weights=weights)
             evoked = simulate(pop, graph, params, pulse, initial, zeros, edge_weights=weights)
             responses[i] += evoked[boundary:, gpi].mean(axis=1) - sham[boundary:, gpi].mean(axis=1)
