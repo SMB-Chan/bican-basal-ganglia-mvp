@@ -1,0 +1,37 @@
+{
+  "purpose": "Exploratory, no external data: which components of the Stage 4B dopamine-depletion setting raise GPi firing, and which added changes would lower it?",
+  "models": ["baseline_lif", "selected_biophysics", "selected_rebound"],
+  "specs": {"selected_biophysics": "biophysics/results/selection.json", "selected_rebound": "rebound/results/selection.json"},
+  "depletion": "parkinsonian/protocol.json dopamine_depletion (components switched on or off; cortical gains do not act on spontaneous activity)",
+  "seeds": [2473, 2477, 2503, 2521, 2531, 2539, 2543, 2549, 2551, 2557, 2579, 2591],
+  "duration_ms": 30500,
+  "burn_in_ms": 500,
+  "trial": 4200,
+  "conditions_per_stack": 4,
+  "conditions": {
+    "normal":            {"d1": false, "d2": false, "gpe_stn": false},
+    "pd_full":           {"d1": true,  "d2": true,  "gpe_stn": true},
+    "only_d1":           {"d1": true,  "d2": false, "gpe_stn": false},
+    "only_d2":           {"d1": false, "d2": true,  "gpe_stn": false},
+    "only_gpe_stn":      {"d1": false, "d2": false, "gpe_stn": true},
+    "pd_minus_d1":       {"d1": false, "d2": true,  "gpe_stn": true},
+    "pd_minus_d2":       {"d1": true,  "d2": false, "gpe_stn": true},
+    "pd_minus_gpe_stn":  {"d1": true,  "d2": true,  "gpe_stn": false},
+    "pd_gpi_bias_-2":    {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_bias_mv": -2.0},
+    "pd_gpi_bias_-4":    {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_bias_mv": -4.0},
+    "pd_gpi_bias_-6":    {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_bias_mv": -6.0},
+    "pd_gpi_bias_-8":    {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_bias_mv": -8.0},
+    "pd_d1_gpi_x2":      {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_input_gain": {"D1": 2.0}},
+    "pd_gpe_gpi_x2":     {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_input_gain": {"GPe": 2.0}},
+    "pd_gpe_gpi_x0.5":   {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_input_gain": {"GPe": 0.5}},
+    "pd_stn_gpi_x0.5":   {"d1": true,  "d2": true,  "gpe_stn": true, "gpi_input_gain": {"STN": 0.5}}
+  },
+  "metrics": "heldout/protocol.json metrics block (same windowed functions); GPi rate, ISI CV and 8-15 Hz unit index; GPe, STN, D1 and D2 rates",
+  "statistics": {"effect": "per seed, median over cells in the condition minus in the normal state; mean over seeds with a 5000-replicate seed bootstrap 95% interval", "bootstrap_seed": 2026115, "replicates": 5000, "reliable_change_hz": 1.0},
+  "interpretation_rules": [
+    "Component contributions are read from the single-component conditions and from pd_full minus each leave-one-out condition.",
+    "A condition lowers GPi firing when its interval lies below 0 and the mean change is at most -1 Hz (the Stage 4B and held-out rate margin).",
+    "Every outcome is a hypothesis about the model. Settings that match the size of the DANDI:000947 decrease are fitted to used data and are not counted as validation.",
+    "Effects of each condition on GPe and STN rates and on GPi regularity are reported so a hypothesis can later be tested on more than the GPi rate."
+  ]
+}

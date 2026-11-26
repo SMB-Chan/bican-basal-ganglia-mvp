@@ -42,3 +42,30 @@ class HeldoutTests(unittest.TestCase):
         self.assertEqual(data_direction([e(1, 2), e(-3, -1)]), "opposite")
         self.assertEqual(data_direction([e(1, 2), e(-1, 3)]), "no reliable change")
         self.assertEqual(data_direction([e(0.01, 0.03), e(0.01, 0.05)], margin=0.1), "no reliable change")
+
+
+class DepletionTests(unittest.TestCase):
+    def test_conditions_switch_only_the_named_components(self):
+        import json
+        from atlas import ROOT
+        from depletion.run import build_condition
+        from model import connect, population
+        config = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
+        depletion = json.loads((ROOT / "parkinsonian/protocol.json").read_text(encoding="utf-8"))["dopamine_depletion"]
+        pop = population(config, None, 11)
+        graph = connect("D", pop, {**config, "matched_channel_gain": 1.0}, 11)
+        base_w = np.broadcast_to(graph.weights[:, None], graph.targets.shape)
+        normal, w0 = build_condition(pop, graph, depletion, {"d1": False, "d2": False, "gpe_stn": False})
+        np.testing.assert_array_equal(normal.bias, pop.bias)
+        np.testing.assert_array_equal(w0, base_w)
+        d1 = pop.cell_type == pop.names.index("D1")
+        gpi = pop.cell_type == pop.names.index("GPi")
+        only, w1 = build_condition(pop, graph, depletion, {"d1": True, "d2": False, "gpe_stn": False, "gpi_bias_mv": -3.0})
+        np.testing.assert_allclose(only.bias[d1], pop.bias[d1] + depletion["d1_bias_shift_mv"])
+        np.testing.assert_allclose(only.bias[gpi], pop.bias[gpi] - 3.0)
+        np.testing.assert_array_equal(w1, base_w)
+        _, w2 = build_condition(pop, graph, depletion, {"d1": False, "d2": False, "gpe_stn": False, "gpi_input_gain": {"STN": 0.5}})
+        post = np.where(graph.targets >= 0, pop.cell_type[np.maximum(graph.targets, 0)], -1)
+        edges = (pop.cell_type[:, None] == pop.names.index("STN")) & (post == pop.names.index("GPi"))
+        np.testing.assert_allclose(w2[edges], 0.5 * base_w[edges])
+        np.testing.assert_array_equal(w2[~edges], base_w[~edges])
