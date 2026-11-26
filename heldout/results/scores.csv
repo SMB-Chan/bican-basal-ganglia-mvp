@@ -1,0 +1,25 @@
+selection,model,metric,model_direction,model_change,data_direction,direction_agrees,magnitude_within_data_range
+primary,baseline_lif,rate_hz,increase,5.222222222222222,decrease,0,0
+primary,baseline_lif,isi_cv,no reliable change,-0.024967922789875682,no reliable change,1,1
+primary,baseline_lif,beta_index,no reliable change,-0.023139856986503726,opposite,0,1
+primary,baseline_lif,TOTAL,,,,1,
+primary,selected_biophysics,rate_hz,increase,5.713888888888889,decrease,0,0
+primary,selected_biophysics,isi_cv,decrease,-0.09305802513650663,no reliable change,0,1
+primary,selected_biophysics,beta_index,no reliable change,-0.030362052119739396,opposite,0,1
+primary,selected_biophysics,TOTAL,,,,0,
+primary,selected_rebound,rate_hz,increase,4.0027777777777755,decrease,0,0
+primary,selected_rebound,isi_cv,decrease,-0.07189452896282776,no reliable change,0,1
+primary,selected_rebound,beta_index,no reliable change,-0.024918835197545144,opposite,0,1
+primary,selected_rebound,TOTAL,,,,0,
+sensitivity,baseline_lif,rate_hz,increase,5.222222222222222,decrease,0,0
+sensitivity,baseline_lif,isi_cv,no reliable change,-0.024967922789875682,no reliable change,1,1
+sensitivity,baseline_lif,beta_index,no reliable change,-0.023139856986503726,opposite,0,1
+sensitivity,baseline_lif,TOTAL,,,,1,
+sensitivity,selected_biophysics,rate_hz,increase,5.713888888888889,decrease,0,0
+sensitivity,selected_biophysics,isi_cv,decrease,-0.09305802513650663,no reliable change,0,1
+sensitivity,selected_biophysics,beta_index,no reliable change,-0.030362052119739396,opposite,0,1
+sensitivity,selected_biophysics,TOTAL,,,,0,
+sensitivity,selected_rebound,rate_hz,increase,4.0027777777777755,decrease,0,0
+sensitivity,selected_rebound,isi_cv,decrease,-0.07189452896282776,no reliable change,0,1
+sensitivity,selected_rebound,beta_index,no reliable change,-0.024918835197545144,opposite,0,1
+sensitivity,selected_rebound,TOTAL,,,,0,

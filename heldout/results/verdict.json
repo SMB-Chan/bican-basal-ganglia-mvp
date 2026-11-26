@@ -1,0 +1,50 @@
+{
+  "primary": {
+    "data": {
+      "rate_hz": {
+        "direction": "decrease",
+        "range_low": -52.30874169939113,
+        "range_high": -17.198769119769135
+      },
+      "isi_cv": {
+        "direction": "no reliable change",
+        "range_low": -0.1107495125695938,
+        "range_high": 0.35782754163742214
+      },
+      "beta_index": {
+        "direction": "opposite",
+        "range_low": -0.22086185553846766,
+        "range_high": 0.33431151897121947
+      }
+    },
+    "totals": {
+      "baseline_lif": 1,
+      "selected_biophysics": 0,
+      "selected_rebound": 0
+    }
+  },
+  "sensitivity": {
+    "data": {
+      "rate_hz": {
+        "direction": "decrease",
+        "range_low": -54.71372910493206,
+        "range_high": -13.326546003016588
+      },
+      "isi_cv": {
+        "direction": "no reliable change",
+        "range_low": -0.1039120776839052,
+        "range_high": 0.3853082341301799
+      },
+      "beta_index": {
+        "direction": "opposite",
+        "range_low": -0.21680448793165014,
+        "range_high": 0.3659070952192326
+      }
+    },
+    "totals": {
+      "baseline_lif": 1,
+      "selected_biophysics": 0,
+      "selected_rebound": 0
+    }
+  }
+}

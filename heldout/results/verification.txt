@@ -1,0 +1,6 @@
+PASS | protocol, metrics, extraction and scoring code and the three models' predictions committed and pushed before any spike time was read (9457434)
+PASS | 226 GPi-containing files read from DANDI:000947 version 0.240510.2211; 654 GPi units, 646 met the window criterion
+NOTE | first extraction run stopped at a file without a trial table before writing any output; extract.py now gives such files zero windows (as the pre-registered rule implies) and was rerun; scoring rules unchanged
+NOTE | the pre-run message said 166 files; the inventory count is 226
+PASS | 44 unit tests, including a synthetic 12 Hz positive control for the window index
+POSTHOC | original paper reports GPi mean rate 69.0 -> 26.5 Hz after MPTP (checked after scoring); whole-span and post-movement rates show the same decrease

@@ -31,6 +31,7 @@
 - [段階4Aの新しいシードでの確認と、段階4Bの比較の補足](confirmation/RESULTS.md)
 - [開ループのGPe–STN回路でPD特異的な振動が出るかの探索](oscillation/RESULTS.md)
 - [振動指数の陽性対照：12 Hzのリズムを外から与えた場合](readout/RESULTS.md)
+- [DANDI:000947（MPTP前後のマカクGPi）によるホールドアウト検証](heldout/RESULTS.md)
 - [外部データの使用台帳（設定・選択・評価の区別）](DATA_LEDGER.md)
 
 ## 再現手順

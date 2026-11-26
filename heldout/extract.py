@@ -38,9 +38,13 @@ def file_rows(job):
         starts = np.concatenate(([0], ends[:-1]))
         gpi = [i for i, loc in enumerate(locations) if loc.strip().lower() == "gpi"]
         trains = [units["spike_times"][starts[i]:ends[i]] for i in gpi]
-        t = f["intervals/trials"]
-        error = t["error_onset_time"][:] if "error_onset_time" in t else np.full(len(t["start_time"]), np.nan)
-        windows = windows_from_trials(t["start_time"][:], t["cue_onset_time"][:], error, spec["window_s"])
+        if "intervals/trials" in f and "cue_onset_time" in f["intervals/trials"]:
+            t = f["intervals/trials"]
+            error = t["error_onset_time"][:] if "error_onset_time" in t else np.full(len(t["start_time"]), np.nan)
+            windows = windows_from_trials(t["start_time"][:], t["cue_onset_time"][:], error, spec["window_s"])
+        else:
+            # No trial table: no pre-cue windows, so the file's units cannot meet the window criterion.
+            windows = np.empty((0, 2))
     keep = drop_duplicate_trains(trains)
     rows = []
     for k, i in enumerate(gpi):
