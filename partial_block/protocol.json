@@ -1,0 +1,18 @@
+{
+  "base_commit": "7eaf41470ba9141f965869720aa30ebc4558abef",
+  "seeds": [3001, 3011, 3019, 3023, 3037, 3041, 3049, 3061, 3067, 3079, 3083, 3089],
+  "models": {"baseline_lif": null, "selected_biophysics": "biophysics/results/selection.json", "selected_rebound": "rebound/results/selection.json"},
+  "block_fractions": [0, 0.25, 0.5, 0.75, 1],
+  "h2_gain": 2,
+  "calibration_shifts_mv": [0, -2, -4, -6, -8],
+  "prior_table": "depletion/results/summary.csv",
+  "trial": 5201,
+  "burn_ms": 500,
+  "readout_ms": 6000,
+  "primary_block": 0.5,
+  "sham_match_margin_hz": 1,
+  "separation_margin_hz": 2,
+  "efficacy_sensitivity": [0.25, 0.75],
+  "bootstrap_seed": 20261127,
+  "bootstrap_replicates": 10000
+}
