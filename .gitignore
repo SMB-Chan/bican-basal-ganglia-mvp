@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+fresh_atlas/
+reproduced*/
+synthetic_results*/

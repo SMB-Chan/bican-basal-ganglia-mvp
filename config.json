@@ -1,0 +1,38 @@
+{
+  "seeds": [11, 23, 37, 51, 67, 83],
+  "groups": {
+    "D1":  {"n": 236, "region": "STRd", "sign": -1, "jump_mv": 0.80, "bias_mv": 10.0, "tau_ms": 18},
+    "D2":  {"n": 236, "region": "STRd", "sign": -1, "jump_mv": 0.70, "bias_mv": 10.0, "tau_ms": 18},
+    "SIn": {"n": 28,  "region": "STRd", "sign": -1, "jump_mv": 0.50, "bias_mv": 14.0, "tau_ms": 12},
+    "GPe": {"n": 200, "region": "GPe",  "sign": -1, "jump_mv": 0.65, "bias_mv": 20.0, "tau_ms": 14},
+    "STN": {"n": 120, "region": "STN",  "sign":  1, "jump_mv": 0.85, "bias_mv": 17.0, "tau_ms": 15},
+    "GPi": {"n": 180, "region": "GPi",  "sign": -1, "jump_mv": 0.85, "bias_mv": 22.0, "tau_ms": 14}
+  },
+  "out_degree": 24,
+  "output_group": "GPi",
+  "distance_scale_mm": 3.0,
+  "local_cell_affinity": {"D1": {"D1": 1.4, "D2": 1.2}, "D2": {"D1": 1.2, "D2": 1.4}, "SIn": {"D1": 2.5, "D2": 2.5}, "GPe": {"GPe": 1.4}},
+  "projection_propensity": {
+    "D1": {"D1": 0.3, "D2": 0.3, "GPe": 0.5, "GPi": 4.0},
+    "D2": {"D1": 0.3, "D2": 0.3, "GPe": 4.0, "GPi": 0.4},
+    "SIn": {"D1": 1.0, "D2": 1.0},
+    "GPe": {"GPe": 0.7, "STN": 4.0, "GPi": 1.2, "D1": 0.2, "D2": 0.2},
+    "STN": {"GPe": 2.0, "GPi": 2.0}
+  },
+  "topographic_projections": [["D1", "GPe"], ["D1", "GPi"], ["D2", "GPe"], ["D2", "GPi"], ["GPe", "STN"], ["GPe", "GPi"]],
+  "matched_channel_gain": 4.0,
+  "synthetic_geometry_mm": {
+    "STRd": {"center": [0, 0, 0], "sd": [2.4, 3.0, 2.0]},
+    "GPe": {"center": [3.0, -1.0, -1.0], "sd": [1.3, 1.7, 1.1]},
+    "STN": {"center": [7.0, -3.0, -3.0], "sd": [0.9, 1.5, 0.9]},
+    "GPi": {"center": [5.0, -2.0, -2.0], "sd": [1.2, 1.4, 1.0]}
+  },
+  "simulation": {
+    "dt_ms": 1.0, "rest_mv": -65, "reset_mv": -68, "threshold_mv": -50,
+    "refractory_ms": 2.0, "noise_mv_sqrt_ms": 1.10,
+    "synaptic_offset_ms": 1.0, "conduction_mm_per_ms": 0.9,
+    "baseline_ms": 200, "baseline_readout_ms": 150, "cue_ms": 300, "cue_readout_ms": 200,
+    "cue_common_mv": 3.5, "cue_stn_common_mv": 1.0,
+    "cue_deltas_mv": [2.0, 5.0], "trials_per_side": 4, "equal_trials": 4
+  }
+}

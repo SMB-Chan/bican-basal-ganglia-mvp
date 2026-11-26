@@ -1,0 +1,360 @@
+{
+  "mode": "atlas",
+  "atlas": {
+    "release": "HMBA Adult Rhesus Macaque Brain Atlas 2025",
+    "license": "CC BY 4.0",
+    "shape": [
+      606,
+      787,
+      500
+    ],
+    "affine_ras_mm": [
+      [
+        -0.1599999964237213,
+        -0.0,
+        0.0,
+        48.0
+      ],
+      [
+        -0.0,
+        0.1599999964237213,
+        -0.0,
+        -64.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1599999964237213,
+        -48.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selection": "RAS x greater than image-grid physical midpoint",
+    "midline_ras_x_mm": -0.3999989181756973,
+    "assets": {
+      "rhesus_annotations_160.nii.gz": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/annotations_compressed_160.nii.gz",
+        "sha256": "4fe297fa8d8e90b7713c759b3c071624775bf3211097f4f116f9cba94bba69c7"
+      },
+      "terminology.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/terminologies/hmba-mammalian-homba-terminology/2025/terminology.csv",
+        "sha256": "f0131888ef69cdf81de6199101d36684eaffe056864761af3059513dd08fa43f"
+      },
+      "volumes.csv": {
+        "url": "https://allen-atlas-assets.s3.us-west-2.amazonaws.com/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025/parcellation_volumes.csv",
+        "sha256": "a77e9ac590282df90efa131e6869a0712d3b595e11506d931aa0538788de545f"
+      }
+    },
+    "regions": {
+      "STRd": {
+        "homba_identifier": "HOMBA:AA30192",
+        "atlas_abbreviation": "STRd",
+        "nonzero_labels": [
+          121,
+          122,
+          123,
+          125,
+          126,
+          2446
+        ],
+        "voxels_full_volume": 736681,
+        "voxels_selected": 372123,
+        "centroid_ras_mm": [
+          9.722919352937998,
+          0.1373312225567912,
+          3.3825832120571953
+        ]
+      },
+      "GPe": {
+        "homba_identifier": "HOMBA:10343",
+        "atlas_abbreviation": "GPe",
+        "nonzero_labels": [
+          132,
+          134
+        ],
+        "voxels_full_volume": 84774,
+        "voxels_selected": 42309,
+        "centroid_ras_mm": [
+          9.293667933626388,
+          -2.285623823821005,
+          -0.029505905711086487
+        ]
+      },
+      "STN": {
+        "homba_identifier": "HOMBA:10466",
+        "atlas_abbreviation": "STH",
+        "nonzero_labels": [
+          198
+        ],
+        "voxels_full_volume": 7406,
+        "voxels_selected": 3700,
+        "centroid_ras_mm": [
+          6.052627964623876,
+          -7.184303972632498,
+          -2.997233438322673
+        ]
+      },
+      "GPi": {
+        "homba_identifier": "HOMBA:10344",
+        "atlas_abbreviation": "GPi",
+        "nonzero_labels": [
+          133
+        ],
+        "voxels_full_volume": 40711,
+        "voxels_selected": 20363,
+        "centroid_ras_mm": [
+          8.163646718629748,
+          -3.9199109829280605,
+          -1.730386537324877
+        ]
+      }
+    }
+  },
+  "conditions": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "D_synthetic"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    51,
+    67,
+    83
+  ],
+  "trials_per_graph": 20,
+  "config": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      67,
+      83
+    ],
+    "groups": {
+      "D1": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.8,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "D2": {
+        "n": 236,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.7,
+        "bias_mv": 10.0,
+        "tau_ms": 18
+      },
+      "SIn": {
+        "n": 28,
+        "region": "STRd",
+        "sign": -1,
+        "jump_mv": 0.5,
+        "bias_mv": 14.0,
+        "tau_ms": 12
+      },
+      "GPe": {
+        "n": 200,
+        "region": "GPe",
+        "sign": -1,
+        "jump_mv": 0.65,
+        "bias_mv": 20.0,
+        "tau_ms": 14
+      },
+      "STN": {
+        "n": 120,
+        "region": "STN",
+        "sign": 1,
+        "jump_mv": 0.85,
+        "bias_mv": 17.0,
+        "tau_ms": 15
+      },
+      "GPi": {
+        "n": 180,
+        "region": "GPi",
+        "sign": -1,
+        "jump_mv": 0.85,
+        "bias_mv": 22.0,
+        "tau_ms": 14
+      }
+    },
+    "out_degree": 24,
+    "output_group": "GPi",
+    "distance_scale_mm": 3.0,
+    "local_cell_affinity": {
+      "D1": {
+        "D1": 1.4,
+        "D2": 1.2
+      },
+      "D2": {
+        "D1": 1.2,
+        "D2": 1.4
+      },
+      "SIn": {
+        "D1": 2.5,
+        "D2": 2.5
+      },
+      "GPe": {
+        "GPe": 1.4
+      }
+    },
+    "projection_propensity": {
+      "D1": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 0.5,
+        "GPi": 4.0
+      },
+      "D2": {
+        "D1": 0.3,
+        "D2": 0.3,
+        "GPe": 4.0,
+        "GPi": 0.4
+      },
+      "SIn": {
+        "D1": 1.0,
+        "D2": 1.0
+      },
+      "GPe": {
+        "GPe": 0.7,
+        "STN": 4.0,
+        "GPi": 1.2,
+        "D1": 0.2,
+        "D2": 0.2
+      },
+      "STN": {
+        "GPe": 2.0,
+        "GPi": 2.0
+      }
+    },
+    "topographic_projections": [
+      [
+        "D1",
+        "GPe"
+      ],
+      [
+        "D1",
+        "GPi"
+      ],
+      [
+        "D2",
+        "GPe"
+      ],
+      [
+        "D2",
+        "GPi"
+      ],
+      [
+        "GPe",
+        "STN"
+      ],
+      [
+        "GPe",
+        "GPi"
+      ]
+    ],
+    "matched_channel_gain": 4.0,
+    "synthetic_geometry_mm": {
+      "STRd": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "sd": [
+          2.4,
+          3.0,
+          2.0
+        ]
+      },
+      "GPe": {
+        "center": [
+          3.0,
+          -1.0,
+          -1.0
+        ],
+        "sd": [
+          1.3,
+          1.7,
+          1.1
+        ]
+      },
+      "STN": {
+        "center": [
+          7.0,
+          -3.0,
+          -3.0
+        ],
+        "sd": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      },
+      "GPi": {
+        "center": [
+          5.0,
+          -2.0,
+          -2.0
+        ],
+        "sd": [
+          1.2,
+          1.4,
+          1.0
+        ]
+      }
+    },
+    "simulation": {
+      "dt_ms": 1.0,
+      "rest_mv": -65,
+      "reset_mv": -68,
+      "threshold_mv": -50,
+      "refractory_ms": 2.0,
+      "noise_mv_sqrt_ms": 1.1,
+      "synaptic_offset_ms": 1.0,
+      "conduction_mm_per_ms": 0.9,
+      "baseline_ms": 200,
+      "baseline_readout_ms": 150,
+      "cue_ms": 300,
+      "cue_readout_ms": 200,
+      "cue_common_mv": 3.5,
+      "cue_stn_common_mv": 1.0,
+      "cue_deltas_mv": [
+        2.0,
+        5.0
+      ],
+      "trials_per_side": 4,
+      "equal_trials": 4
+    }
+  },
+  "config_sha256": "e19273d14d645b2dd1c09cc10b10de80da66df6ddb5f32ea2c7b67c52369d44d",
+  "software": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.5",
+    "nibabel": "5.3.2"
+  },
+  "files_sha256": {
+    "edge_matrices.csv": "186b518dc0a8cc071d5e768bd3339c1c1e7656ee207f55a730a6dd62354ae02d",
+    "graphs.csv": "6abf1f75d0b166dbaa8cd4ba661958f1d2b2e114cf4ed799cd1f171397a3355f",
+    "network_A_seed11.npz": "dd58d8400f9da52c200d142cb44cce503503cd583573cd4b163aaf42d2179586",
+    "network_B_seed11.npz": "b33622778176155ddc39db4669116b92db2b5e158cf7cecf15f504e590ce84cd",
+    "network_C_seed11.npz": "26d637d29e8f73adb5b2a36ad9ef3121388796c7d19aecea3a32a8edbd673fa0",
+    "network_D_seed11.npz": "ddea7000a6c7e407d21643a8c61777dcab01416ecfbe733dd3edf8cd07749abc",
+    "network_D_synthetic_seed11.npz": "a627c070e2fb37d158b8b10aff1fd71c36250cc92cc41c995214eeab0c91ae0b",
+    "rates.csv": "8883d1846fa50a0ae717479aa12dca53c96d189b1d38e47a2755f2b61a4d483b",
+    "trials.csv": "639b6e46c1f009204a0b95495e7f6273bbae04327968cd54a86185986708116a"
+  }
+}

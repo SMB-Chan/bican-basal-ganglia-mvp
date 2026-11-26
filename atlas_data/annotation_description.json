@@ -1,0 +1,49 @@
+{
+   "object_type": "Data description",
+   "describedBy": "https://raw.githubusercontent.com/AllenNeuralDynamics/aind-data-schema/main/src/aind_data_schema/core/data_description.py",
+   "schema_version": "2.4.1",
+   "license": "CC-BY-4.0",
+   "subject_id": "adult-mouse-population-average",
+   "creation_time": "2025-08-29T00:00:00Z",
+   "tags": null,
+   "name": "hmba-adult-rhesusmacaque-homba-annotation-2025_2025-08-29_00-00-00",
+   "institution": {
+      "name": "Allen Institute for Brain Science",
+      "abbreviation": "AIBS",
+      "registry": "Research Organization Registry (ROR)",
+      "registry_identifier": "00dcv1019"
+   },
+   "funding_source": [
+      {
+         "object_type": "Funding",
+         "funder": {
+            "name": "Allen Institute",
+            "abbreviation": "AI",
+            "registry": "Research Organization Registry (ROR)",
+            "registry_identifier": "03cpe7c52"
+         },
+         "grant_number": null,
+         "fundee": null
+      }
+   ],
+   "data_level": "derived",
+   "group": null,
+   "investigators": [
+      {
+         "object_type": "Person",
+         "name": "Song-Lin Ding",
+         "registry": "Open Researcher and Contributor ID (ORCID)",
+         "registry_identifier": "0000-0002-0007-7935"
+      }
+   ],
+   "project_name": "HMBA cross-species atlas",
+   "restrictions": null,
+   "modalities": [
+      {
+         "name": "Magnetic resonance imaging",
+         "abbreviation": "MRI"
+      }
+   ],
+   "source_data": null,
+   "data_summary": "The 2025 and initial release of M. mulatta parcellations of the basal ganglia and associated structures described in the Harmonized Ontology of Mammalian Brain Anatomy (HOMBA). Details and process of parcellation are described in Ding et al. 2025. Labeling was performed on the Mac25 Rhesus template resampled to 160 um isotropic voxel resolution."
+}

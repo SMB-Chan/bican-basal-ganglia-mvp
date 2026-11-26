@@ -1,0 +1,4 @@
+# Keep dataset and result checksums stable across Git clients.
+atlas_data/** -text
+results/** -text
+config.json -text

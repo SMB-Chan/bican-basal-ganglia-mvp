@@ -1,0 +1,7 @@
+PASS | 30 graphs, 600 trials, 7,200 group-rate rows, 1,080 matrix rows
+PASS | N, edges, excitation/inhibition counts, paired trial plans, and D strong-cue scores
+PASS | raw-output SHA-256, configuration SHA-256, atlas input SHA-256 and license metadata
+PASS | seed 11 repeat: identical rows in four CSV tables and byte-identical NPZ files in five conditions
+PASS | standalone synthetic mode: four conditions, 80 trials, no atlas input
+PASS | 7 unit tests including official voxel counts and sampled atlas positions
+PASS | public atlas refetch, three SHA-256 checks and identical derived metadata

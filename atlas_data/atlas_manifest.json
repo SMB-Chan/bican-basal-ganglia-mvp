@@ -1,0 +1,68 @@
+{
+   "name": "hmba-adult-rhesusmacaque-homba-atlas",
+   "version": "2025",
+   "location": "/atlases/hmba-adult-rhesusmacaque-homba-atlas/2025",
+   "schema_version": "0.2.0",
+   "described_by": "https://atlas-assets.readthedocs.io/en/v0.2.0/atlas.html",
+   "coordinate_space": {
+      "name": "hmba-adult-rhesusmacaque-mri-space",
+      "version": "2025",
+      "location": "/coordinate-spaces/hmba-adult-rhesusmacaque-mri-space/2025",
+      "schema_version": "0.2.0"
+   },
+   "templates": [
+      {
+         "name": "hmba-adult-rhesusmacaque-mri-template",
+         "version": "2025",
+         "location": "/templates/hmba-adult-rhesusmacaque-mri-template/2025",
+         "schema_version": "0.2.0",
+         "scales": [
+            160
+         ],
+         "coordinate_space": {
+            "name": "hmba-adult-rhesusmacaque-mri-space",
+            "version": "2025",
+            "location": "/coordinate-spaces/hmba-adult-rhesusmacaque-mri-space/2025",
+            "schema_version": "0.2.0"
+         }
+      }
+   ],
+   "annotation_sets": [
+      {
+         "name": "hmba-adult-rhesusmacaque-homba-annotation",
+         "version": "2025",
+         "location": "/annotation-sets/hmba-adult-rhesusmacaque-homba-annotation/2025",
+         "schema_version": "0.2.0",
+         "coordinate_space": {
+            "name": "hmba-adult-rhesusmacaque-mri-space",
+            "version": "2025",
+            "location": "/coordinate-spaces/hmba-adult-rhesusmacaque-mri-space/2025",
+            "schema_version": "0.2.0"
+         },
+         "terminology": {
+            "name": "hmba-mammalian-homba-terminology",
+            "version": "2025",
+            "location": "/terminologies/hmba-mammalian-homba-terminology/2025",
+            "schema_version": "0.2.0"
+         },
+         "scales": [
+            160
+         ],
+         "template": {
+            "name": "hmba-adult-rhesusmacaque-mri-template",
+            "version": "2025",
+            "location": "/templates/hmba-adult-rhesusmacaque-mri-template/2025",
+            "schema_version": "0.2.0",
+            "scales": [
+               160
+            ],
+            "coordinate_space": {
+               "name": "hmba-adult-rhesusmacaque-mri-space",
+               "version": "2025",
+               "location": "/coordinate-spaces/hmba-adult-rhesusmacaque-mri-space/2025",
+               "schema_version": "0.2.0"
+            }
+         }
+      }
+   ]
+}
