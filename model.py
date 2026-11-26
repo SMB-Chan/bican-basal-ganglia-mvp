@@ -112,7 +112,7 @@ def ticks(ms, dt):
     return steps
 
 
-def simulate(pop, graph, sim, noise, initial, cue_bias):
+def simulate(pop, graph, sim, noise, initial, cue_bias, *, edge_weights=None):
     dt = sim["dt_ms"]
     baseline = ticks(sim["baseline_ms"], dt)
     duration = baseline + ticks(sim["cue_ms"], dt)
@@ -133,6 +133,10 @@ def simulate(pop, graph, sim, noise, initial, cue_bias):
     active_source = np.zeros(n, dtype=bool)
     active_source[graph.sources] = True
     spikes = np.zeros((duration, n), dtype=bool)
+    if edge_weights is None:
+        edge_weights = np.broadcast_to(graph.weights[:, None], graph.targets.shape)
+    elif edge_weights.shape != graph.targets.shape:
+        raise ValueError("Edge weights must match the directed target array")
 
     for t in range(duration):
         slot = t % slots
@@ -150,7 +154,7 @@ def simulate(pop, graph, sim, noise, initial, cue_bias):
         np.add.at(
             pending,
             ((t + graph.delay[sources]) % slots, graph.targets[sources]),
-            graph.weights[sources, None],
+            edge_weights[sources],
         )
     return spikes
 

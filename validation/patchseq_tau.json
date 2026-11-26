@@ -1,0 +1,31 @@
+{
+  "dataset": "HMBA-Macaque-PatchSeq 20260228",
+  "paper": "10.1016/j.cell.2026.10.028",
+  "license": "CC BY-NC 4.0",
+  "source_base_url": "https://allen-brain-cell-atlas.s3.amazonaws.com/metadata/HMBA-Macaque-PatchSeq/20260228/",
+  "source_sha256": {
+    "cell_metadata.csv": "5cec3b3eac79fcb05717434cf95fabd6ebaa9828e4b5f90c88f50e94d24e7ede",
+    "cross_sweep_long_square_features.csv": "6839ec7ae3462823d9b9590821be7bcdc8004720713344542d209975116df275",
+    "mmc_results.csv": "aee9b60c16085f4e860f13f0451115c03324b05be48bb8a4cb8c480e36267e99",
+    "electrophysiological_feature_lookup.xlsx": "c10ac74f0600f7407d70944b46c4f2324c4a3e8889912babb0c162a3d0bc3fee"
+  },
+  "filter": "MapMyCells dorsal D1/D2 group and matching subclass, both bootstrap probabilities >=0.8; finite tau 1–100 ms",
+  "groups": {
+    "D1": {
+      "cells": 112,
+      "donors": 39,
+      "excluded_tau_range": 3,
+      "q1_tau_ms": 6.368468841301575,
+      "median_tau_ms": 8.794647040752452,
+      "q3_tau_ms": 11.467692761447825
+    },
+    "D2": {
+      "cells": 121,
+      "donors": 43,
+      "excluded_tau_range": 0,
+      "q1_tau_ms": 7.394008590327401,
+      "median_tau_ms": 9.0379844758998,
+      "q3_tau_ms": 14.1326372104461
+    }
+  }
+}

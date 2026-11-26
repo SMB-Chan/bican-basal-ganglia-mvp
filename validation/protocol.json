@@ -1,0 +1,36 @@
+{
+  "seeds": [101, 113, 127, 139, 151, 163, 179, 193, 211, 227, 239, 251],
+  "tonic": {
+    "duration_ms": 2000, "burn_in_ms": 300, "min_intervals": 5,
+    "reference_doi": "10.1093/cercor/bhn171",
+    "monkeys": ["U", "G", "Y"],
+    "rate_hz": {"GPe": [50.0, 36.5, 38.1], "STN": [20.3, 15.4, 15.5], "GPi": [52.2, 45.1, 43.6]},
+    "isi_cv": {"GPe": [1.5, 2.1, 1.9], "STN": [1.1, 1.2, 1.4], "GPi": [1.0, 1.2, 1.0]}
+  },
+  "stn_pulse": {
+    "reference_doi": "10.1523/JNEUROSCI.1719-05.2005",
+    "repetitions": 12, "pulse_at_ms": 300, "after_ms": 70,
+    "fraction_stn": 0.5, "voltage_jump_mv": 12.0,
+    "early_window_ms": [3, 13], "late_window_ms": [14, 54], "sign_tolerance_hz": 0.25
+  },
+  "bootstrap_replicates": 5000,
+  "resample_seed": 800242,
+  "conditions": {
+    "A_random":        {"wiring": "A", "odds": false, "patchseq": false, "channel": false, "geometry": "atlas"},
+    "B_distance":      {"wiring": "B", "odds": false, "patchseq": false, "channel": false, "geometry": "atlas"},
+    "C_cell_type":     {"wiring": "C", "odds": false, "patchseq": false, "channel": false, "geometry": "atlas"},
+    "D_mask":          {"wiring": "D", "odds": false, "patchseq": false, "channel": false, "geometry": "atlas"},
+    "E_odds":          {"wiring": "D", "odds": true,  "patchseq": false, "channel": false, "geometry": "atlas"},
+    "F_patchseq":      {"wiring": "D", "odds": true,  "patchseq": true,  "channel": false, "geometry": "atlas"},
+    "G_channel":       {"wiring": "D", "odds": true,  "patchseq": true,  "channel": true,  "geometry": "atlas"},
+    "E_channel":       {"wiring": "D", "odds": true,  "patchseq": false, "channel": true,  "geometry": "atlas"},
+    "E_gaussian":      {"wiring": "D", "odds": true,  "patchseq": false, "channel": false, "geometry": "gaussian"},
+    "F_gaussian":      {"wiring": "D", "odds": true,  "patchseq": true,  "channel": false, "geometry": "gaussian"}
+  },
+  "comparisons": [
+    ["B_distance", "A_random"], ["C_cell_type", "B_distance"], ["D_mask", "C_cell_type"],
+    ["E_odds", "D_mask"], ["F_patchseq", "E_odds"], ["G_channel", "F_patchseq"],
+    ["E_channel", "E_odds"], ["G_channel", "E_channel"], ["E_odds", "E_gaussian"],
+    ["F_patchseq", "F_gaussian"], ["F_gaussian", "E_gaussian"]
+  ]
+}

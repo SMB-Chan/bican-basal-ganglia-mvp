@@ -1,0 +1,7 @@
+PASS | 12 seeds by 10 conditions; 120 graph rows, 360 tonic rows, 8,400 pulse time points
+PASS | all graphs fixed at 1,000 neurons, 19,680 directed edges, 2,880 excitatory edges, 16,800 inhibitory edges
+PASS | expected Patch-seq comparisons preserve graph statistics; per-seed scores satisfy metric bounds and definitions
+PASS | seed 101 reproduced all rows in three validation CSVs
+PASS | legacy seed 11 reproduced all original CSV rows and all five NPZ SHA-256 checksums
+PASS | public Patch-seq refetch and byte-identical local summary
+PASS | 11 unit tests including routing blockade, separable constraints, and fixed response windows
